@@ -1,0 +1,36 @@
+name: admet-mtl
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.10
+
+  # core
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+
+  # cheminformatyka
+  - rdkit
+
+  # deep learning
+  - pytorch
+  - torchvision
+  - torchaudio
+
+  # boosting
+  - xgboost
+
+  # utils
+  - matplotlib
+  - seaborn
+  - tqdm
+  - pyyaml
+  - jupyterlab
+  - ipykernel
+
+  - pip
+  - pip:
+      - tdc
+      - wandb

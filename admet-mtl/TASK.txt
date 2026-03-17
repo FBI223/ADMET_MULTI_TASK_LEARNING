@@ -1,0 +1,39 @@
+
+9. Predykcja profilu ADMET z wykorzystaniem multi-task learning
+	•	Nawet najbardziej aktywny związek nie stanie się lekiem, jeśli ma słabe właściwości farmakokinetyczne. Profil ADMET (Absorption, Distribution, Metabolism, Excretion, Toxicity) określa, czy cząsteczka dotrze do miejsca docelowego w organizmie, jak długo będzie działać i czy nie wywoła niepożądanych efektów. Przewidywanie tych właściwości in silico jest kluczowe na wczesnych etapach projektowania leków, bo pozwala wyeliminować problematyczne związki zanim trafią do kosztownych badań eksperymentalnych.
+	•	Celem projektu jest zbudowanie modelu predykcyjnego dla kilku endpointów ADMET jednocześnie, z wykorzystaniem podejścia multi-task learning (MTL). Intuicja jest taka, że wiele właściwości ADMET jest ze sobą powiązanych (np. rozpuszczalność wpływa na wchłanianie, lipofilowość na dystrybucję), więc wspólne uczenie powinno pozwolić modelowi na transfer wiedzy między zadaniami. Studenci mogą skorzystać z gotowych benchmarków, takich jak TDC (Therapeutics Data Commons) lub ADMET Benchmark Group, i porównać model MTL z modelami uczonymi osobno (single-task) dla każdego endpointu.
+
+
+
+
+
+
+Predykcja profilu ADMET z wykorzystaniem multi-task learning
+Wymagania
+	•	Znajomość podstaw uczenia maszynowego (klasyfikacja, regresja, walidacja krzyżowa). Wystarczy scikit-learn (dla modeli klasycznych z wieloma wyjściami) lub prosty model w PyTorch (sieć ze wspólnymi warstwami i wieloma głowicami wyjściowymi). Wiedza chemiczna o ADMET jest pomocna, ale właściwości te są dobrze opisane w literaturze i intuicyjne do zrozumienia.
+Hipotezy badawcze
+	•	Model multi-task osiąga lepszą średnią jakość predykcji (AUROC dla klasyfikacji, RMSE dla regresji) niż analogiczne modele single-task, szczególnie dla endpointów z małą liczbą danych treningowych.
+	•	Endpointy ADMET, które są ze sobą biologicznie powiązane (np. rozpuszczalność i Caco-2 permeability), korzystają z multi-task learning bardziej niż endpointy niepowiązane.
+	•	Reprezentacje molekularne (fingerprinty vs. deskryptory vs. wyuczone embeddingi) mają istotny wpływ na jakość predykcji ADMET. Porównanie co najmniej dwóch typów reprezentacji.
+
+
+
+
+
+
+Predykcja profilu ADMET z wykorzystaniem multi-task learning
+Kamienie milowe
+Raport wstępny
+	•	założenie repozytorium kodu
+	•	przygotowanie listy narzędzi/bibliotek, które będą używane do realizacji projektu
+	•	przygotowanie listy potencjalnych problemów, na które można się natknąć podczas realizacji projektu
+Prezentacja śródsemestralna
+	•	Przegląd literaturowy dotyczący predykcji ADMET i multi-task learning w cheminformatyce.
+	•	Pobranie i przygotowanie danych z TDC lub ADMET Benchmark Group.
+	•	Wytrenowanie modeli bazowych (single-task) dla wybranych endpointów.
+Prezentacja semestralna
+	•	Implementacja i trening modelu multi-task.
+	•	Porównanie wyników MTL vs. single-task; analiza, które endpointy najbardziej korzystają ze wspólnego uczenia.
+	•	Dyskusja o tym, jak wyniki przekładają się na praktyczne zastosowanie w projektowaniu leków.
+
+
