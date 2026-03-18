@@ -1,28 +1,27 @@
 name: admet-mtl
 channels:
   - pytorch
+  - nvidia
   - conda-forge
 dependencies:
   - python=3.10
-
-  # core
   - numpy
   - pandas
   - scipy
   - scikit-learn
+  - pyarrow
 
-  # cheminformatyka
+  # Cheminformatyka i Quantum
   - rdkit
+  - xtb-python
 
-  # deep learning
-  - pytorch
+
+  - pytorch=2.7.0
   - torchvision
   - torchaudio
+  - pytorch-cuda=12.9
 
-  # boosting
-  - xgboost
-
-  # utils
+  # Narzędzia i Wizualizacja
   - matplotlib
   - seaborn
   - tqdm
@@ -34,3 +33,6 @@ dependencies:
   - pip:
       - tdc
       - wandb
+      - chemprop
+      - lightning
+
