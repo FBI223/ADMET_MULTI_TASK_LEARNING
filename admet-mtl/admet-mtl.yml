@@ -14,6 +14,7 @@ dependencies:
   # Cheminformatyka i Quantum
   - rdkit
   - xtb-python
+  - xtb
 
 
   - pytorch=2.7.0
@@ -28,9 +29,11 @@ dependencies:
   - pyyaml
   - jupyterlab
   - ipykernel
+  - PyTDC
 
   - pip
   - pip:
+      - "setuptools<70"
       - tdc
       - wandb
       - chemprop
