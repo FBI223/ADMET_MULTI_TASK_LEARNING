@@ -1,0 +1,9 @@
+DATASET
+TDC (Therapeutics Data Commons)
+
+repo:
+https://github.com/mims-harvard/TDC
+
+paper:
+https://arxiv.org/abs/2102.09548
+
