@@ -1,0 +1,107 @@
+==================== MULTI-TASK ADMET PROJECTS ====================
+
+1. MTAN-ADMET
+Paper:
+https://chemrxiv.org/doi/10.26434/chemrxiv-2025-zhrsk
+GitHub:
+https://github.com/TeamSuman/MTAN-ADMET
+Dataset:
+Zintegrowany ADMET dataset (Du et al., różne źródła publiczne)
+~20–24 endpointów (BBB, CYP, hERG, solubility, toxicity itd.)
+Opis:
+SMILES → CDDD embeddings → MLP multitask
+Mix: classification + regression
+Brak graphów, gotowe preprocessing + split
+
+------------------------------------------------------------
+
+2. ADMET-AI
+Paper:
+https://pmc.ncbi.nlm.nih.gov/articles/PMC11226862/
+GitHub:
+https://github.com/swansonk14/admet_ai
+Dataset:
+TDC (Therapeutics Data Commons)
+41 datasetów:
+- ~31 classification (toxicity, inhibition, BBB)
+- ~10 regression (solubility, clearance itd.)
+Opis:
+SMILES → graph → D-MPNN (Chemprop)
+Duży multitask model (40+ endpointów)
+
+------------------------------------------------------------
+
+3. MTGL-ADMET
+Paper:
+https://pmc.ncbi.nlm.nih.gov/articles/PMC10654589/
+GitHub:
+https://github.com/dubingxue/MTGL-ADMET
+Dataset:
+MoleculeNet + public ADMET datasets
+~10–15 endpointów (toxicity, physchem, metabolism)
+Opis:
+Graph neural network + task gating
+Dynamiczne wybieranie auxiliary tasków
+
+------------------------------------------------------------
+
+4. Multitask GCN (MDPI)
+Paper:
+https://www.mdpi.com/1420-3049/25/1/44
+GitHub:
+brak
+Dataset:
+Physicochemical datasets (logP, solubility, permeability itd.)
+~7–10 endpointów (regression)
+Opis:
+SMILES → graph → GCN → multitask regression
+Bardzo prosty model (2–3 warstwy)
+
+------------------------------------------------------------
+
+5. MTAN (base architecture)
+Paper:
+https://arxiv.org/abs/1803.10704
+GitHub:
+https://github.com/lorenmt/mtan
+Dataset:
+Ogólne (np. vision: NYU v2, CityScapes)
+(brak ADMET bezpośrednio)
+Opis:
+Shared backbone + task-specific attention
+Można przenieść na ADMET
+
+------------------------------------------------------------
+
+6. Multi-task ADMET (Quantum + MTL)
+Paper:
+https://arxiv.org/abs/2509.04601
+GitHub:
+brak
+Dataset:
+TDC + quantum chemistry datasets
+~13 endpointów ADMET
+Opis:
+SMILES + QM descriptors → multitask model
+Wyższa dokładność, wysoka złożoność
+
+------------------------------------------------------------
+
+==================== PODSUMOWANIE ====================
+
+MTAN-ADMET:
+~20–24 tasks → najłatwiejszy start
+
+ADMET-AI:
+~40+ tasks → największy benchmark
+
+MTGL-ADMET:
+~10–15 tasks → inteligentny multitask
+
+GCN (MDPI):
+~7–10 tasks → najprostszy GNN
+
+Quantum:
+~13 tasks → najbardziej zaawansowany
+
+=====================================================
