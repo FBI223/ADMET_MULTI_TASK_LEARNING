@@ -1,0 +1,257 @@
+==================== REALNY WYBÓR PROJEKTU (ANALIZA + PLAN) ====================
+
+Poniżej masz ROZSZERZONE, techniczne opisy (na bazie paperów + repo),
+z realnym poziomem trudności i dokładnym planem odtworzenia.
+
+======================================================================
+1. MTAN-ADMET (NAJLEPSZY START)
+======================================================================
+
+DATASET:
+- ~48k molekuł
+- ~20–24 endpointy ADMET
+- mix: classification + regression
+- źródło: zintegrowane publiczne zbiory (Du et al.)
+
+MODEL:
+SMILES → CDDD embeddings → MLP → multitask heads
++ adaptive weighting między taskami :contentReference[oaicite:0]{index=0}
+
+KLUCZ:
+- brak graphów (duże uproszczenie)
+- embedding pretrained (CDDD)
+- multitask loss z wagami
+
+------------------------------------------------------------
+PLAN REALNY (REPRODUKCJA)
+
+ETAP 1 (0.5 dnia):
+- uruchom repo (notebook działa out-of-the-box)
+
+ETAP 2 (1 dzień):
+- zrozum embedding:
+SMILES → encoder → 512 vector
+
+ETAP 3 (1 dzień):
+- napisz własny model:
+MLP shared + 24 heads
+
+ETAP 4:
+- implementacja:
+loss = sum(w_i * loss_i)
+
+ETAP 5:
+- eksperyment:
+porównaj:
+- single-task vs multitask
+
+------------------------------------------------------------
+TRUDNOŚĆ:
+⭐ (niska)
+
+RYZYKO:
+niskie (repo działa)
+
+WARTOŚĆ NA CV:
+średnia+
+
+------------------------------------------------------------
+
+
+======================================================================
+2. ADMET-AI (NAJLEPSZY PROJEKT NA CV)
+======================================================================
+
+DATASET:
+- 41 datasetów TDC
+- 31 classification + 10 regression :contentReference[oaicite:1]{index=1}
+- leaderboard benchmark
+
+MODEL:
+SMILES → graph → D-MPNN (Chemprop)
++ RDKit features (200 feature vector) :contentReference[oaicite:2]{index=2}
+
+KLUCZ:
+- message passing GNN
+- hybrid: graph + handcrafted features
+- 2 multitask modele:
+  - classification
+  - regression
+
+------------------------------------------------------------
+PLAN REALNY
+
+ETAP 1 (1 dzień):
+- uruchom CLI:
+admet_ai predict
+
+ETAP 2 (1–2 dni):
+- zrozum Chemprop:
+node → message passing → molecule embedding
+
+ETAP 3 (2 dni):
+- reimplementacja uproszczona:
+PyTorch Geometric:
+GCN/GINE + FC
+
+ETAP 4:
+- multitask:
+31 outputs (classification)
+
+ETAP 5:
+- test:
+AUROC na Tox21
+
+------------------------------------------------------------
+TRUDNOŚĆ:
+⭐⭐⭐
+
+RYZYKO:
+średnie (duży kod + zależności)
+
+WARTOŚĆ NA CV:
+⭐⭐⭐⭐ (bardzo wysoka)
+
+------------------------------------------------------------
+
+
+======================================================================
+3. MULTITASK GCN (NAJLEPSZY DO ZROZUMIENIA)
+======================================================================
+
+DATASET:
+- Tox21 / MoleculeNet
+- ~12 endpointów toxicity
+
+MODEL:
+graph:
+atoms → nodes
+bonds → edges
+
+GCN:
+2–3 warstwy → pooling → FC → multitask
+
+------------------------------------------------------------
+PLAN REALNY
+
+ETAP 1 (1 dzień):
+- RDKit → graph
+- PyTorch Geometric dataset
+
+ETAP 2 (1 dzień):
+- model:
+GCNConv → ReLU → pooling
+
+ETAP 3:
+- multitask head (12 outputs)
+
+ETAP 4:
+- metryka:
+AUROC
+
+------------------------------------------------------------
+TRUDNOŚĆ:
+⭐⭐
+
+RYZYKO:
+niskie
+
+WARTOŚĆ:
+wysoka (dobry fundament GNN)
+
+------------------------------------------------------------
+
+
+======================================================================
+4. MTGL-ADMET (RESEARCH-LEVEL)
+======================================================================
+
+DATASET:
+- ADMET datasets + MoleculeNet
+
+MODEL:
+- shared atom embedding
+- task-specific embedding
+- gating mechanism
+- auxiliary task selection :contentReference[oaicite:3]{index=3}
+
+KLUCZ:
+"one primary + multiple auxiliary tasks"
+
+czyli:
+- uczysz jeden task główny
+- dobierasz pomocnicze
+
+------------------------------------------------------------
+PLAN REALNY
+
+ETAP 1:
+- odpal repo
+
+ETAP 2:
+- zrozum:
+task graph (relacje między taskami)
+
+ETAP 3:
+- implementuj:
+gating:
+task_weight = sigmoid(Wx)
+
+ETAP 4:
+- eksperyment:
+czy auxiliary tasks pomagają
+
+------------------------------------------------------------
+TRUDNOŚĆ:
+⭐⭐⭐+
+
+RYZYKO:
+wysokie (złożona logika)
+
+WARTOŚĆ:
+bardzo wysoka (research)
+
+------------------------------------------------------------
+
+
+======================================================================
+5. QUANTUM MULTITASK ADMET (ADVANCED)
+======================================================================
+
+DATASET:
+- 13 TDC classification tasks :contentReference[oaicite:4]{index=4}
+
+MODEL:
+SMILES → graph
++ quantum descriptors (QM features)
++ multitask weighting
+
+KLUCZ:
+- QM features = elektronowa struktura
+- dynamiczne ważenie tasków
+
+------------------------------------------------------------
+PLAN REALNY
+
+ETAP 1:
+- użyj TDC
+
+ETAP 2:
+- pomiń QM (na start)
+
+ETAP 3:
+- dodaj:
+task weights (learnable)
+
+------------------------------------------------------------
+TRUDNOŚĆ:
+⭐⭐⭐⭐
+
+RYZYKO:
+bardzo wysokie
+
+WARTOŚĆ:
+tylko research
+
+------------------------------------------------------------
+
