@@ -1,0 +1,24 @@
+name: cddd
+channels:
+  - defaults
+  - rdkit
+dependencies:
+  - pandas=0.25.3=py36he6710b0_0
+  - pip=21.2.2=py36h06a4308_0
+  - python=3.6.13=h12debd9_1
+  - rdkit=2020.09.1.0=py36hd50e099_1
+  - readline=8.3=hc2a1206_0
+  - scikit-learn=0.20.1=py36h4989274_0
+  - scipy=1.1.0=py36hd20e5f9_0
+  - pip:
+      - babel==2.11.0
+      - cython==3.0.12
+      - -e ../scripts/cddd
+      - dataclasses==0.8
+      - joblib==1.1.1
+      - notebook==6.4.10
+      - numpy==1.18.5
+      - setuptools==59.6.0
+      - tensorflow==1.15.5
+      - tensorflow-gpu==1.15.5
+      - tqdm==4.64.1
