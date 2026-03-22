@@ -1,0 +1,20 @@
+_____________| 40000/40000 [5:54:21<00:00,  1.88it/s]
+
+=== GLOBAL ===
+TOTAL: 40000
+ALL OK: 38867
+ALL OK %: 97.17%
+
+=== PER PROPERTY ===
+dipole: OK=39501, FAIL=499, %=98.75
+homo_lumo: OK=38892, FAIL=1108, %=97.23
+electrons: OK=38892, FAIL=1108, %=97.23
+energy: OK=39546, FAIL=454, %=98.86
+
+=== MISSING / ZERO VALUES ===
+dipole: missing=499 (1.2%), zero=90 (0.2%)
+homo_lumo: missing=1108 (2.8%), zero=0 (0.0%)
+electrons: missing=1108 (2.8%), zero=0 (0.0%)
+energy: missing=454 (1.1%), zero=0 (0.0%)
+
+Gotowe! Wyniki zapisane w tdc_final_quantum_full.csv oraz tdc_final_quantum_clean.csv
