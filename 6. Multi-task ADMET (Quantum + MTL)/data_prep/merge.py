@@ -55,8 +55,15 @@ def merge_everything_including_failures():
     # Zapisujemy wszystko
     final_df.to_csv(FINAL_OUTPUT, index=False)
 
-    #df = pd.read_csv("dataset.csv")
-    df.to_parquet("dataset.parquet", compression='brotli')
+    # wczytanie
+    df = pd.read_csv("dataset.csv")
+
+    # zapis parquet (pewny wariant)
+    df.to_parquet(
+        "dataset.parquet",
+        engine="pyarrow",
+        compression="snappy"  # zamiast brotli (często powoduje błędy)
+    )
 
     print("\n" + "=" * 45)
     print("PODSUMOWANIE GENEROWANIA ZBIORU FULL:")

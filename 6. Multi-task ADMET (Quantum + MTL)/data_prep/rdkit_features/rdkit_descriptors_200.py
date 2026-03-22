@@ -1,77 +1,76 @@
 import pandas as pd
-import os
-from descriptastorus.descriptors import rdNormalizedDescriptors
+from rdkit import Chem
+from rdkit.Chem import Descriptors
+from rdkit.ML.Descriptors import MoleculeDescriptors
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 
-# --- CONFIG ---
+# --- KONFIGURACJA ---
 N_CORES = 8
-INPUT_FILE = "unique_smiles_to_calculate.csv"
-OUTPUT_FILE = "rdkit_200_exact.csv"
+INPUT_FILE = "../unique_smiles_to_calculate.csv"
+OUTPUT_RDKIT = "rdkit_descriptors.csv"
 
-# --- GENERATOR (Chemprop-compatible) ---
-generator = rdNormalizedDescriptors.RDKit2DNormalized()
+# deskryptory do wykluczenia
+EXCLUDE = {
+    "AvgIpc",
+    "BCUT2D_CHGHI",
+    "BCUT2D_CHGLO",
+    "BCUT2D_LOGPHI",
+    "BCUT2D_LOGPLOW",
+    "BCUT2D_MRHI",
+    "BCUT2D_MRLOW",
+    "BCUT2D_MWHI",
+    "BCUT2D_MWLOW",
+    "NumAmideBonds",
+    "NumAtomStereoCenters",
+    "NumBridgeheadAtoms",
+    "NumHeterocycles",
+    "NumSpiroAtoms",
+    "NumUnspecifiedAtomStereoCenters",
+    "Phi",
+    "SPS",
+}
 
-# --- NAZWY FEATURE (version-agnostic) ---
-test = generator.process("CC")
-
-if hasattr(generator, "columns"):
-    FEATURE_NAMES = generator.columns
-elif hasattr(generator, "GetDescriptorNames"):
-    FEATURE_NAMES = generator.GetDescriptorNames()
-else:
-    FEATURE_NAMES = [f"f_{i}" for i in range(len(test) - 1)]
-
-# usuń smiles jeśli jest
-if FEATURE_NAMES[0] == "smiles":
-    FEATURE_NAMES = FEATURE_NAMES[1:]
-
-assert len(FEATURE_NAMES) == 200
+# globalny kalkulator (tylko dozwolone deskryptory)
+ALL_NAMES = [x[0] for x in Descriptors._descList]
+FILTERED_NAMES = [n for n in ALL_NAMES if n not in EXCLUDE]
+CALC = MoleculeDescriptors.MolecularDescriptorCalculator(FILTERED_NAMES)
 
 
-def get_features(smiles):
+def get_rdkit_descriptors(smiles):
     try:
-        feats = generator.process(smiles)
-
-        if feats is None or len(feats) != 201:
+        mol = Chem.MolFromSmiles(smiles)
+        if mol is None:
             return {"smiles": smiles, "success": False}
 
-        values = feats[1:]
+        values = CALC.CalcDescriptors(mol)
 
         res = {"smiles": smiles, "success": True}
-        for name, val in zip(FEATURE_NAMES, values):
+        for name, val in zip(FILTERED_NAMES, values):
             res[name] = val
 
         return res
-
-    except Exception:
+    except:
         return {"smiles": smiles, "success": False}
 
 
 if __name__ == "__main__":
-
-    print("Features:", len(FEATURE_NAMES))  # musi być 200
-    print(FEATURE_NAMES)
-    if not os.path.exists(INPUT_FILE):
-        print("Brak pliku")
-        exit()
-
     df = pd.read_csv(INPUT_FILE)
-    smiles_list = df["smiles"].dropna().tolist()
+    smiles_list = df["smiles"].tolist()
+
+    print(f"Obliczanie deskryptorów RDKit dla {len(smiles_list)} cząsteczek...")
+    print(f"Liczba deskryptorów po filtracji: {len(FILTERED_NAMES)}")  # powinno być 200
 
     results = []
-
     with ProcessPoolExecutor(max_workers=N_CORES) as executor:
-        futures = {executor.submit(get_features, sm): sm for sm in smiles_list}
+        futures = {executor.submit(get_rdkit_descriptors, sm): sm for sm in smiles_list}
 
-        for future in tqdm(as_completed(futures), total=len(futures)):
+        for future in tqdm(as_completed(futures), total=len(smiles_list), desc="RDKit Features"):
             results.append(future.result())
 
     df_res = pd.DataFrame(results)
-    df_success = df_res[df_res["success"] == True].drop(columns=["success"])
+    df_res = df_res[df_res["success"] == True].drop(columns=["success"])
 
-    print("Kolumny:", len(df_success.columns))  # 201 = smiles + 200
+    df_res.to_csv(OUTPUT_RDKIT, index=False)
 
-    df_success.to_csv(OUTPUT_FILE, index=False)
-
-    print("DONE:", OUTPUT_FILE)
+    print(f"Gotowe! Deskryptory zapisane w: {OUTPUT_RDKIT}")

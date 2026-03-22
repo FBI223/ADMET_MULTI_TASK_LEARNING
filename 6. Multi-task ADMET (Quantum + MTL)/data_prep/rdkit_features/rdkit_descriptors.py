@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 # --- KONFIGURACJA ---
 N_CORES = 8
-INPUT_FILE = "unique_smiles_to_calculate.csv"
+INPUT_FILE = "../unique_smiles_to_calculate.csv"
 OUTPUT_RDKIT = "rdkit_descriptors.csv"
 
 
