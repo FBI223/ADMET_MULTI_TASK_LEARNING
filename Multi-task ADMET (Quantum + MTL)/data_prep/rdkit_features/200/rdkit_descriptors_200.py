@@ -5,10 +5,10 @@ from rdkit.ML.Descriptors import MoleculeDescriptors
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 
-# --- KONFIGURACJA ---
+# --- KONFIG ---
 N_CORES = 8
-INPUT_FILE = "../unique_smiles_to_calculate.csv"
-OUTPUT_RDKIT = "rdkit_descriptors.csv"
+INPUT_FILE = "../unique_smiles_to_calculate.parquet"
+OUTPUT_RDKIT = "rdkit_descriptors.parquet"
 
 # deskryptory do wykluczenia
 EXCLUDE = {
@@ -31,7 +31,7 @@ EXCLUDE = {
     "SPS",
 }
 
-# globalny kalkulator (tylko dozwolone deskryptory)
+# globalny kalkulator
 ALL_NAMES = [x[0] for x in Descriptors._descList]
 FILTERED_NAMES = [n for n in ALL_NAMES if n not in EXCLUDE]
 CALC = MoleculeDescriptors.MolecularDescriptorCalculator(FILTERED_NAMES)
@@ -41,36 +41,58 @@ def get_rdkit_descriptors(smiles):
     try:
         mol = Chem.MolFromSmiles(smiles)
         if mol is None:
-            return {"smiles": smiles, "success": False}
+            return {"smiles": smiles, "success": 0}
 
         values = CALC.CalcDescriptors(mol)
 
-        res = {"smiles": smiles, "success": True}
+        res = {"smiles": smiles, "success": 1}
         for name, val in zip(FILTERED_NAMES, values):
             res[name] = val
 
         return res
+
     except:
-        return {"smiles": smiles, "success": False}
+        return {"smiles": smiles, "success": 0}
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(INPUT_FILE)
+    # =========================
+    # LOAD (PARQUET)
+    # =========================
+    df = pd.read_parquet(INPUT_FILE)
     smiles_list = df["smiles"].tolist()
 
-    print(f"Obliczanie deskryptorów RDKit dla {len(smiles_list)} cząsteczek...")
-    print(f"Liczba deskryptorów po filtracji: {len(FILTERED_NAMES)}")  # powinno być 200
+    print(f"RDKit: {len(smiles_list)} cząsteczek")
+    print(f"Deskryptory: {len(FILTERED_NAMES)}")
 
     results = []
     with ProcessPoolExecutor(max_workers=N_CORES) as executor:
-        futures = {executor.submit(get_rdkit_descriptors, sm): sm for sm in smiles_list}
+        futures = [executor.submit(get_rdkit_descriptors, sm) for sm in smiles_list]
 
-        for future in tqdm(as_completed(futures), total=len(smiles_list), desc="RDKit Features"):
-            results.append(future.result())
+        for f in tqdm(as_completed(futures), total=len(futures), desc="RDKit"):
+            results.append(f.result())
 
+    # =========================
+    # DF
+    # =========================
     df_res = pd.DataFrame(results)
-    df_res = df_res[df_res["success"] == True].drop(columns=["success"])
 
-    df_res.to_csv(OUTPUT_RDKIT, index=False)
+    # zachowujemy wszystko (jak chcesz), ale możesz filtrować:
+    # df_res = df_res[df_res["success"] == 1].drop(columns=["success"])
 
-    print(f"Gotowe! Deskryptory zapisane w: {OUTPUT_RDKIT}")
+    # =========================
+    # SAVE
+    # =========================
+    df_res.to_parquet(
+        OUTPUT_RDKIT,
+        engine="pyarrow",
+        compression="snappy"
+    )
+
+    df_res.to_csv(
+        OUTPUT_RDKIT.replace(".parquet", ".csv"),
+        index=False,
+        float_format="%.6f"
+    )
+
+    print(f"DONE → {OUTPUT_RDKIT}")
