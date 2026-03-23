@@ -13,9 +13,9 @@ os.environ["OMP_NUM_THREADS"] = "1"
 
 BATCH_SIZE = 100
 CHECKPOINT_FILE = "tdc_quantum_checkpoint.csv"
-INPUT_FILE = "unique_smiles_to_calculate.csv"
-FINAL_FULL = "tdc_final_quantum_full.csv"
-FINAL_CLEAN = "tdc_final_quantum_clean.csv"
+INPUT_FILE = "unique_smiles_to_calculate.parquet"
+FINAL_FULL = "tdc_final_quantum_full.parquet"
+
 
 
 # =========================
@@ -139,7 +139,7 @@ def extract_worker(smiles, idx):
 # MAIN
 # =========================
 if __name__ == "__main__":
-    df = pd.read_csv(INPUT_FILE)
+    df = pd.read_parquet(INPUT_FILE)
     all_results = []
 
     if os.path.exists(CHECKPOINT_FILE):
@@ -179,6 +179,20 @@ if __name__ == "__main__":
 
     df_out = pd.DataFrame(all_results)
 
+    # csv (backup / debug)
+    df_out.to_csv(
+        FINAL_FULL.replace(".parquet", ".csv"),
+        index=False
+    )
+
+    # =========================
+    # CAST TYPES
+    # =========================
+    #df_out["dipole"] = pd.to_numeric(df_out["dipole"], errors="coerce").astype("float32")
+    #df_out["homo_lumo"] = pd.to_numeric(df_out["homo_lumo"], errors="coerce").astype("float32")
+    #df_out["energy"] = pd.to_numeric(df_out["energy"], errors="coerce").astype("float32")
+    #df_out["electrons"] = pd.to_numeric(df_out["electrons"], errors="coerce").astype("Int32")
+
     # =========================
     # STATS
     # =========================
@@ -206,15 +220,11 @@ if __name__ == "__main__":
     # =========================
     # SAVE
     # =========================
-    df_out.to_csv(FINAL_FULL, index=False)
+    df_out.to_parquet(
+        FINAL_FULL,
+        engine="pyarrow",
+        compression="snappy"
+    )
 
-    df_clean = df_out[
-        (df_out["mask_1"] == 1) &
-        (df_out["mask_2"] == 1) &
-        (df_out["mask_3"] == 1) &
-        (df_out["mask_4"] == 1)
-    ]
 
-    df_clean.to_csv(FINAL_CLEAN, index=False)
-
-    print(f"\nDONE → {FINAL_FULL}, {FINAL_CLEAN}")
+    print(f"\nDONE → {FINAL_FULL}")

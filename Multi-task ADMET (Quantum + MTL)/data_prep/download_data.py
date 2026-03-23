@@ -48,8 +48,12 @@ def download_tdc_data():
     final_raw = pd.concat(all_data, ignore_index=True)
 
     # Zapisanie do pliku RAW, który będzie używany jako INPUT do MOPAC/RDKit
-    output_path = os.path.join(DATA_DIR, "tdc_multitask_raw.csv")
-    final_raw.to_csv(output_path, index=False)
+    output_path = os.path.join(DATA_DIR, "tdc_multitask_raw.parquet")
+    final_raw.to_parquet(
+        output_path,
+        engine="pyarrow",
+        compression="snappy"
+    )
 
     print(f"\nSukces! Pobrano łącznie {len(final_raw)} wierszy.")
     print(f"Plik zapisany w: {output_path}")
@@ -60,8 +64,12 @@ def download_tdc_data():
 def generate_unique_smiles(df):
     """Generuje listę unikalnych SMILES do obliczeń (MOPAC/RDKit)."""
     unique_smiles = df[['smiles']].drop_duplicates()
-    output_path = os.path.join(DATA_DIR, "unique_smiles_to_calculate.csv")
-    unique_smiles.to_csv(output_path, index=False)
+    output_path = os.path.join(DATA_DIR, "unique_smiles_to_calculate.parquet")
+    unique_smiles.to_parquet(
+        output_path,
+        engine="pyarrow",
+        compression="snappy"
+    )
     print(f"Wygenerowano {len(unique_smiles)} unikalnych SMILES w: {output_path}")
     return unique_smiles
 
@@ -70,6 +78,3 @@ def generate_unique_smiles(df):
 if __name__ == "__main__":
     # 1. Pobierz dane
     raw_df = download_tdc_data()
-
-    # 2. Wygeneruj listę unikalnych cząsteczek, aby nie liczyć MOPAC-a kilka razy dla tego samego
-    #unique_df = generate_unique_smiles(raw_df)
