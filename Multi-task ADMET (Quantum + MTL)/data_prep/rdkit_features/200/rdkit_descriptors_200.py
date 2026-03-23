@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 # --- KONFIG ---
 N_CORES = 8
-INPUT_FILE = "../unique_smiles_to_calculate.parquet"
+INPUT_FILE = "unique_smiles_to_calculate.parquet"
 OUTPUT_RDKIT = "rdkit_descriptors.parquet"
 
 # deskryptory do wykluczenia

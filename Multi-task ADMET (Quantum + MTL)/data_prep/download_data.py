@@ -48,7 +48,7 @@ def download_tdc_data():
     final_raw = pd.concat(all_data, ignore_index=True)
 
     # Zapisanie do pliku RAW, który będzie używany jako INPUT do MOPAC/RDKit
-    output_path = os.path.join(DATA_DIR, "tdc_multitask_raw.parquet")
+    output_path = os.path.join(DATA_DIR, "rdkit_features/tdc_multitask_raw.parquet")
     final_raw.to_parquet(
         output_path,
         engine="pyarrow",
@@ -76,5 +76,5 @@ def generate_unique_smiles(df):
 
 # --- URUCHOMIENIE ---
 if __name__ == "__main__":
-    # 1. Pobierz dane
     raw_df = download_tdc_data()
+    unique_df = generate_unique_smiles(raw_df)
