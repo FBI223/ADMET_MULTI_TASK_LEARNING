@@ -1,0 +1,15 @@
+
+XTB: 100%
+
+=== GLOBAL ===
+TOTAL: 40000
+ALL OK: 39321
+ALL OK %: 98.30
+
+=== PER PROPERTY ===
+dipole: OK=39321, FAIL=679, %=98.30
+homo_lumo: OK=39321, FAIL=679, %=98.30
+electrons: OK=39321, FAIL=679, %=98.30
+energy: OK=39321, FAIL=679, %=98.30
+
+DONE _ tdc_final_quantum_full.parquet
