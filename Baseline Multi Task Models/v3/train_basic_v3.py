@@ -194,7 +194,7 @@ class Trainer:
         self.patience = patience
         self.best_loss = float('inf')
 
-    def fit(self, train_loader, val_loader, task_names, task_weights, epochs=100):
+    def fit(self, train_loader, val_loader, task_names, task_weights, mode, epochs=100):
 
         counter = 0
         for epoch in range(epochs):
@@ -222,7 +222,7 @@ class Trainer:
 
             if val_loss < self.best_loss:
                 self.best_loss = val_loss
-                torch.save(self.model.state_dict(), 'best_model.pth')
+                torch.save(self.model.state_dict(), f'best_model_{mode}.pth')
                 counter = 0
             else:
                 counter += 1
@@ -417,8 +417,8 @@ def main():
                 batch_size=64)
 
             model = MultiTaskResNet(input_dim=X_tr.shape[1], n_tasks=len(TASK_NAMES))
-            Trainer(model).fit(train_l, test_l, TASK_NAMES, task_weights)
-            model.load_state_dict(torch.load('best_model.pth'))
+            Trainer(model).fit(train_l, test_l, TASK_NAMES, task_weights, mode)
+            model.load_state_dict(torch.load(f'best_model_{mode}.pth'))
 
             # Eval MTL
             model.eval()

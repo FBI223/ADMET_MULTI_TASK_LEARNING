@@ -1,0 +1,257 @@
+
+
+=== FEATURE ANALYSIS ===
+Shape: (16225, 96)
+NaNs: 0
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[O-2].[O-2].[O-2].[O-2].[O-2].[O-2].[O-2].[O-2].[O-2].[O-2].[Pr+3].[Pr+3].[Pr+3].[Pr+3].[Pr+3].[Pr+3]. Appending empty array
+Mean: 0.2532698342576222
+Std: 0.3652438642309113
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[O-2].[O-2].[O-2].[O-2].[Pb+2].[Ti+4].[Zr+4]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[O-2].[O-2].[Sb+3].[Sb+3]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[O-2].[O-2].[Sm+3].[Sm+3]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[O-2].[O-2].[Y+3].[Y+3]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[O-2].[Pt+4]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [O-2].[Pd+2]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [OH-].[OH-].[Zn+2]. Appending empty array
+Exception message: tuple index out of range
+Failed to featurize datapoint 0, [S-2].[S-2].[Sn+4]. Appending empty array
+Exception message: tuple index out of range
+Caco2_Wang missing: 15319
+Lipophilicity_AstraZeneca missing: 12025
+Solubility_AqSolDB missing: 6280
+BBB_Martins missing: 14250
+
+=== FOLD 0 ===
+[E0] loss=49.0246
+[E1] loss=44.0649
+[E2] loss=38.0181
+[E3] loss=30.2405
+[E4] loss=22.0305
+[E5] loss=15.7295
+[E6] loss=13.2348
+[E7] loss=14.2897
+[E8] loss=13.5833
+[E9] loss=11.6324
+[E10] loss=10.3461
+[E11] loss=10.0996
+[E12] loss=10.3007
+[E13] loss=10.1119
+[E14] loss=9.3715
+[E15] loss=8.2703
+[E16] loss=7.2116
+[E17] loss=6.8197
+[E18] loss=7.3601
+[E19] loss=7.9420
+[E20] loss=7.9785
+[E21] loss=7.3496
+[E22] loss=6.5766
+[E23] loss=6.2710
+[E24] loss=6.3238
+[E25] loss=6.4757
+[E26] loss=6.5125
+[E27] loss=6.3786
+[E28] loss=6.1030
+[E29] loss=5.8025
+[E30] loss=5.6772
+[E31] loss=5.6276
+[E32] loss=5.5433
+[E33] loss=5.4719
+[E34] loss=5.3057
+[E35] loss=5.2208
+[E36] loss=5.2125
+[E37] loss=5.2176
+[E38] loss=5.1652
+[E39] loss=5.0607
+
+=== FOLD 1 ===
+[E0] loss=49.3416
+[E1] loss=44.4964
+[E2] loss=38.6123
+[E3] loss=30.8131
+[E4] loss=22.2185
+[E5] loss=15.8451
+[E6] loss=13.9140
+[E7] loss=15.2518
+[E8] loss=14.3025
+[E9] loss=11.6626
+[E10] loss=10.0098
+[E11] loss=9.8504
+[E12] loss=10.3958
+[E13] loss=10.5880
+[E14] loss=10.1030
+[E15] loss=9.1021
+[E16] loss=7.9402
+[E17] loss=7.1319
+[E18] loss=7.1935
+[E19] loss=7.7465
+[E20] loss=8.0601
+[E21] loss=7.6730
+[E22] loss=7.0092
+[E23] loss=6.4906
+[E24] loss=6.3758
+[E25] loss=6.5037
+[E26] loss=6.6303
+[E27] loss=6.6162
+[E28] loss=6.3677
+[E29] loss=6.0804
+[E30] loss=5.8770
+[E31] loss=5.7988
+[E32] loss=5.7225
+[E33] loss=5.6853
+[E34] loss=5.5219
+[E35] loss=5.3922
+[E36] loss=5.2908
+[E37] loss=5.2803
+[E38] loss=5.2751
+[E39] loss=5.2089
+
+=== FOLD 2 ===
+[E0] loss=48.6622
+[E1] loss=44.1963
+[E2] loss=38.8408
+[E3] loss=31.8776
+[E4] loss=23.8411
+[E5] loss=16.7296
+[E6] loss=12.5955
+[E7] loss=13.8661
+[E8] loss=15.3629
+[E9] loss=13.4332
+[E10] loss=10.7392
+[E11] loss=9.5993
+[E12] loss=9.4085
+[E13] loss=9.5419
+[E14] loss=9.1962
+[E15] loss=8.6735
+[E16] loss=8.0081
+[E17] loss=7.6921
+[E18] loss=7.6283
+[E19] loss=7.6630
+[E20] loss=7.4749
+[E21] loss=7.1026
+[E22] loss=6.7263
+[E23] loss=6.4710
+[E24] loss=6.4794
+[E25] loss=6.6144
+[E26] loss=6.6932
+[E27] loss=6.6560
+[E28] loss=6.3992
+[E29] loss=6.1030
+[E30] loss=5.7461
+[E31] loss=5.5551
+[E32] loss=5.5330
+[E33] loss=5.5805
+[E34] loss=5.5789
+[E35] loss=5.5030
+[E36] loss=5.3267
+[E37] loss=5.1609
+[E38] loss=5.0816
+[E39] loss=5.0662
+
+=== FOLD 3 ===
+[E0] loss=49.6940
+[E1] loss=45.1867
+[E2] loss=39.7946
+[E3] loss=32.4862
+[E4] loss=23.9716
+[E5] loss=16.8396
+[E6] loss=13.2756
+[E7] loss=14.5971
+[E8] loss=15.3196
+[E9] loss=13.2132
+[E10] loss=10.6815
+[E11] loss=9.7002
+[E12] loss=9.6360
+[E13] loss=9.6444
+[E14] loss=9.3049
+[E15] loss=8.5264
+[E16] loss=7.8714
+[E17] loss=7.5085
+[E18] loss=7.6084
+[E19] loss=7.7559
+[E20] loss=7.5866
+[E21] loss=7.0763
+[E22] loss=6.6193
+[E23] loss=6.3968
+[E24] loss=6.4408
+[E25] loss=6.6347
+[E26] loss=6.7141
+[E27] loss=6.6535
+[E28] loss=6.3758
+[E29] loss=6.0312
+[E30] loss=5.7129
+[E31] loss=5.5415
+[E32] loss=5.5489
+[E33] loss=5.5888
+[E34] loss=5.5739
+[E35] loss=5.4641
+[E36] loss=5.3184
+[E37] loss=5.2158
+[E38] loss=5.1394
+[E39] loss=5.1144
+
+=== FOLD 4 ===
+[E0] loss=48.5933
+[E1] loss=43.7117
+[E2] loss=37.9525
+[E3] loss=30.3742
+[E4] loss=22.0857
+[E5] loss=16.0418
+[E6] loss=13.9960
+[E7] loss=14.5847
+[E8] loss=13.5661
+[E9] loss=11.2546
+[E10] loss=9.9233
+[E11] loss=9.9395
+[E12] loss=10.4432
+[E13] loss=10.5382
+[E14] loss=9.9770
+[E15] loss=8.8686
+[E16] loss=7.6079
+[E17] loss=6.8859
+[E18] loss=6.9673
+[E19] loss=7.6136
+[E20] loss=8.0244
+[E21] loss=7.6185
+[E22] loss=6.8985
+[E23] loss=6.4004
+[E24] loss=6.3087
+[E25] loss=6.4288
+[E26] loss=6.6577
+[E27] loss=6.5357
+[E28] loss=6.2783
+[E29] loss=5.9971
+[E30] loss=5.8200
+[E31] loss=5.6823
+[E32] loss=5.7238
+[E33] loss=5.5925
+[E34] loss=5.4401
+[E35] loss=5.2975
+[E36] loss=5.2380
+[E37] loss=5.1994
+[E38] loss=5.1943
+[E39] loss=5.1694
+
+=== LOGS ===
+Records: 40
+
+=== STATISTICAL SIGNIFICANCE ===
+Caco2_Wang p-value = 0.003538
+Lipophilicity_AstraZeneca p-value = 0.000032
+Solubility_AqSolDB p-value = 0.000001
+BBB_Martins p-value = 0.003281
+
+=== MULTITASK GAIN ===
+                        task  MTL_mean  STL_mean  gain_abs     gain_%
+0                 Caco2_Wang  0.673533  0.518011 -0.155522 -30.022982
+1  Lipophilicity_AstraZeneca  1.111374  0.909051 -0.202323 -22.256479
+2         Solubility_AqSolDB  1.711481  1.314723 -0.396758 -30.178087
+3                BBB_Martins  0.760725  0.876763 -0.116038 -13.234797
+
