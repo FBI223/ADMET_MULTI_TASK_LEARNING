@@ -19,16 +19,16 @@ dipole, homo_lumo, electrons, energy
 DATASETS / TASKS
 
 Kuba
-1) Caco2_Wang (permability) and Solubility_AqSolDB (solubility) -  ( wysoka korelacja miedzy tymi taskami )
+1) (regresja) Caco2_Wang (permability) and Solubility_AqSolDB (solubility) -  ( wysoka korelacja miedzy tymi taskami )
 
 Michal
-2) Absorption / Distribution - to jest dobry cluster z wysoka korelacja
+2) ( klasyfikacja )  Absorption / Distribution - to jest dobry cluster z wysoka korelacja
     - HIA_Hou
     - Bioavailability_Ma
     - BBB_Martins
 
 Marcin
-3) cluster : METABOLISM / TRANSPORT
+3)( klasyfikacja ) METABOLISM / TRANSPORT
     - CYP2D6_Veith
     - CYP3A4_Veith
     - CYP2C9_Veith
@@ -36,17 +36,11 @@ Marcin
     - Pgp_Broccatelli
 
 Kuba
-4) Metabolism
+4) ( klasyfikacja ) Metabolism
     - CYP2D6_Veith
     - CYP3A4_Veith
     - CYP2C9_Veith
 
-Michal
-5) ADME cluster
-	•	Caco2
-	•	HIA_Hou
-	•	Bioavailability_Ma
-	•	BBB_Martins
 
 
 
@@ -57,7 +51,7 @@ Michal
 	•	P-gp
 
 
-
+SILNIE SKORELOWANE WLANOSCNI ADMET
 Absorption and Distribution - jakie datasety maja dodatnia korelacje
 Metabolism and Toxicity - dobierz dobre datasety
 Metabolism and Distribution
