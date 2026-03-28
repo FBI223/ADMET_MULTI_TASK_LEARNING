@@ -1,0 +1,65 @@
+
+Wytrenowac model MTL dla np takich par
+( uzyc albo heads albo warstwy gesto polaczone )
+datasety maja byc z TDC
+wytrenowac baseline np z XGBOOST / RANDOMFOREST
+i porownac z modelem MTL
+zrob porownanie z obrazkami pokazujace AUROC
+
+
+Na wejsciu ma sie znalezc kombinacja i zrobic obrazki pokazujace
+wplyw na wybor wejscia na AUROC:
+1) morgan fingerprint - o ustalonej dlugosci np 2048
+2) rdkit features
+3) embeddingi zdobyte z encodera DeepChem / Chemprop
+(4) opcjonalnie - wartosci kwantowe z programu xtb
+dipole, homo_lumo, electrons, energy
+
+
+DATASETS / TASKS
+1) Caco2_Wang (permability) and Solubility_AqSolDB (solubility) -  ( wysoka korelacja miedzy tymi taskami )
+
+2) Absorption / Distribution - to jest dobry cluster z wysoka korelacja
+    - HIA_Hou
+    - Bioavailability_Ma
+    - BBB_Martins
+
+3) cluster : METABOLISM / TRANSPORT
+    - CYP2D6_Veith
+    - CYP3A4_Veith
+    - CYP2C9_Veith
+    - hERG_Karim
+    - Pgp_Broccatelli
+
+4) Metabolism
+    - CYP2D6_Veith
+    - CYP3A4_Veith
+    - CYP2C9_Veith
+
+5) ADME cluster
+	•	Caco2
+	•	HIA_Hou
+	•	Bioavailability_Ma
+	•	BBB_Martins
+
+
+
+
+5) WSPOLNE MECHANIZMY : metabolizm + transport + bioakumulacja
+	•	CYP2D6 / CYP3A4 (substrate / inhibitor)
+	•	hERG
+	•	P-gp
+
+
+
+Absorption and Distribution - jakie datasety maja dodatnia korelacje
+Metabolism and Toxicity - dobierz dobre datasety
+Metabolism and Distribution
+Excretion and Distribution
+
+
+OBLICZYC KORELACJE MIEDZY TYMI TASKAMI ( im wieksza korelacja tym lepiej )
+1) label - bez obliczenia predykcji
+liczymy korelacje dla tych samych czasteczek
+( overlap czasteczek musi byc , czyli czasteczka wystepuje w np obu datasetach )
+2) predykcje - jak predykcje wplywaja na siebie
