@@ -17,13 +17,17 @@ dipole, homo_lumo, electrons, energy
 
 
 DATASETS / TASKS
+
+Kuba
 1) Caco2_Wang (permability) and Solubility_AqSolDB (solubility) -  ( wysoka korelacja miedzy tymi taskami )
 
+Michal
 2) Absorption / Distribution - to jest dobry cluster z wysoka korelacja
     - HIA_Hou
     - Bioavailability_Ma
     - BBB_Martins
 
+Marcin
 3) cluster : METABOLISM / TRANSPORT
     - CYP2D6_Veith
     - CYP3A4_Veith
@@ -31,11 +35,13 @@ DATASETS / TASKS
     - hERG_Karim
     - Pgp_Broccatelli
 
+Kuba
 4) Metabolism
     - CYP2D6_Veith
     - CYP3A4_Veith
     - CYP2C9_Veith
 
+Michal
 5) ADME cluster
 	•	Caco2
 	•	HIA_Hou
