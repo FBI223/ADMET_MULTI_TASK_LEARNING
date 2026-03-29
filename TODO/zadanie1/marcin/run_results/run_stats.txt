@@ -1,0 +1,176 @@
+/Users/marcinsztukowski/miniconda3/envs/admet/bin/python /Users/marcinsztukowski/PycharmProjects/ADMET_MULTI_TASK_LEARNING/TODO/zadanie1/marcin/cluster3.py
+Some weights of RobertaModel were not initialized from the model checkpoint at DeepChem/ChemBERTa-77M-MLM and are newly initialized: ['roberta.pooler.dense.bias', 'roberta.pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Leakage check:
+train ∩ test: 5307
+train ∩ val: 2803
+val ∩ test: 1044
+[COMPUTE] morgan train
+[COMPUTE] morgan valid
+[COMPUTE] morgan test
+[epoch 0] loss=0.0575
+[epoch 10] loss=0.0109
+[epoch 20] loss=0.0042
+[epoch 30] loss=0.0077
+[epoch 40] loss=0.0167
+[COMPUTE] morgan train_stl
+[COMPUTE] morgan test_stl
+[COMPUTE] morgan train_stl
+[COMPUTE] morgan test_stl
+[COMPUTE] morgan train_stl
+[COMPUTE] morgan test_stl
+[COMPUTE] morgan train_stl
+[COMPUTE] morgan test_stl
+[COMPUTE] morgan train_stl
+[COMPUTE] morgan test_stl
+MTL: 0.8853389289732605
+STL: 0.8913781228262051
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Leakage check:
+train ∩ test: 5307
+train ∩ val: 2803
+val ∩ test: 1044
+[COMPUTE] chemberta train
+[COMPUTE] chemberta valid
+[COMPUTE] chemberta test
+[epoch 0] loss=0.0900
+[epoch 10] loss=0.0539
+[epoch 20] loss=0.0428
+[epoch 30] loss=0.0450
+[epoch 40] loss=0.0223
+[COMPUTE] chemberta train_stl
+[COMPUTE] chemberta test_stl
+[COMPUTE] chemberta train_stl
+[COMPUTE] chemberta test_stl
+[COMPUTE] chemberta train_stl
+[COMPUTE] chemberta test_stl
+[COMPUTE] chemberta train_stl
+[COMPUTE] chemberta test_stl
+[COMPUTE] chemberta train_stl
+[COMPUTE] chemberta test_stl
+MTL: 0.8366773455504629
+STL: 0.8473297870577736
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Found local copy...
+Loading...
+Done!
+Leakage check:
+train ∩ test: 5307
+train ∩ val: 2803
+val ∩ test: 1044
+[CACHE HIT] morgan train
+[CACHE HIT] morgan valid
+[CACHE HIT] morgan test
+[CACHE HIT] chemberta train
+[CACHE HIT] chemberta valid
+[CACHE HIT] chemberta test
+[epoch 0] loss=0.0818
+[epoch 10] loss=0.0327
+[epoch 20] loss=0.0195
+[epoch 30] loss=0.0082
+[epoch 40] loss=0.0033
+[CACHE HIT] morgan train_stl
+[CACHE HIT] morgan test_stl
+[CACHE HIT] chemberta train_stl
+[CACHE HIT] chemberta test_stl
+[CACHE HIT] morgan train_stl
+[CACHE HIT] morgan test_stl
+[CACHE HIT] chemberta train_stl
+[CACHE HIT] chemberta test_stl
+[CACHE HIT] morgan train_stl
+[CACHE HIT] morgan test_stl
+[CACHE HIT] chemberta train_stl
+[CACHE HIT] chemberta test_stl
+[CACHE HIT] morgan train_stl
+[CACHE HIT] morgan test_stl
+[CACHE HIT] chemberta train_stl
+[CACHE HIT] chemberta test_stl
+[CACHE HIT] morgan train_stl
+[CACHE HIT] morgan test_stl
+[CACHE HIT] chemberta train_stl
+[CACHE HIT] chemberta test_stl
+MTL: 0.8849373405454798
+STL: 0.8813405078176164
+
+=== RESULTS ===
+{'mode': 'morgan', 'MTL': 0.8853389289732605, 'XGB_STL': 0.8913781228262051}
+{'mode': 'chemberta', 'MTL': 0.8366773455504629, 'XGB_STL': 0.8473297870577736}
+{'mode': 'fused', 'MTL': 0.8849373405454798, 'XGB_STL': 0.8813405078176164}
+Mean label corr: 0.4018627411253013
+Mean pred corr: 0.41399915090659734
+
+=== OVERLAP ===
+cyp2d6_veith vs cyp2d6_veith: 13130
+cyp2d6_veith vs cyp3a4_veith: 9932
+cyp2d6_veith vs cyp2c9_veith: 9750
+cyp2d6_veith vs herg_karim: 71
+cyp2d6_veith vs pgp_broccatelli: 137
+cyp3a4_veith vs cyp2d6_veith: 9932
+cyp3a4_veith vs cyp3a4_veith: 12328
+cyp3a4_veith vs cyp2c9_veith: 9265
+cyp3a4_veith vs herg_karim: 61
+cyp3a4_veith vs pgp_broccatelli: 134
+cyp2c9_veith vs cyp2d6_veith: 9750
+cyp2c9_veith vs cyp3a4_veith: 9265
+cyp2c9_veith vs cyp2c9_veith: 12092
+cyp2c9_veith vs herg_karim: 69
+cyp2c9_veith vs pgp_broccatelli: 134
+herg_karim vs cyp2d6_veith: 71
+herg_karim vs cyp3a4_veith: 61
+herg_karim vs cyp2c9_veith: 69
+herg_karim vs herg_karim: 13445
+herg_karim vs pgp_broccatelli: 55
+pgp_broccatelli vs cyp2d6_veith: 137
+pgp_broccatelli vs cyp3a4_veith: 134
+pgp_broccatelli vs cyp2c9_veith: 134
+pgp_broccatelli vs herg_karim: 55
+pgp_broccatelli vs pgp_broccatelli: 1212
+
+=== PER TASK AUC (MTL FUSED) ===
+cyp2d6_veith: 0.8450
+cyp3a4_veith: 0.8808
+cyp2c9_veith: 0.8668
+herg_karim: 0.8936
+pgp_broccatelli: 0.9214
+
+Process finished with exit code 0
