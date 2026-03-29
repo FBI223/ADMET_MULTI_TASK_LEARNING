@@ -1,0 +1,84 @@
+
+=== LABEL CORRELATION BETWEEN TASKS ===
+                 cyp2d6_veith  cyp3a4_veith  ...  herg_karim  pgp_broccatelli
+cyp2d6_veith         1.000000      0.269001  ...    0.577350         0.357455
+cyp3a4_veith         0.269001      1.000000  ...   -0.214077         0.242734
+cyp2c9_veith         0.126450      0.442697  ...    0.065465         0.174240
+herg_karim           0.577350     -0.214077  ...    1.000000         0.540128
+pgp_broccatelli      0.357455      0.242734  ...    0.540128         1.000000
+
+[5 rows x 5 columns]
+TOTAL SAMPLES: 52213
+TASKS: ['cyp2d6_veith' 'cyp3a4_veith' 'cyp2c9_veith' 'herg_karim'
+ 'pgp_broccatelli']
+SPLITS: ['train' 'valid' 'test']
+
+task             split
+cyp2c9_veith     test     2418
+                 train    8465
+                 valid    1209
+cyp2d6_veith     test     2626
+                 train    9191
+                 valid    1313
+cyp3a4_veith     test     2466
+                 train    8629
+                 valid    1233
+herg_karim       test     2689
+                 train    9412
+                 valid    1344
+pgp_broccatelli  test      244
+                 train     852
+                 valid     122
+dtype: int64
+
+
+=== LABEL DISTRIBUTION ===
+
+cyp2d6_veith
+total: 13130
+pos: 2514
+neg: 10616
+ratio: 0.19146991622239146
+
+cyp3a4_veith
+total: 12328
+pos: 5110
+neg: 7218
+ratio: 0.4145035691109669
+
+cyp2c9_veith
+total: 12092
+pos: 4045
+neg: 8047
+ratio: 0.33451869004300366
+
+herg_karim
+total: 13445
+pos: 6718
+neg: 6727
+ratio: 0.4996653030866493
+
+pgp_broccatelli
+total: 1218
+pos: 650
+neg: 568
+ratio: 0.5336617405582923
+
+=== SPLIT LEAKAGE ===
+train ∩ val: 2803
+train ∩ test: 5307
+val ∩ test: 1044
+
+=== TASK OVERLAP ===
+cyp2d6_veith vs cyp3a4_veith: 9932
+cyp2d6_veith vs cyp2c9_veith: 9750
+cyp2d6_veith vs herg_karim: 71
+cyp2d6_veith vs pgp_broccatelli: 137
+cyp3a4_veith vs cyp2c9_veith: 9265
+cyp3a4_veith vs herg_karim: 61
+cyp3a4_veith vs pgp_broccatelli: 134
+cyp2c9_veith vs herg_karim: 69
+cyp2c9_veith vs pgp_broccatelli: 134
+herg_karim vs pgp_broccatelli: 55
+
+Process finished with exit code 0
