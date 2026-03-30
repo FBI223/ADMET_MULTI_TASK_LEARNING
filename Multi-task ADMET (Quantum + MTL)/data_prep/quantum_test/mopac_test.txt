@@ -1,0 +1,16 @@
+
+MOPAC
+smiles,dipole,homo_lumo,electrons,energy,mask_1,mask_2,mask_3,mask_4
+CC1=CC=C(C=C1)C(=O)O,3.097,9.34,52,-76.45686,1,1,1,1
+COC1=CC=C(C=C1)C=O,3.412,8.854,52,-47.56405,1,1,1,1
+CN1CCC(CC1)C2=CN=CC=C2,3.821,8.556,70,24.39811,1,1,1,1
+CCOC(=O)C1=CC=CC=C1Cl,2.221,9.284,64,-78.25139,1,1,1,1
+CCN(CC)CCOC(=O)C1=CC=CC=C1,2.814,8.346,88,-73.38941,1,1,1,1
+
+
+XTB:
+CC1=CC=C(C=C1)C(=O)O {'energy': -29.344811327302, 'gap': 3.720769855832, 'dipole': None, 'electrons': 52}
+CN1CCC(CC1)C2=CN=CC=C2 {'energy': -37.557218588503, 'gap': 2.807453144881, 'dipole': None, 'electrons': 70}
+CCOC(=O)C1=CC=CC=C1Cl {'energy': -36.548496696349, 'gap': 3.343054971612, 'dipole': None, 'electrons': 64}
+CCN(CC)CCOC(=O)C1=CC=CC=C1 {'energy': -48.582537448096, 'gap': 1.859812971602, 'dipole': None, 'electrons': 88}
+COC1=CC=C(C=C1)C=O {'energy': -29.307323468041, 'gap': 3.00034357106, 'dipole': None, 'electrons': 52}

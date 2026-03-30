@@ -1,0 +1,95 @@
+/home/sztukowski/miniconda/bin/conda run -n admet-mtl --no-capture-output python /mnt/c/Users/msztu/Documents/PythonProject/ADMET_MULTI_TASK_LEARNING/6. Multi-task ADMET (Quantum + MTL)/data_prep/quantum_test/xtb_test.py
+
+========================================
+SMILES: CC1=CC=C(C=C1)C(=O)O
+========================================
+
+--- DEBUG SEARCH 'dipole' ---
+molecular dipole:
+>>> FOUND DIPOLE BLOCK
+molecular dipole:
+                 x           y           z       tot (Debye)
+ q only:        1.026      -0.197       0.550
+
+--- FINAL PARSED ---
+ENERGY: -29.344811327022
+GAP: 3.720765758728
+DIPOLE: 1.1806714191509846
+ELECTRONS: 52
+
+========================================
+SMILES: CN1CCC(CC1)C2=CN=CC=C2
+========================================
+
+--- DEBUG SEARCH 'dipole' ---
+molecular dipole:
+>>> FOUND DIPOLE BLOCK
+molecular dipole:
+                 x           y           z       tot (Debye)
+ q only:        0.382      -0.133      -0.316
+
+--- FINAL PARSED ---
+ENERGY: -37.557218588504
+GAP: 2.807453946042
+DIPOLE: 0.5132923143784641
+ELECTRONS: 70
+
+========================================
+SMILES: CCOC(=O)C1=CC=CC=C1Cl
+========================================
+
+--- DEBUG SEARCH 'dipole' ---
+molecular dipole:
+>>> FOUND DIPOLE BLOCK
+molecular dipole:
+                 x           y           z       tot (Debye)
+ q only:       -0.584      -1.392      -0.087
+
+--- FINAL PARSED ---
+ENERGY: -36.548496696466
+GAP: 3.343059817804
+DIPOLE: 1.512047948975164
+ELECTRONS: 64
+
+========================================
+SMILES: CCN(CC)CCOC(=O)C1=CC=CC=C1
+========================================
+
+--- DEBUG SEARCH 'dipole' ---
+molecular dipole:
+>>> FOUND DIPOLE BLOCK
+molecular dipole:
+                 x           y           z       tot (Debye)
+ q only:        0.320      -0.492      -0.408
+
+--- FINAL PARSED ---
+ENERGY: -48.582537448126
+GAP: 1.859815879302
+DIPOLE: 0.714792277518441
+ELECTRONS: 88
+
+========================================
+SMILES: COC1=CC=C(C=C1)C=O
+========================================
+
+--- DEBUG SEARCH 'dipole' ---
+molecular dipole:
+>>> FOUND DIPOLE BLOCK
+molecular dipole:
+                 x           y           z       tot (Debye)
+ q only:        1.739      -0.518      -0.258
+
+--- FINAL PARSED ---
+ENERGY: -29.307323468043
+GAP: 3.000341223528
+DIPOLE: 1.83275994063598
+ELECTRONS: 52
+
+FINAL:
+CC1=CC=C(C=C1)C(=O)O {'energy': -29.344811327022, 'gap': 3.720765758728, 'dipole': 1.1806714191509846, 'electrons': 52}
+CN1CCC(CC1)C2=CN=CC=C2 {'energy': -37.557218588504, 'gap': 2.807453946042, 'dipole': 0.5132923143784641, 'electrons': 70}
+CCOC(=O)C1=CC=CC=C1Cl {'energy': -36.548496696466, 'gap': 3.343059817804, 'dipole': 1.512047948975164, 'electrons': 64}
+CCN(CC)CCOC(=O)C1=CC=CC=C1 {'energy': -48.582537448126, 'gap': 1.859815879302, 'dipole': 0.714792277518441, 'electrons': 88}
+COC1=CC=C(C=C1)C=O {'energy': -29.307323468043, 'gap': 3.000341223528, 'dipole': 1.83275994063598, 'electrons': 52}
+
+

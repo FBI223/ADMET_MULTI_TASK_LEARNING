@@ -1,0 +1,78 @@
+
+Wytrenowac model MTL dla np takich par
+( uzyc albo heads albo warstwy gesto polaczone )
+datasety maja byc z TDC
+wytrenowac baseline np z XGBOOST / RANDOMFOREST
+i porownac z modelem MTL
+zrob porownanie z obrazkami pokazujace AUROC
+
+
+Na wejsciu ma sie znalezc kombinacja i zrobic obrazki pokazujace
+wplyw na wybor wejscia na AUROC:
+1) morgan fingerprint - o ustalonej dlugosci np 1024
+2) rdkit features - wybrac tylko max 20 roznych, a nie ponad 200
+3) embeddingi zdobyte z transformera ChemBERTa / MolBERT
+
+(4) opcjonalnie - wartosci kwantowe z programu xtb
+dipole, homo_lumo, electrons, energy
+
+
+DATASETS / TASKS
+
+
+
+Kuba
+1) (regresja) caco2_wang (permability) and solubility_aqsoldb (solubility) -  ( wysoka korelacja miedzy tymi taskami )
+
+Michal
+2) ( klasyfikacja )  Absorption / Distribution - to jest dobry cluster z wysoka korelacja
+    - hia_hou
+    - bioavailability_ma
+    - bbb_martins
+
+Marcin
+3)( klasyfikacja ) METABOLISM / TRANSPORT
+    - cyp2d6_veith
+    - cyp3a4_veith
+    - cyp2c9_veith
+    - herg_karim
+    - pgp_broccatelli
+
+Kuba
+4) ( klasyfikacja ) Metabolism
+    - cyp2d6_veith
+    - cyp3a4_veith
+    - cyp2c9_veith
+
+Michał
+5) WSPOLNE MECHANIZMY : metabolizm + transport + bioakumulacja
+	•	cyp2d6_veith / cyp3a4_veith (substrate / inhibitor)
+	•	herg_karim
+	•	pgp_broccatelli
+
+
+---------------------------------------------------
+6)  Small Datasets - good MTL gain
+- cyp2c9_substrate_carbonmangels
+- cyp2d6_substrate_carbonmangels
+
+---------------------------------------------------
+
+7) datasets with no MTL gain
+- ames
+- hia_hou
+- cyp2d6_veith
+
+---------------------------------------------------
+SILNIE SKORELOWANE WLANOSCNI ADMET
+Absorption and Distribution - jakie datasety maja dodatnia korelacje
+Metabolism and Toxicity - dobierz dobre datasety
+Metabolism and Distribution
+Excretion and Distribution
+
+
+OBLICZYC KORELACJE MIEDZY TYMI TASKAMI ( im wieksza korelacja tym lepiej )
+1) label - bez obliczenia predykcji
+liczymy korelacje dla tych samych czasteczek
+( overlap czasteczek musi byc , czyli czasteczka wystepuje w np obu datasetach )
+2) predykcje - jak predykcje wplywaja na siebie

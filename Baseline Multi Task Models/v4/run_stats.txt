@@ -1,0 +1,115 @@
+
+
+
+
+MODE A
+
+FOLD 0 MODE A
+Epoch 0 loss 4.1819
+Epoch 5 loss 3.0456
+Epoch 10 loss 1.3594
+Epoch 15 loss 0.6711
+Epoch 20 loss 0.3347
+Epoch 25 loss 0.1883
+
+FOLD 1 MODE A
+Epoch 0 loss 4.5789
+Epoch 5 loss 2.8141
+Epoch 10 loss 1.3146
+Epoch 15 loss 0.5924
+Epoch 20 loss 0.2930
+Epoch 25 loss 0.1811
+
+MODE B
+FOLD 0 MODE B
+Epoch 0 loss 4.5688
+Epoch 5 loss 2.5639
+Epoch 10 loss 2.0431
+Epoch 15 loss 1.8866
+Epoch 20 loss 1.8288
+Epoch 25 loss 1.7787
+FOLD 1 MODE B
+Epoch 0 loss 5.0335
+Epoch 5 loss 2.8622
+Epoch 10 loss 1.9526
+Epoch 15 loss 1.8352
+Epoch 20 loss 1.7306
+Epoch 25 loss 1.6946
+MODE C
+
+
+FOLD 0 MODE C
+Epoch 0 loss 4.0195
+Epoch 5 loss 2.7994
+Epoch 10 loss 2.2781
+Epoch 15 loss 1.9006
+Epoch 20 loss 1.7076
+Epoch 25 loss 1.5371
+
+
+FOLD 1 MODE C
+Epoch 0 loss 4.5516
+Epoch 5 loss 3.0685
+Epoch 10 loss 2.3726
+Epoch 15 loss 1.9558
+Epoch 20 loss 1.6712
+Epoch 25 loss 1.4663
+
+
+MODE AB
+
+FOLD 0 MODE AB
+Epoch 0 loss 4.2016
+Epoch 5 loss 2.7167
+Epoch 10 loss 1.1544
+Epoch 15 loss 0.5204
+Epoch 20 loss 0.2521
+Epoch 25 loss 0.1660
+
+FOLD 1 MODE AB
+Epoch 0 loss 4.6694
+Epoch 5 loss 2.5366
+Epoch 10 loss 1.2963
+Epoch 15 loss 0.6488
+Epoch 20 loss 0.3080
+Epoch 25 loss 0.1878
+
+
+MODE AC
+
+
+FOLD 0 MODE AC
+Epoch 0 loss 4.2231
+Epoch 5 loss 3.0542
+Epoch 10 loss 1.2916
+Epoch 15 loss 0.5959
+Epoch 20 loss 0.3040
+Epoch 25 loss 0.1753
+
+FOLD 1 MODE AC
+Epoch 0 loss 5.1110
+Epoch 5 loss 2.2566
+Epoch 10 loss 1.0561
+Epoch 15 loss 0.4634
+Epoch 20 loss 0.2535
+Epoch 25 loss 0.1693
+
+MODE ABC
+
+FOLD 0 MODE ABC
+Epoch 0 loss 4.2183
+Epoch 5 loss 2.3003
+Epoch 10 loss 1.0575
+Epoch 15 loss 0.5131
+Epoch 20 loss 0.2545
+Epoch 25 loss 0.1820
+
+FOLD 1 MODE ABC
+Epoch 0 loss 4.5392
+Epoch 5 loss 2.3382
+Epoch 10 loss 1.0386
+Epoch 15 loss 0.4365
+Epoch 20 loss 0.2189
+Epoch 25 loss 0.1348
+
+Process finished with exit code 0
