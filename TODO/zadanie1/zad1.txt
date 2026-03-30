@@ -44,7 +44,7 @@ Kuba
     - cyp3a4_veith
     - cyp2c9_veith
 
-
+Michał
 5) WSPOLNE MECHANIZMY : metabolizm + transport + bioakumulacja
 	•	cyp2d6_veith / cyp3a4_veith (substrate / inhibitor)
 	•	herg_karim
