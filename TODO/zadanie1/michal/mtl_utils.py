@@ -97,6 +97,31 @@ def prepare_mtl_data(df, n_bits=1024):
     return X, y, mask, tasks, splits, feature_names
 
 
+def prepare_mtl_data_without_morgan(df):
+    # 1. Agregacja zadań (Long -> Wide)
+    tasks = sorted(df['task'].dropna().unique().tolist())
+    pivot_df = df.pivot_table(index='smiles', columns='task', values='label', aggfunc='first')
+
+    # 2. Pobranie unikalnych cech per SMILES
+    features_df = df.drop_duplicates(subset=['smiles']).set_index('smiles')
+    merged_df = features_df.join(pivot_df, how='inner')
+
+    # 3. Wybór i skalowanie tylko deskryptorów (bez Morgana)
+    valid_features = [f for f in PRIMARY_FEATURES if f in merged_df.columns]
+    scaler = StandardScaler()
+    X = scaler.fit_transform(merged_df[valid_features].fillna(0)).astype(np.float32)
+
+    # 4. Przygotowanie etykiet i maski
+    y_raw = merged_df[tasks].values.astype(np.float32)
+    mask = (~np.isnan(y_raw)).astype(np.float32)
+    y = np.nan_to_num(y_raw)
+
+    # 5. Podziały i nazwy cech
+    splits = merged_df['split'].values
+    feature_names = valid_features
+
+    return X, y, mask, tasks, splits, feature_names
+
 def train_epoch(model, loader, opt, device):
     model.train()
     total_loss = 0
