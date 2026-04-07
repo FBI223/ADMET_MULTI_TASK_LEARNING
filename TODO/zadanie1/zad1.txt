@@ -47,7 +47,7 @@ Kuba
 Michał
 5) WSPOLNE MECHANIZMY : metabolizm + transport + bioakumulacja
 	•	cyp2d6_veith / cyp3a4_veith (substrate / inhibitor)
-	•	herg_karim
+	•	hERG_Karim
 	•	pgp_broccatelli
 
 
