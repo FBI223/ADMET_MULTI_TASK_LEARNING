@@ -32,17 +32,17 @@ featurizer = SimpleMoleculeMolGraphFeaturizer()
 class CFG:
     """Konfiguracja hiperparametrów treningu zgodnie z badaniami QW-MTL[cite: 168]."""
     data_path = "dataset_raw.parquet"
-    batch_size = 64
-    lr = 5e-4
-    epochs = 10
-    patience = 2
+    batch_size = 128
+    lr = 1e-4
+    epochs = 50
+    patience = 10
     device = "cuda" if torch.cuda.is_available() else "cpu"
     save_dir = "outputs_mtl"
 
 class FeatureConfig:
     """Panel sterowania modułami wejściowymi."""
     USE_DMPNN = True   # d=300 (Shared Encoder z grafu)
-    USE_MORGAN = False  # d=1024 (Fingerprints)
+    USE_MORGAN = True  # d=1024 (Fingerprints)
     USE_RDKIT = True
     USE_QUANTUM = True
 

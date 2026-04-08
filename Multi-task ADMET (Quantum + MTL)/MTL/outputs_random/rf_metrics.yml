@@ -1,60 +1,60 @@
 metadata:
-  model_type: STL-Deep-Optimized
-  mean_performance: 0.8636609302672318
+  model_type: RandomForest-STL
+  mean_performance: 0.8672879517414803
   features:
-    DMPNN: true
     Morgan: true
+    RDKit: true
     Quantum: true
 tasks:
   ames:
-    score: 0.8893038391508155
+    score: 0.8888854453182505
     metric: ROC-AUC
     samples: 5084
   bbb_martins:
-    score: 0.942857142857143
+    score: 0.9458128078817734
     metric: ROC-AUC
     samples: 1400
   bioavailability_ma:
-    score: 0.6953242835595776
+    score: 0.77526395173454
     metric: ROC-AUC
     samples: 448
   cyp2c9_substrate_carbonmangels:
-    score: 0.5786314525810323
+    score: 0.7082833133253301
     metric: ROC-AUC
     samples: 468
   cyp2c9_veith:
-    score: 0.9072237701826322
+    score: 0.882873812160074
     metric: ROC-AUC
     samples: 8465
   cyp2d6_substrate_carbonmangels:
-    score: 0.8525252525252526
+    score: 0.8444444444444446
     metric: ROC-AUC
     samples: 464
   cyp2d6_veith:
-    score: 0.8975016436554899
+    score: 0.8610965008400906
     metric: ROC-AUC
     samples: 9191
   cyp3a4_substrate_carbonmangels:
-    score: 0.8167641325536062
+    score: 0.780701754385965
     metric: ROC-AUC
     samples: 469
   cyp3a4_veith:
-    score: 0.9166315288724551
+    score: 0.8617381855924231
     metric: ROC-AUC
     samples: 8629
   dili:
-    score: 0.8941798941798941
+    score: 0.9365079365079365
     metric: ROC-AUC
     samples: 332
   hERG_Karim:
-    score: 0.9162279079348695
+    score: 0.8860216673348648
     metric: ROC-AUC
     samples: 9412
   hia_hou:
-    score: 0.9871794871794872
+    score: 0.9775641025641025
     metric: ROC-AUC
     samples: 404
   pgp_broccatelli:
-    score: 0.9332417582417583
+    score: 0.9255494505494506
     metric: ROC-AUC
     samples: 851

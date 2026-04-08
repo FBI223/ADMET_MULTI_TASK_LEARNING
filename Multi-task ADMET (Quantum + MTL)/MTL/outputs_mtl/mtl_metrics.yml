@@ -1,52 +1,52 @@
 metadata:
   model_type: QW-MTL (Deep Learning)
-  mean_performance: 0.8432766547805173
+  mean_performance: 0.869744679568424
   features_used:
     DMPNN: true
-    Morgan: false
+    Morgan: true
     RDKit: true
     Quantum: true
   parameters:
-    lr: 0.0005
-    batch_size: 64
-    epochs_trained: 10
+    lr: 0.0001
+    batch_size: 128
+    epochs_trained: 50
 tasks:
   ames:
-    score: 0.8607910742649053
+    score: 0.8828884670514856
     metric: ROC-AUC
   bbb_martins:
-    score: 0.9230119634060521
+    score: 0.9411681914144968
     metric: ROC-AUC
   bioavailability_ma:
-    score: 0.6953242835595776
+    score: 0.6968325791855203
     metric: ROC-AUC
   cyp2c9_substrate_carbonmangels:
-    score: 0.6134453781512605
+    score: 0.6758703481392557
     metric: ROC-AUC
   cyp2c9_veith:
-    score: 0.8961301665713556
+    score: 0.8977940550208671
     metric: ROC-AUC
   cyp2d6_substrate_carbonmangels:
-    score: 0.807070707070707
+    score: 0.8303030303030303
     metric: ROC-AUC
   cyp2d6_veith:
-    score: 0.8645627876397107
+    score: 0.8953502812477172
     metric: ROC-AUC
   cyp3a4_substrate_carbonmangels:
-    score: 0.7173489278752436
+    score: 0.7729044834307992
     metric: ROC-AUC
   cyp3a4_veith:
-    score: 0.8862157136215714
+    score: 0.917769452823457
     metric: ROC-AUC
   dili:
-    score: 0.9241622574955908
+    score: 0.9700176366843033
     metric: ROC-AUC
   hERG_Karim:
-    score: 0.8803024832599792
+    score: 0.8986760819823552
     metric: ROC-AUC
   hia_hou:
-    score: 0.9615384615384616
+    score: 0.9935897435897436
     metric: ROC-AUC
   pgp_broccatelli:
-    score: 0.9326923076923077
+    score: 0.9335164835164835
     metric: ROC-AUC

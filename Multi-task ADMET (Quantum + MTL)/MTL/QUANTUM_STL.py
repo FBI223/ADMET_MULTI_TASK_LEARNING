@@ -28,7 +28,7 @@ class CFG:
 class FeatureConfig:
     """Panel sterowania - wybierasz te same cechy co w MTL."""
     USE_DMPNN = True
-    USE_MORGAN = False
+    USE_MORGAN = True
     USE_RDKIT = True
     USE_QUANTUM = True
 
