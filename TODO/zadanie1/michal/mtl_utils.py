@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt
 from rdkit import Chem
 from rdkit.Chem import rdFingerprintGenerator
 from sklearn.preprocessing import StandardScaler
@@ -33,22 +34,23 @@ class MTLDataset(Dataset):
 
 
 class MTLNet(nn.Module):
-    def __init__(self, input_dim, n_tasks):
+    def __init__(self, input_dim, n_tasks, *, head_neurons: int = 256):
         super().__init__()
         self.shared = nn.Sequential(
             nn.Linear(input_dim, 512),
             nn.ReLU(),
             nn.Dropout(0.5),
-            nn.Linear(512, 256),
+            nn.Linear(512, head_neurons),
             nn.ReLU(),
             nn.Dropout(0.5)
         )
-        self.heads = nn.ModuleList([nn.Linear(256, 1) for _ in range(n_tasks)])
+        self.heads = nn.ModuleList([nn.Linear(head_neurons, 1) for _ in range(n_tasks)])
 
     def forward(self, x):
-        z = self.shared(x)
-        return torch.cat([h(z) for h in self.heads], dim=1)
-
+        shared_rep = self.shared(x)
+        # Przelewamy wspólną reprezentację przez każdą z głowic
+        logits = torch.cat([head(shared_rep) for head in self.heads], dim=1)
+        return logits
 
 def masked_loss(logits, y, mask):
     loss = F.binary_cross_entropy_with_logits(logits, y, reduction='none')
@@ -179,3 +181,77 @@ def permutation_importance_mtl(model, loader, device, feature_names):
         X_test[:, i] = hold
 
     return pd.DataFrame({'feature': feature_names, 'importance': imps}).sort_values('importance', ascending=False)
+
+
+def plot_comprehensive_head_experiment(results, head_sizes, tasks, epochs):
+    epochs_range = range(1, epochs + 1)
+    colors = {64: 'tab:blue', 128: 'tab:green', 256: 'tab:red'}
+    fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 6))
+
+    # Lewy wykres: MTL Train Loss vs Val Loss
+    for size in head_sizes:
+        ax1.plot(epochs_range, results[size]['mtl_history']['train_loss'],
+                 label=f'Train Loss ({size})', color=colors[size], linewidth=2, linestyle='-')
+        ax1.plot(epochs_range, results[size]['mtl_history']['val_loss'],
+                 label=f'Val Loss ({size})', color=colors[size], linewidth=2, linestyle='--', alpha=0.7)
+
+    ax1.set_title('MTL Loss (Train - ciągła, Val - przerywana)', fontsize=14, fontweight='bold')
+    ax1.set_xlabel('Epoka', fontsize=12)
+    ax1.set_ylabel('Loss (BCE)', fontsize=12)
+    ax1.legend(loc='upper right')
+    ax1.grid(True, linestyle='--', alpha=0.6)
+
+    # Prawy wykres: MTL vs STL (Średnie Val AUC)
+    for size in head_sizes:
+        ax2.plot(epochs_range, results[size]['mtl_history']['val_auc_avg'],
+                 label=f'MTL Avg AUC ({size})', color=colors[size], linewidth=2.5, linestyle='-')
+        ax2.plot(epochs_range, results[size]['stl_history']['val_auc_avg'],
+                 label=f'STL Avg AUC ({size})', color=colors[size], linewidth=2, linestyle='--', alpha=0.7)
+
+    ax2.set_title('Średnie Val AUC (MTL - ciągła, STL - przerywana)', fontsize=14, fontweight='bold')
+    ax2.set_xlabel('Epoka', fontsize=12)
+    ax2.set_ylabel('ROC-AUC', fontsize=12)
+    ax2.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax2.grid(True, linestyle='--', alpha=0.6)
+
+    plt.tight_layout()
+    plt.show()
+
+    # FIGURA 2: SIATKA WYNIKÓW DLA KAŻDEGO TASKU
+    cols = 4
+    rows = int(np.ceil(len(tasks) / cols))
+
+    fig2, axes = plt.subplots(rows, cols, figsize=(18, 4 * rows))
+    axes = axes.flatten()
+
+    for i, task in enumerate(tasks):
+        ax = axes[i]
+
+        # Rysujemy 6 linii dla każdego tasku (3 rozmiary x 2 modele)
+        for size in head_sizes:
+            mtl_vals = results[size]['mtl_history']['val_aucs_per_task'][task]
+            stl_vals = results[size]['stl_history']['val_aucs_per_task'][task]
+
+            ax.plot(epochs_range, mtl_vals, label=f'MTL ({size})', color=colors[size], linestyle='-', linewidth=2)
+            ax.plot(epochs_range, stl_vals, label=f'STL ({size})', color=colors[size], linestyle='--', linewidth=2,
+                    alpha=0.7)
+
+        ax.set_title(task, fontsize=12, fontweight='bold')
+        ax.grid(True, linestyle='--', alpha=0.5)
+
+        # Dodajemy oś Y tylko do lewej kolumny
+        if i % cols == 0:
+            ax.set_ylabel('Val AUC')
+
+        # Legendę dajemy tylko na pierwszym wykresie, żeby nie śmiecić
+        if i == 0:
+            ax.legend(fontsize=9, loc='lower right')
+
+    # Usuwamy puste wykresy na końcu siatki
+    for j in range(len(tasks), len(axes)):
+        fig2.delaxes(axes[j])
+
+    plt.suptitle('Analiza per Task: Wpływ wielkości głowicy i architektury (MTL vs STL)', fontsize=16,
+                 fontweight='bold', y=1.02)
+    plt.tight_layout()
+    plt.show()
