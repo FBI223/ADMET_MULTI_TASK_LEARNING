@@ -1,0 +1,386 @@
+/home/sztukowski/miniconda3/bin/conda run -n admet-mtl-v2 --no-capture-output python /mnt/c/Users/msztu/Documents/PythonProject/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/train.py
+
+>>> Przygotowanie Master Cache (zapewnienie kompletności danych)...
+
+>>> Wczytywanie Master Cache: f7a2abf8...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=False
+>>> Dane w cache są gotowe.
+
+
+>>> Wczytywanie Master Cache: f7a2abf8...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=False
+
+>>> Trenowanie XGBoost (STL)...
+
+>>> Trenowanie 13 modeli XGBoost (Single-Task)...
+XGBoost cyp2c19_veith: AUROC = 0.7710
+XGBoost cyp2d6_veith: AUROC = 0.7382
+XGBoost cyp3a4_veith: AUROC = 0.7726
+XGBoost cyp1a2_veith: AUROC = 0.8464
+XGBoost cyp2c9_veith: AUROC = 0.8044
+XGBoost hia_hou: AUROC = 0.9137
+XGBoost pgp_broccatelli: AUROC = 0.8987
+XGBoost bbb_martins: AUROC = 0.8098
+XGBoost herg: AUROC = 0.7447
+XGBoost dili: AUROC = 0.8041
+
+>>> Trenowanie STL GNN...
+
+>>> STL: cyp2c19_veith
+Epoch 1 | Loss: 162.6672 | Val AUC: 0.8049
+Epoch 2 | Loss: 147.4072 | Val AUC: 0.8453
+Epoch 3 | Loss: 142.3336 | Val AUC: 0.8662
+Epoch 4 | Loss: 137.9693 | Val AUC: 0.8477
+Epoch 5 | Loss: 136.5020 | Val AUC: 0.8583
+Epoch 6 | Loss: 140.0360 | Val AUC: 0.8440
+Epoch 7 | Loss: 137.2657 | Val AUC: 0.8565
+Epoch 8 | Loss: 132.4616 | Val AUC: 0.8691
+Epoch 9 | Loss: 129.1116 | Val AUC: 0.8531
+Epoch 10 | Loss: 128.5781 | Val AUC: 0.8708
+Epoch 11 | Loss: 126.4539 | Val AUC: 0.8796
+Epoch 12 | Loss: 126.7949 | Val AUC: 0.8577
+Epoch 13 | Loss: 125.6220 | Val AUC: 0.8827
+Epoch 14 | Loss: 124.1226 | Val AUC: 0.8796
+Epoch 15 | Loss: 122.5900 | Val AUC: 0.8828
+Epoch 16 | Loss: 121.7361 | Val AUC: 0.8861
+Epoch 17 | Loss: 121.7973 | Val AUC: 0.8798
+Epoch 18 | Loss: 119.8054 | Val AUC: 0.8849
+Epoch 19 | Loss: 119.3628 | Val AUC: 0.8835
+Epoch 20 | Loss: 119.1092 | Val AUC: 0.8863
+Epoch 21 | Loss: 117.6476 | Val AUC: 0.8819
+Epoch 22 | Loss: 117.6498 | Val AUC: 0.8747
+Epoch 23 | Loss: 116.4533 | Val AUC: 0.8871
+Epoch 24 | Loss: 114.6681 | Val AUC: 0.8709
+Epoch 25 | Loss: 114.5448 | Val AUC: 0.8870
+Epoch 26 | Loss: 111.8553 | Val AUC: 0.8871
+Epoch 27 | Loss: 112.2582 | Val AUC: 0.8915
+Epoch 28 | Loss: 110.1398 | Val AUC: 0.8733
+Epoch 29 | Loss: 111.0591 | Val AUC: 0.8951
+Epoch 30 | Loss: 107.3345 | Val AUC: 0.8874
+TEST cyp2c19_veith: AUC = 0.8764
+
+>>> STL: cyp2d6_veith
+Epoch 1 | Loss: 124.3037 | Val AUC: 0.7748
+Epoch 2 | Loss: 113.0482 | Val AUC: 0.8177
+Epoch 3 | Loss: 109.3383 | Val AUC: 0.8103
+Epoch 4 | Loss: 105.9135 | Val AUC: 0.8295
+Epoch 5 | Loss: 104.1087 | Val AUC: 0.8360
+Epoch 6 | Loss: 102.3615 | Val AUC: 0.8289
+Epoch 7 | Loss: 101.2543 | Val AUC: 0.8423
+Epoch 8 | Loss: 98.3117 | Val AUC: 0.8436
+Epoch 9 | Loss: 97.9646 | Val AUC: 0.8508
+Epoch 10 | Loss: 97.0289 | Val AUC: 0.8583
+Epoch 11 | Loss: 95.6999 | Val AUC: 0.8537
+Epoch 12 | Loss: 93.6577 | Val AUC: 0.8559
+Epoch 13 | Loss: 94.0451 | Val AUC: 0.8695
+Epoch 14 | Loss: 92.9369 | Val AUC: 0.8647
+Epoch 15 | Loss: 91.5599 | Val AUC: 0.8716
+Epoch 16 | Loss: 91.1585 | Val AUC: 0.8674
+Epoch 17 | Loss: 89.5453 | Val AUC: 0.8649
+Epoch 18 | Loss: 89.0432 | Val AUC: 0.8553
+Epoch 19 | Loss: 87.6958 | Val AUC: 0.8629
+Epoch 20 | Loss: 87.2186 | Val AUC: 0.8730
+Epoch 21 | Loss: 85.9626 | Val AUC: 0.8584
+Epoch 22 | Loss: 84.7258 | Val AUC: 0.8659
+Epoch 23 | Loss: 85.1361 | Val AUC: 0.8602
+Epoch 24 | Loss: 84.1829 | Val AUC: 0.8806
+Epoch 25 | Loss: 82.8488 | Val AUC: 0.8729
+Epoch 26 | Loss: 80.9380 | Val AUC: 0.8695
+Epoch 27 | Loss: 80.3955 | Val AUC: 0.8824
+Epoch 28 | Loss: 78.4735 | Val AUC: 0.8737
+Epoch 29 | Loss: 77.6885 | Val AUC: 0.8624
+Epoch 30 | Loss: 76.8285 | Val AUC: 0.8820
+TEST cyp2d6_veith: AUC = 0.8551
+
+>>> STL: cyp3a4_veith
+Epoch 1 | Loss: 152.9992 | Val AUC: 0.7992
+Epoch 2 | Loss: 140.9514 | Val AUC: 0.8149
+Epoch 3 | Loss: 137.5297 | Val AUC: 0.8430
+Epoch 4 | Loss: 131.3578 | Val AUC: 0.8225
+Epoch 5 | Loss: 128.5117 | Val AUC: 0.8383
+Epoch 6 | Loss: 129.8778 | Val AUC: 0.8517
+Epoch 7 | Loss: 124.2239 | Val AUC: 0.8538
+Epoch 8 | Loss: 121.6239 | Val AUC: 0.8514
+Epoch 9 | Loss: 122.0360 | Val AUC: 0.8390
+Epoch 10 | Loss: 118.9597 | Val AUC: 0.8645
+Epoch 11 | Loss: 116.9820 | Val AUC: 0.8636
+Epoch 12 | Loss: 115.8034 | Val AUC: 0.8746
+Epoch 13 | Loss: 117.6028 | Val AUC: 0.8515
+Epoch 14 | Loss: 117.1971 | Val AUC: 0.8792
+Epoch 15 | Loss: 113.1110 | Val AUC: 0.8711
+Epoch 16 | Loss: 111.6262 | Val AUC: 0.8813
+Epoch 17 | Loss: 108.8979 | Val AUC: 0.8858
+Epoch 18 | Loss: 107.6480 | Val AUC: 0.8806
+Epoch 19 | Loss: 107.6971 | Val AUC: 0.8833
+Epoch 20 | Loss: 104.5825 | Val AUC: 0.8782
+Epoch 21 | Loss: 103.5905 | Val AUC: 0.8829
+Epoch 22 | Loss: 104.4078 | Val AUC: 0.8874
+Epoch 23 | Loss: 101.4917 | Val AUC: 0.8993
+Epoch 24 | Loss: 99.0241 | Val AUC: 0.8747
+Epoch 25 | Loss: 99.9028 | Val AUC: 0.8944
+Epoch 26 | Loss: 98.7855 | Val AUC: 0.8818
+Epoch 27 | Loss: 95.9153 | Val AUC: 0.8863
+Epoch 28 | Loss: 95.9567 | Val AUC: 0.8863
+Epoch 29 | Loss: 93.1665 | Val AUC: 0.8884
+Epoch 30 | Loss: 95.6602 | Val AUC: 0.8946
+TEST cyp3a4_veith: AUC = 0.8830
+
+>>> STL: cyp1a2_veith
+Epoch 1 | Loss: 138.7738 | Val AUC: 0.8754
+Epoch 2 | Loss: 125.4933 | Val AUC: 0.8841
+Epoch 3 | Loss: 119.2019 | Val AUC: 0.8934
+Epoch 4 | Loss: 116.8919 | Val AUC: 0.8990
+Epoch 5 | Loss: 112.8270 | Val AUC: 0.8833
+Epoch 6 | Loss: 111.7128 | Val AUC: 0.9095
+Epoch 7 | Loss: 109.3490 | Val AUC: 0.9063
+Epoch 8 | Loss: 108.0103 | Val AUC: 0.9009
+Epoch 9 | Loss: 106.9120 | Val AUC: 0.9064
+Epoch 10 | Loss: 104.5782 | Val AUC: 0.9023
+Epoch 11 | Loss: 101.7629 | Val AUC: 0.8653
+Epoch 12 | Loss: 102.3772 | Val AUC: 0.9137
+Epoch 13 | Loss: 99.9406 | Val AUC: 0.9159
+Epoch 14 | Loss: 98.9030 | Val AUC: 0.9153
+Epoch 15 | Loss: 98.4989 | Val AUC: 0.9120
+Epoch 16 | Loss: 96.6204 | Val AUC: 0.9024
+Epoch 17 | Loss: 96.0423 | Val AUC: 0.9133
+Epoch 18 | Loss: 93.5502 | Val AUC: 0.9156
+Epoch 19 | Loss: 92.8711 | Val AUC: 0.9112
+Epoch 20 | Loss: 91.7450 | Val AUC: 0.9181
+Epoch 21 | Loss: 91.1368 | Val AUC: 0.9091
+Epoch 22 | Loss: 88.1893 | Val AUC: 0.9085
+Epoch 23 | Loss: 88.5902 | Val AUC: 0.9132
+Epoch 24 | Loss: 87.9733 | Val AUC: 0.9149
+Epoch 25 | Loss: 85.5013 | Val AUC: 0.9255
+Epoch 26 | Loss: 86.2174 | Val AUC: 0.9100
+Epoch 27 | Loss: 83.7727 | Val AUC: 0.9223
+Epoch 28 | Loss: 84.4658 | Val AUC: 0.9182
+Epoch 29 | Loss: 81.1684 | Val AUC: 0.9131
+Epoch 30 | Loss: 80.9427 | Val AUC: 0.9163
+TEST cyp1a2_veith: AUC = 0.9304
+
+>>> STL: cyp2c9_veith
+Epoch 1 | Loss: 148.8364 | Val AUC: 0.8250
+Epoch 2 | Loss: 139.5844 | Val AUC: 0.8565
+Epoch 3 | Loss: 134.9638 | Val AUC: 0.8679
+Epoch 4 | Loss: 131.6681 | Val AUC: 0.8539
+Epoch 5 | Loss: 129.8081 | Val AUC: 0.8633
+Epoch 6 | Loss: 129.6927 | Val AUC: 0.8595
+Epoch 7 | Loss: 127.5080 | Val AUC: 0.8579
+Epoch 8 | Loss: 125.4332 | Val AUC: 0.8624
+Epoch 9 | Loss: 123.5073 | Val AUC: 0.8669
+Epoch 10 | Loss: 122.6176 | Val AUC: 0.8838
+Epoch 11 | Loss: 121.0782 | Val AUC: 0.8667
+Epoch 12 | Loss: 120.1938 | Val AUC: 0.8728
+Epoch 13 | Loss: 116.7266 | Val AUC: 0.8806
+Epoch 14 | Loss: 117.6438 | Val AUC: 0.8861
+Epoch 15 | Loss: 115.0111 | Val AUC: 0.8816
+Epoch 16 | Loss: 113.6574 | Val AUC: 0.8827
+Epoch 17 | Loss: 113.2653 | Val AUC: 0.8826
+Epoch 18 | Loss: 112.3392 | Val AUC: 0.8901
+Epoch 19 | Loss: 111.0229 | Val AUC: 0.8854
+Epoch 20 | Loss: 114.4855 | Val AUC: 0.8847
+Epoch 21 | Loss: 110.9714 | Val AUC: 0.8923
+Epoch 22 | Loss: 106.0216 | Val AUC: 0.8800
+Epoch 23 | Loss: 105.4268 | Val AUC: 0.8866
+Epoch 24 | Loss: 105.3487 | Val AUC: 0.8956
+Epoch 25 | Loss: 103.0395 | Val AUC: 0.8788
+Epoch 26 | Loss: 101.8387 | Val AUC: 0.8955
+Epoch 27 | Loss: 102.6611 | Val AUC: 0.8303
+Epoch 28 | Loss: 99.5513 | Val AUC: 0.8913
+Epoch 29 | Loss: 98.6647 | Val AUC: 0.8949
+Epoch 30 | Loss: 98.9609 | Val AUC: 0.8875
+TEST cyp2c9_veith: AUC = 0.8817
+
+>>> STL: hia_hou
+Epoch 1 | Loss: 86.1158 | Val AUC: 0.7500
+Epoch 2 | Loss: 81.0029 | Val AUC: 0.8237
+Epoch 3 | Loss: 59.5570 | Val AUC: 0.7244
+Epoch 4 | Loss: 50.6169 | Val AUC: 0.8333
+Epoch 5 | Loss: 36.8005 | Val AUC: 0.7724
+Epoch 6 | Loss: 34.8600 | Val AUC: 0.9231
+Epoch 7 | Loss: 42.9069 | Val AUC: 0.9423
+Epoch 8 | Loss: 30.8623 | Val AUC: 0.9103
+Epoch 9 | Loss: 32.7137 | Val AUC: 0.9167
+Epoch 10 | Loss: 38.4677 | Val AUC: 0.7981
+Epoch 11 | Loss: 30.4087 | Val AUC: 0.9167
+Epoch 12 | Loss: 18.1504 | Val AUC: 0.8846
+Epoch 13 | Loss: 40.6344 | Val AUC: 0.8974
+Epoch 14 | Loss: 24.5413 | Val AUC: 0.8942
+Epoch 15 | Loss: 27.4644 | Val AUC: 0.8910
+Early stopping
+TEST hia_hou: AUC = 0.9767
+
+>>> STL: pgp_broccatelli
+Epoch 1 | Loss: 119.8725 | Val AUC: 0.8707
+Epoch 2 | Loss: 119.0575 | Val AUC: 0.8609
+Epoch 3 | Loss: 110.7706 | Val AUC: 0.8628
+Epoch 4 | Loss: 97.5326 | Val AUC: 0.8731
+Epoch 5 | Loss: 101.1465 | Val AUC: 0.8850
+Epoch 6 | Loss: 97.7085 | Val AUC: 0.8874
+Epoch 7 | Loss: 93.5458 | Val AUC: 0.8912
+Epoch 8 | Loss: 87.9081 | Val AUC: 0.8498
+Epoch 9 | Loss: 92.6863 | Val AUC: 0.9040
+Epoch 10 | Loss: 85.5103 | Val AUC: 0.8888
+Epoch 11 | Loss: 83.4150 | Val AUC: 0.8415
+Epoch 12 | Loss: 85.9852 | Val AUC: 0.8793
+Epoch 13 | Loss: 81.7765 | Val AUC: 0.8528
+Epoch 14 | Loss: 83.1571 | Val AUC: 0.9021
+Epoch 15 | Loss: 75.2691 | Val AUC: 0.9031
+Epoch 16 | Loss: 86.4445 | Val AUC: 0.9040
+Epoch 17 | Loss: 86.0580 | Val AUC: 0.8923
+Epoch 18 | Loss: 84.6872 | Val AUC: 0.8820
+Epoch 19 | Loss: 86.4470 | Val AUC: 0.9007
+Epoch 20 | Loss: 86.3910 | Val AUC: 0.8991
+Epoch 21 | Loss: 86.8081 | Val AUC: 0.8880
+Epoch 22 | Loss: 79.5496 | Val AUC: 0.9056
+Epoch 23 | Loss: 79.5123 | Val AUC: 0.8937
+Epoch 24 | Loss: 78.1716 | Val AUC: 0.9029
+Epoch 25 | Loss: 74.9215 | Val AUC: 0.8980
+Epoch 26 | Loss: 71.9308 | Val AUC: 0.9002
+Epoch 27 | Loss: 64.5819 | Val AUC: 0.8969
+Epoch 28 | Loss: 72.4946 | Val AUC: 0.9196
+Epoch 29 | Loss: 67.0935 | Val AUC: 0.8945
+Epoch 30 | Loss: 69.1582 | Val AUC: 0.9161
+TEST pgp_broccatelli: AUC = 0.8929
+
+>>> STL: bbb_martins
+Epoch 1 | Loss: 122.6473 | Val AUC: 0.8004
+Epoch 2 | Loss: 111.6870 | Val AUC: 0.8878
+Epoch 3 | Loss: 113.5357 | Val AUC: 0.8951
+Epoch 4 | Loss: 105.8160 | Val AUC: 0.8421
+Epoch 5 | Loss: 103.5221 | Val AUC: 0.8933
+Epoch 6 | Loss: 95.8684 | Val AUC: 0.8830
+Epoch 7 | Loss: 96.9243 | Val AUC: 0.9063
+Epoch 8 | Loss: 98.2715 | Val AUC: 0.8848
+Epoch 9 | Loss: 93.1999 | Val AUC: 0.9013
+Epoch 10 | Loss: 94.4688 | Val AUC: 0.9102
+Epoch 11 | Loss: 83.8750 | Val AUC: 0.8064
+Epoch 12 | Loss: 82.8162 | Val AUC: 0.8782
+Epoch 13 | Loss: 91.4597 | Val AUC: 0.8704
+Epoch 14 | Loss: 87.2520 | Val AUC: 0.8977
+Epoch 15 | Loss: 85.9084 | Val AUC: 0.8922
+Epoch 16 | Loss: 81.1827 | Val AUC: 0.8919
+Epoch 17 | Loss: 84.4542 | Val AUC: 0.9072
+Epoch 18 | Loss: 82.5507 | Val AUC: 0.9026
+Early stopping
+TEST bbb_martins: AUC = 0.8463
+
+>>> STL: herg
+Epoch 1 | Loss: 125.3461 | Val AUC: 0.7098
+Epoch 2 | Loss: 120.0213 | Val AUC: 0.7381
+Epoch 3 | Loss: 103.9622 | Val AUC: 0.7300
+Epoch 4 | Loss: 106.7760 | Val AUC: 0.7472
+Epoch 5 | Loss: 99.0911 | Val AUC: 0.7492
+Epoch 6 | Loss: 95.8863 | Val AUC: 0.7128
+Epoch 7 | Loss: 103.3065 | Val AUC: 0.7422
+Epoch 8 | Loss: 96.0310 | Val AUC: 0.7472
+Epoch 9 | Loss: 93.2721 | Val AUC: 0.7674
+Epoch 10 | Loss: 93.8186 | Val AUC: 0.7695
+Epoch 11 | Loss: 99.0733 | Val AUC: 0.8008
+Epoch 12 | Loss: 85.3676 | Val AUC: 0.8099
+Epoch 13 | Loss: 89.1071 | Val AUC: 0.7998
+Epoch 14 | Loss: 87.2227 | Val AUC: 0.7947
+Epoch 15 | Loss: 85.9843 | Val AUC: 0.7017
+Epoch 16 | Loss: 80.0579 | Val AUC: 0.8038
+Epoch 17 | Loss: 87.8154 | Val AUC: 0.7856
+Epoch 18 | Loss: 81.5752 | Val AUC: 0.8119
+Epoch 19 | Loss: 76.0104 | Val AUC: 0.8028
+Epoch 20 | Loss: 86.3816 | Val AUC: 0.8049
+Epoch 21 | Loss: 77.9478 | Val AUC: 0.8008
+Epoch 22 | Loss: 83.6407 | Val AUC: 0.7937
+Epoch 23 | Loss: 70.0238 | Val AUC: 0.7897
+Epoch 24 | Loss: 79.8665 | Val AUC: 0.8190
+Epoch 25 | Loss: 71.3504 | Val AUC: 0.8160
+Epoch 26 | Loss: 65.1931 | Val AUC: 0.8089
+Epoch 27 | Loss: 73.4486 | Val AUC: 0.8261
+Epoch 28 | Loss: 68.5213 | Val AUC: 0.7927
+Epoch 29 | Loss: 79.0830 | Val AUC: 0.8119
+Epoch 30 | Loss: 77.0712 | Val AUC: 0.8119
+TEST herg: AUC = 0.8496
+
+>>> STL: dili
+Epoch 1 | Loss: 121.7915 | Val AUC: 0.8430
+Epoch 2 | Loss: 107.3325 | Val AUC: 0.8836
+Epoch 3 | Loss: 112.7752 | Val AUC: 0.8730
+Epoch 4 | Loss: 90.6015 | Val AUC: 0.8607
+Epoch 5 | Loss: 92.1537 | Val AUC: 0.8677
+Epoch 6 | Loss: 85.4393 | Val AUC: 0.8783
+Epoch 7 | Loss: 97.7275 | Val AUC: 0.8624
+Epoch 8 | Loss: 85.7911 | Val AUC: 0.8942
+Epoch 9 | Loss: 94.7969 | Val AUC: 0.8448
+Epoch 10 | Loss: 82.5717 | Val AUC: 0.8889
+Epoch 11 | Loss: 83.6166 | Val AUC: 0.8448
+Epoch 12 | Loss: 91.0241 | Val AUC: 0.8836
+Epoch 13 | Loss: 85.3962 | Val AUC: 0.8713
+Epoch 14 | Loss: 80.0547 | Val AUC: 0.8571
+Epoch 15 | Loss: 77.5562 | Val AUC: 0.8201
+Epoch 16 | Loss: 81.3308 | Val AUC: 0.9048
+Epoch 17 | Loss: 77.5206 | Val AUC: 0.9136
+Epoch 18 | Loss: 78.8088 | Val AUC: 0.8571
+Epoch 19 | Loss: 83.3023 | Val AUC: 0.8836
+Epoch 20 | Loss: 82.6265 | Val AUC: 0.8395
+Epoch 21 | Loss: 64.3039 | Val AUC: 0.8695
+Epoch 22 | Loss: 77.0109 | Val AUC: 0.8589
+Epoch 23 | Loss: 76.8630 | Val AUC: 0.8695
+Epoch 24 | Loss: 77.4291 | Val AUC: 0.8395
+Epoch 25 | Loss: 69.2741 | Val AUC: 0.8236
+Early stopping
+TEST dili: AUC = 0.8333
+
+>>> Trenowanie GNN (MTL)...
+
+=== ANALIZA DEBUGUJĄCA: EPOKA 0 (Pierwszy Batch) ===
+Node features (x) - Min: -1.0000, Max: 35.0000, NaN: False
+Po GIN Layer 0 - Max: 11.2378, NaN: False
+Po GIN Layer 1 - Max: 6.0902, NaN: False
+Po GIN Layer 2 - Max: 4.0907, NaN: False
+=== KONIEC ANALIZY ===
+
+Epoch 1/30 | Loss: 0.4791 | Val AUC: 0.8204
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8204)
+Epoch 2/30 | Loss: 0.4326 | Val AUC: 0.8335
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8335)
+Epoch 3/30 | Loss: 0.4105 | Val AUC: 0.8461
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8461)
+Epoch 4/30 | Loss: 0.3990 | Val AUC: 0.8706
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8706)
+Epoch 5/30 | Loss: 0.3905 | Val AUC: 0.8706
+Epoch 6/30 | Loss: 0.3815 | Val AUC: 0.8814
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8814)
+Epoch 7/30 | Loss: 0.3771 | Val AUC: 0.8816
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8816)
+Epoch 8/30 | Loss: 0.3666 | Val AUC: 0.8772
+Epoch 9/30 | Loss: 0.3595 | Val AUC: 0.8739
+Epoch 10/30 | Loss: 0.3550 | Val AUC: 0.8616
+Epoch 11/30 | Loss: 0.3488 | Val AUC: 0.8788
+Epoch 12/30 | Loss: 0.3272 | Val AUC: 0.8932
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8932)
+Epoch 13/30 | Loss: 0.3178 | Val AUC: 0.9003
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.9003)
+Epoch 14/30 | Loss: 0.3145 | Val AUC: 0.9010
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.9010)
+Epoch 15/30 | Loss: 0.3113 | Val AUC: 0.8991
+Epoch 16/30 | Loss: 0.3045 | Val AUC: 0.8991
+Epoch 17/30 | Loss: 0.3024 | Val AUC: 0.8986
+Epoch 18/30 | Loss: 0.2976 | Val AUC: 0.9000
+Epoch 19/30 | Loss: 0.2815 | Val AUC: 0.9018
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.9018)
+Epoch 20/30 | Loss: 0.2763 | Val AUC: 0.9017
+Epoch 21/30 | Loss: 0.2730 | Val AUC: 0.9056
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.9056)
+Epoch 22/30 | Loss: 0.2689 | Val AUC: 0.9027
+Epoch 23/30 | Loss: 0.2673 | Val AUC: 0.9026
+Epoch 24/30 | Loss: 0.2639 | Val AUC: 0.9060
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.9060)
+Epoch 25/30 | Loss: 0.2606 | Val AUC: 0.9055
+Epoch 26/30 | Loss: 0.2587 | Val AUC: 0.9048
+Epoch 27/30 | Loss: 0.2552 | Val AUC: 0.9052
+Epoch 28/30 | Loss: 0.2516 | Val AUC: 0.9043
+Epoch 29/30 | Loss: 0.2425 | Val AUC: 0.9051
+Epoch 30/30 | Loss: 0.2417 | Val AUC: 0.9049
+
+>>> Wczytywanie najlepszego modelu z epoki 24 do finalnej ewaluacji...
+
+GOTOWE! Najlepszy model: results_default/best_mtl_model.pt
+
+Process finished with exit code 0
