@@ -386,7 +386,7 @@ def main():
 
     # --- NOWE: MECHANIZMY KONTROLNE ---
     # Scheduler: zmniejsza LR o połowę, jeśli AUC nie rośnie przez 3 epoki
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(opt, mode='max', factor=0.5, patience=3, verbose=True)
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(opt, mode='max', factor=0.5, patience=3)
 
     best_val_auc = 0
     patience_counter = 0
@@ -442,8 +442,8 @@ def main():
 
     # --- NOWE: WCZYTANIE NAJLEPSZEGO MODELU PRZED TESTAMI ---
     print(
-        f"\n>>> Wczytywanie najlepszego modelu z epoki {torch.load(model_path)['epoch'] + 1} do finalnej ewaluacji...")
-    checkpoint = torch.load(model_path)
+        f"\n>>> Wczytywanie najlepszego modelu z epoki {torch.load(model_path, weights_only=False)['epoch'] + 1} do finalnej ewaluacji...")
+    checkpoint = torch.load(model_path, weights_only=False)
     mtl_model.load_state_dict(checkpoint['model_state_dict'])
 
     # 4. Ewaluacja końcowa na zbiorze testowym
@@ -565,7 +565,7 @@ def run_experiments():
         plot_training_results(history, title=f"MTL Training - {exp_label}")
 
         # Testowanie najlepszego modelu
-        model.load_state_dict(torch.load(os.path.join(cfg.results_dir, "best_model.pt")))
+        model.load_state_dict(torch.load(os.path.join(cfg.results_dir, "best_model.pt"), weights_only=False))
         y_true_t, y_pred_t = get_predictions_and_labels(model, test_loader, cfg)
         test_scores = evaluate_per_task(y_true_t, y_pred_t, cfg.tasks)
         final_avg_auc = np.mean(list(test_scores.values()))

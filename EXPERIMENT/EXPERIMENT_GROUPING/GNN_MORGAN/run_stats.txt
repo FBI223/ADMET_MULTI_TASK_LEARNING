@@ -1,0 +1,49 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=False, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=True
+Wymiary: node=9, morgan=1024, rdkit=217
+
+>>> MTL GNN + Grouped backbone...
+
+>>> Start treningu MTL z Grouped backbone (60 epok max)...
+    CYP backbone (5):   ['cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith']
+    Other backbone (8): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Epoch 01 | Loss: 0.4469 | Val AUC: 0.8311
+  >>> Nowy najlepszy model (AUC: 0.8311)
+Epoch 02 | Loss: 0.3586 | Val AUC: 0.8801
+  >>> Nowy najlepszy model (AUC: 0.8801)
+Epoch 03 | Loss: 0.3159 | Val AUC: 0.8577
+Epoch 04 | Loss: 0.2797 | Val AUC: 0.8700
+Epoch 05 | Loss: 0.2495 | Val AUC: 0.8654
+Epoch 06 | Loss: 0.2202 | Val AUC: 0.8728
+Epoch 07 | Loss: 0.1701 | Val AUC: 0.8719
+Epoch 08 | Loss: 0.1479 | Val AUC: 0.8737
+Epoch 09 | Loss: 0.1360 | Val AUC: 0.8688
+Epoch 10 | Loss: 0.1229 | Val AUC: 0.8682
+  !!! Early Stopping po 10 epokach.
+
+>>> Wczytano model z epoki 2 (Val AUC: 0.8801)
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_GROUPED  MTL_GNN  STL_GNN  XGBoost
+        hia_hou         0.865437 0.934346 0.884428 0.930005
+pgp_broccatelli         0.917288 0.907680 0.912854 0.893570
+    bbb_martins         0.882390 0.877071 0.840062 0.865247
+  cyp2c19_veith         0.899088 0.897270 0.861776 0.862146
+   cyp2d6_veith         0.847473 0.862128 0.834805 0.837117
+   cyp3a4_veith         0.885444 0.884521 0.868449 0.858367
+   cyp1a2_veith         0.919515 0.922323 0.916712 0.904450
+   cyp2c9_veith         0.904119 0.906220 0.871837 0.865215
+           herg         0.818336 0.843383 0.825758 0.857607
+           dili         0.834663 0.830230 0.777039 0.841755
+  skin_reaction         0.668367 0.621173 0.674107 0.727041
+           ames         0.869402 0.876405 0.872490 0.873524
+        clintox         0.813649 0.804841 0.769991 0.880438
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_GROUPING/GNN_MORGAN/final_results.csv

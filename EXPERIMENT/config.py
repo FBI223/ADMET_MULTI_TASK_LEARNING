@@ -73,8 +73,8 @@ class Config:
         self.hidden_dim = 128
         self.batch_size = 64
         self.lr = 0.001
-        self.epochs = 30
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.epochs = 60
+        self.device = torch.device('cpu')
 
         # --- STRUKTURA FOLDERÓW (Kluczowa poprawka!) ---
         self.base_dir = "experiments_results"

@@ -202,7 +202,7 @@ def smiles_to_graph(smiles, y_labels):
             atom.GetDegree(),  # Liczba sąsiadów
             atom.GetFormalCharge(),  # Ładunek formalny
             float(atom.GetIsAromatic()),  # Czy aromatyczny (0/1)
-            atom.GetValence(Chem.ValenceType.IMPLICIT),  # Wartościowość implikowana (NOWE API)
+            atom.GetImplicitValence(),  # Wartościowość implikowana
             int(atom.GetHybridization()),  # Typ hybrydyzacji (jako int z Enum)
             atom.GetNumRadicalElectrons(),  # Liczba niesparowanych elektronów
             atom.GetMass() * 0.01,  # Masa atomowa (skalowana dla stabilności)
@@ -306,9 +306,18 @@ def get_full_data(config):
     # 2. PRÓBA ODCZYTU LUB GENEROWANIA
     if os.path.exists(master_cache_path) and os.path.exists(df_cache_path):
         print(f"\n>>> Wczytywanie Master Cache: {task_hash[:8]}...")
-        all_data = torch.load(master_cache_path)
-        raw_train_df = pd.read_pickle(df_cache_path)
-    else:
+        try:
+            all_data = torch.load(master_cache_path, weights_only=False)
+            raw_train_df = pd.read_pickle(df_cache_path)
+        except Exception as e:
+            print(f">>> Cache niekompatybilny ({type(e).__name__}), regeneruję...")
+            for p in (master_cache_path, df_cache_path):
+                if os.path.exists(p):
+                    os.remove(p)
+            all_data = None
+            raw_train_df = None
+
+    if all_data is None:
         print(f"\n>>> Master Cache nie znaleziony. Obliczam WSZYSTKIE cechy (RDKit + Morgan + Graph)...")
 
         # Pobieranie danych z TDC (łączone DataFrame)
@@ -393,7 +402,7 @@ def get_full_data_old(config):
     # 1. PRÓBA ODCZYTU Z CACHE
     if os.path.exists(cache_path) and os.path.exists(df_cache_path):
         print(f"\n>>> Wczytywanie danych z cache: {cache_hash[:8]}...")
-        processed_datasets = torch.load(cache_path)
+        processed_datasets = torch.load(cache_path, weights_only=False)
         raw_train_df = pd.read_pickle(df_cache_path)
     else:
         print(f"\n>>> Cache nie znaleziony. Rozpoczynam pełne przetwarzanie (Tasks: {len(config.tasks)})...")

@@ -1,0 +1,14 @@
+Task,pos_weight
+hia_hou,0.14971751
+pgp_broccatelli,0.8503254
+bbb_martins,0.2980857
+cyp2c19_veith,1.1820866
+cyp2d6_veith,4.2044168
+cyp3a4_veith,1.4122415
+cyp1a2_veith,1.1689655
+cyp2c9_veith,2.0088842
+herg,0.48397437
+dili,1.0426829
+skin_reaction,0.44387755
+ames,0.8474638
+clintox,12.113924

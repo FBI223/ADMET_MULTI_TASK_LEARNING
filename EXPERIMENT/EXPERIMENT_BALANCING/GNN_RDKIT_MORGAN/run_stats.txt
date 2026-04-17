@@ -1,0 +1,93 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=True, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+Wymiary: node=9, morgan=1024, rdkit=210
+
+>>> Obliczanie pos_weights ze zbioru treningowego...
+  hia_hou                             pos_weight = 0.150
+  pgp_broccatelli                     pos_weight = 0.850
+  bbb_martins                         pos_weight = 0.298
+  cyp2c19_veith                       pos_weight = 1.182
+  cyp2d6_veith                        pos_weight = 4.204
+  cyp3a4_veith                        pos_weight = 1.412
+  cyp1a2_veith                        pos_weight = 1.169
+  cyp2c9_veith                        pos_weight = 2.009
+  herg                                pos_weight = 0.484
+  dili                                pos_weight = 1.043
+  skin_reaction                       pos_weight = 0.444
+  ames                                pos_weight = 0.847
+  clintox                             pos_weight = 12.114
+
+>>> MTL GNN + Balanced Loss...
+
+>>> Start treningu MTL z Balanced Loss (30 epok max)...
+Epoch 01 | Loss: 0.6038 | Val AUC: 0.7869
+  >>> Nowy najlepszy model (AUC: 0.7869)
+Epoch 02 | Loss: 0.5476 | Val AUC: 0.8097
+  >>> Nowy najlepszy model (AUC: 0.8097)
+Epoch 03 | Loss: 0.5308 | Val AUC: 0.7925
+Epoch 04 | Loss: 0.5103 | Val AUC: 0.8248
+  >>> Nowy najlepszy model (AUC: 0.8248)
+Epoch 05 | Loss: 0.4847 | Val AUC: 0.8507
+  >>> Nowy najlepszy model (AUC: 0.8507)
+Epoch 06 | Loss: 0.4769 | Val AUC: 0.8309
+Epoch 07 | Loss: 0.4621 | Val AUC: 0.8606
+  >>> Nowy najlepszy model (AUC: 0.8606)
+Epoch 08 | Loss: 0.4685 | Val AUC: 0.8569
+Epoch 09 | Loss: 0.4514 | Val AUC: 0.8580
+Epoch 10 | Loss: 0.4461 | Val AUC: 0.8635
+  >>> Nowy najlepszy model (AUC: 0.8635)
+Epoch 11 | Loss: 0.4328 | Val AUC: 0.8635
+  >>> Nowy najlepszy model (AUC: 0.8635)
+Epoch 12 | Loss: 0.4522 | Val AUC: 0.8630
+Epoch 13 | Loss: 0.4591 | Val AUC: 0.8363
+Epoch 14 | Loss: 0.4545 | Val AUC: 0.8679
+  >>> Nowy najlepszy model (AUC: 0.8679)
+Epoch 15 | Loss: 0.4376 | Val AUC: 0.8690
+  >>> Nowy najlepszy model (AUC: 0.8690)
+Epoch 16 | Loss: 0.4087 | Val AUC: 0.8681
+Epoch 17 | Loss: 0.4099 | Val AUC: 0.8707
+  >>> Nowy najlepszy model (AUC: 0.8707)
+Epoch 18 | Loss: 0.4009 | Val AUC: 0.8747
+  >>> Nowy najlepszy model (AUC: 0.8747)
+Epoch 19 | Loss: 0.3768 | Val AUC: 0.8682
+Epoch 20 | Loss: 0.3766 | Val AUC: 0.8682
+Epoch 21 | Loss: 0.3738 | Val AUC: 0.8830
+  >>> Nowy najlepszy model (AUC: 0.8830)
+Epoch 22 | Loss: 0.3634 | Val AUC: 0.8707
+Epoch 23 | Loss: 0.3725 | Val AUC: 0.8658
+Epoch 24 | Loss: 0.3689 | Val AUC: 0.8763
+Epoch 25 | Loss: 0.3555 | Val AUC: 0.8649
+Epoch 26 | Loss: 0.3409 | Val AUC: 0.8813
+Epoch 27 | Loss: 0.3161 | Val AUC: 0.8911
+  >>> Nowy najlepszy model (AUC: 0.8911)
+Epoch 28 | Loss: 0.3127 | Val AUC: 0.8875
+Epoch 29 | Loss: 0.3185 | Val AUC: 0.8881
+Epoch 30 | Loss: 0.3093 | Val AUC: 0.8923
+  >>> Nowy najlepszy model (AUC: 0.8923)
+
+>>> Wczytano model z epoki 30 (Val AUC: 0.8923)
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_RDKIT_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_BALANCED  MTL_GNN  STL_GNN  XGBoost
+        hia_hou          0.966902 0.981009 0.982637 0.986435
+pgp_broccatelli          0.910703 0.934355 0.904589 0.934153
+    bbb_martins          0.872393 0.876894 0.864959 0.900782
+  cyp2c19_veith          0.884374 0.907257 0.884560 0.891300
+   cyp2d6_veith          0.853329 0.869094 0.840254 0.865360
+   cyp3a4_veith          0.880170 0.898416 0.889171 0.888877
+   cyp1a2_veith          0.920392 0.938642 0.926114 0.934460
+   cyp2c9_veith          0.886252 0.907105 0.877019 0.898580
+           herg          0.797310 0.818646 0.806895 0.816172
+           dili          0.787677 0.845745 0.821809 0.864805
+  skin_reaction          0.781250 0.712372 0.634566 0.755102
+           ames          0.859956 0.878915 0.856968 0.893044
+        clintox          0.923790 0.903952 0.906633 0.922564
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_BALANCING/GNN_RDKIT_MORGAN/final_results.csv

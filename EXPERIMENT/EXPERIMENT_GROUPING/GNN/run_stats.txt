@@ -1,0 +1,91 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=False, morgan=False
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=False
+Wymiary: node=9, morgan=1024, rdkit=217
+
+>>> MTL GNN + Grouped backbone...
+
+>>> Start treningu MTL z Grouped backbone (60 epok max)...
+    CYP backbone (5):   ['cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith']
+    Other backbone (8): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Epoch 01 | Loss: 0.4885 | Val AUC: 0.7827
+  >>> Nowy najlepszy model (AUC: 0.7827)
+Epoch 02 | Loss: 0.4431 | Val AUC: 0.8039
+  >>> Nowy najlepszy model (AUC: 0.8039)
+Epoch 03 | Loss: 0.4253 | Val AUC: 0.8098
+  >>> Nowy najlepszy model (AUC: 0.8098)
+Epoch 04 | Loss: 0.4123 | Val AUC: 0.8108
+  >>> Nowy najlepszy model (AUC: 0.8108)
+Epoch 05 | Loss: 0.4032 | Val AUC: 0.8318
+  >>> Nowy najlepszy model (AUC: 0.8318)
+Epoch 06 | Loss: 0.3959 | Val AUC: 0.8607
+  >>> Nowy najlepszy model (AUC: 0.8607)
+Epoch 07 | Loss: 0.4114 | Val AUC: 0.8343
+Epoch 08 | Loss: 0.4048 | Val AUC: 0.8107
+Epoch 09 | Loss: 0.3974 | Val AUC: 0.8413
+Epoch 10 | Loss: 0.3832 | Val AUC: 0.8425
+Epoch 11 | Loss: 0.3655 | Val AUC: 0.8679
+  >>> Nowy najlepszy model (AUC: 0.8679)
+Epoch 12 | Loss: 0.3573 | Val AUC: 0.8717
+  >>> Nowy najlepszy model (AUC: 0.8717)
+Epoch 13 | Loss: 0.3501 | Val AUC: 0.8693
+Epoch 14 | Loss: 0.3468 | Val AUC: 0.8668
+Epoch 15 | Loss: 0.3433 | Val AUC: 0.8767
+  >>> Nowy najlepszy model (AUC: 0.8767)
+Epoch 16 | Loss: 0.3375 | Val AUC: 0.8726
+Epoch 17 | Loss: 0.3337 | Val AUC: 0.8781
+  >>> Nowy najlepszy model (AUC: 0.8781)
+Epoch 18 | Loss: 0.3300 | Val AUC: 0.8652
+Epoch 19 | Loss: 0.3286 | Val AUC: 0.8856
+  >>> Nowy najlepszy model (AUC: 0.8856)
+Epoch 20 | Loss: 0.3225 | Val AUC: 0.8812
+Epoch 21 | Loss: 0.3189 | Val AUC: 0.8801
+Epoch 22 | Loss: 0.3136 | Val AUC: 0.8833
+Epoch 23 | Loss: 0.3090 | Val AUC: 0.8928
+  >>> Nowy najlepszy model (AUC: 0.8928)
+Epoch 24 | Loss: 0.3037 | Val AUC: 0.8796
+Epoch 25 | Loss: 0.2994 | Val AUC: 0.8832
+Epoch 26 | Loss: 0.2973 | Val AUC: 0.8851
+Epoch 27 | Loss: 0.2929 | Val AUC: 0.8947
+  >>> Nowy najlepszy model (AUC: 0.8947)
+Epoch 28 | Loss: 0.2900 | Val AUC: 0.8765
+Epoch 29 | Loss: 0.2844 | Val AUC: 0.8839
+Epoch 30 | Loss: 0.2797 | Val AUC: 0.8851
+Epoch 31 | Loss: 0.2785 | Val AUC: 0.8773
+Epoch 32 | Loss: 0.2603 | Val AUC: 0.8979
+  >>> Nowy najlepszy model (AUC: 0.8979)
+Epoch 33 | Loss: 0.2534 | Val AUC: 0.8917
+Epoch 34 | Loss: 0.2523 | Val AUC: 0.8903
+Epoch 35 | Loss: 0.2467 | Val AUC: 0.8880
+Epoch 36 | Loss: 0.2452 | Val AUC: 0.8891
+Epoch 37 | Loss: 0.2332 | Val AUC: 0.8953
+Epoch 38 | Loss: 0.2301 | Val AUC: 0.8937
+Epoch 39 | Loss: 0.2269 | Val AUC: 0.8927
+Epoch 40 | Loss: 0.2268 | Val AUC: 0.8941
+  !!! Early Stopping po 40 epokach.
+
+>>> Wczytano model z epoki 32 (Val AUC: 0.8979)
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_GROUPED  MTL_GNN  STL_GNN  XGBoost
+        hia_hou         0.971785 0.984807 0.967987 0.913728
+pgp_broccatelli         0.895182 0.921051 0.897467 0.898744
+    bbb_martins         0.849899 0.877583 0.874187 0.812987
+  cyp2c19_veith         0.907878 0.898849 0.886177 0.772667
+   cyp2d6_veith         0.871071 0.869432 0.834734 0.738207
+   cyp3a4_veith         0.901030 0.902154 0.865980 0.774607
+   cyp1a2_veith         0.936244 0.935302 0.928410 0.846382
+   cyp2c9_veith         0.910585 0.909961 0.863366 0.804459
+           herg         0.825448 0.811998 0.862554 0.749382
+           dili         0.832447 0.834220 0.874557 0.795213
+  skin_reaction         0.734056 0.674107 0.701531 0.743304
+           ames         0.867511 0.874828 0.864585 0.788878
+        clintox         0.851026 0.898514 0.914139 0.877987
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_GROUPING/GNN/final_results.csv

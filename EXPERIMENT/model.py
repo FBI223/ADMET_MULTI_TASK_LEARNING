@@ -5,10 +5,10 @@ import torch.nn.functional as F
 
 
 class ADMET_Hybrid_Model(nn.Module):
-    def __init__(self, config, single_task_idx=None):  # >>> ADDED
+    def __init__(self, config, single_task_idx=None):  
         super().__init__()
         self.config = config
-        self.single_task_idx = single_task_idx  # >>> ADDED
+        self.single_task_idx = single_task_idx  
 
         combined_dim = 0
 
