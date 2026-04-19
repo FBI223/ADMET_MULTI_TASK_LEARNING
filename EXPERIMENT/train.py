@@ -1,8 +1,7 @@
 from xgboost import XGBClassifier
-
 from EXPERIMENT.config import Config
 from plots import *
-from EXPERIMENT.data import get_full_data
+from EXPERIMENT.data import get_full_data, analyze_mtl_dataset, save_label_correlation_csv
 from EXPERIMENT.model import ADMET_Hybrid_Model,  MaskedBCELoss
 import torch
 import numpy as np
@@ -350,6 +349,69 @@ def debug_epoch_zero(loader, model, config):
     print("=== KONIEC ANALIZY ===\n")
 
 
+
+def train_mtl_graph_only(train_loader, val_loader, config):
+
+    model = ADMET_Hybrid_Model(config).to(config.device)
+    opt = torch.optim.Adam(model.parameters(), lr=config.lr)
+    crit = MaskedBCELoss()
+
+    for epoch in range(config.epochs):
+        model.train()
+        total_loss = 0
+
+        for batch in train_loader:
+            batch = batch.to(config.device)
+
+            opt.zero_grad()
+            out = model(batch)
+            loss = crit(out, batch.y)
+
+            loss.backward()
+            opt.step()
+
+            total_loss += loss.item()
+
+        print(f"Epoch {epoch+1} | Loss: {total_loss:.4f}")
+
+    return model
+
+
+def main_tsne_pipeline():
+
+    cfg = Config()
+    cfg.use_graph = True
+    cfg.use_morgan = True
+    cfg.use_rdkit = True
+
+    os.makedirs(cfg.results_dir, exist_ok=True)
+
+    # dane
+    train_loader, val_loader, test_loader, train_ds, test_ds, _ = get_full_data(cfg)
+
+    # --- TSNE INPUT ---
+    tsne_morgan(train_ds, task_idx=0,
+                save_path=f"{cfg.results_dir}/tsne_morgan.png")
+
+    tsne_rdkit(train_ds, task_idx=0,
+               save_path=f"{cfg.results_dir}/tsne_rdkit.png")
+
+    # --- TRENING GNN (TYLKO GRAPH) ---
+    cfg.use_morgan = False
+    cfg.use_rdkit = False
+
+    train_loader, val_loader, test_loader, train_ds, test_ds, _ = get_full_data(cfg)
+
+    model = train_mtl_graph_only(train_loader, val_loader, cfg)
+
+    # --- TSNE EMBEDDING ---
+    tsne_gnn(model, test_loader, cfg, task_idx=0,
+             save_path=f"{cfg.results_dir}/tsne_gnn.png")
+
+    print("DONE")
+
+
+
 def main():
 
     cfg = Config()
@@ -368,15 +430,28 @@ def main():
     # 1. Pobieranie danych
     train_loader, val_loader, test_loader, train_ds, test_ds, raw_train_df = get_full_data(cfg)
 
+    # zapis korelacji
+    save_label_correlation_csv(
+        raw_df=raw_train_df,
+        tasks=cfg.tasks,
+        save_path=f"{cfg.results_dir}/korelacje.csv",
+        method="pearson"  # albo "pearson"
+    )
+
+    # analiza datasetu
+    analyze_mtl_dataset(
+        train_data=train_ds,
+        val_data=val_loader.dataset,
+        test_data=test_loader.dataset,
+        tasks=cfg.tasks,
+        raw_train_df=raw_train_df
+    )
+
+
     # 2.1 XGBoost Baseline
     print("\n>>> Trenowanie XGBoost (STL)...")
     xgb_scores = train_single_task_xgboost(train_ds, test_ds, cfg)
 
-    # 2.2 STL Baseline GNN
-    print("\n>>> Trenowanie STL GNN...")
-    stl_scores, _ = train_stl_and_evaluate(
-        train_loader, val_loader, test_loader, cfg, raw_train_df
-    )
 
     # 3. MTL GNN (Multi-Task)
     print("\n>>> Trenowanie GNN (MTL)...")
@@ -467,11 +542,17 @@ def main():
     results_df = pd.DataFrame({
         'Task': cfg.tasks,
         'MTL_GNN': [gnn_scores[t] for t in cfg.tasks],
-        'STL_GNN': [stl_scores[t] for t in cfg.tasks],
         'XGBoost': [xgb_scores[t] for t in cfg.tasks]
     })
     results_df.to_csv(f"{cfg.results_dir}/final_results.csv", index=False)
     plot_model_comparison_simple(results_df)
+
+    plot_rho_vs_delta(
+        corr_path=f"{cfg.results_dir}/korelacje.csv",
+        results_path=f"{cfg.results_dir}/final_results.csv",
+        save_path=f"{cfg.results_dir}/rho_vs_delta.png"
+    )
+
 
     print(f"\nGOTOWE! Najlepszy model: {model_path}")
 
@@ -587,5 +668,6 @@ def run_experiments():
 
 
 if __name__ == "__main__":
+    #main_tsne_pipeline()
     main()
     #run_experiments()

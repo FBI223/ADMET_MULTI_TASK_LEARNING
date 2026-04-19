@@ -5,8 +5,6 @@ import os
 import hashlib
 import json
 import torch
-import pandas as pd
-import numpy as np
 from tqdm import tqdm
 from rdkit import Chem
 from rdkit.Chem import Descriptors, rdFingerprintGenerator
@@ -82,6 +80,133 @@ def list_available_tdc_datasets():
             print(f"{i+1}. {name}")
     except KeyError:
         print("Błąd: Nie znaleziono grupy 'Toxicity'.")
+
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import Counter
+
+# ===============================
+# ANALIZA DATASETU MTL (SPARSITY + LEAKAGE + SPLITS)
+# ===============================
+
+def analyze_mtl_dataset(train_data, val_data, test_data, tasks, raw_train_df):
+    print("\n================ DATASET ANALYSIS ================\n")
+
+    # --- 1. BASIC SPLIT STATS ---
+    print("=== SPLIT SIZES ===")
+    print(f"Train: {len(train_data)}")
+    print(f"Valid: {len(val_data)}")
+    print(f"Test : {len(test_data)}")
+
+    # --- 2. UNIQUE MOLECULE CHECK (LEAKAGE) ---
+    def get_smiles_set(dataset):
+        return set([d.smiles if hasattr(d, 'smiles') else id(d) for d in dataset])
+
+    train_ids = get_smiles_set(train_data)
+    val_ids = get_smiles_set(val_data)
+    test_ids = get_smiles_set(test_data)
+
+    print("\n=== DATA LEAKAGE CHECK ===")
+    print("Train ∩ Val:", len(train_ids & val_ids))
+    print("Train ∩ Test:", len(train_ids & test_ids))
+    print("Val   ∩ Test:", len(val_ids & test_ids))
+
+    if len(train_ids & test_ids) > 0:
+        print("!!! WARNING: DATA LEAKAGE DETECTED !!!")
+
+    # --- 3. LABEL SPARSITY ---
+    print("\n=== LABEL SPARSITY ===")
+
+    def extract_y(dataset):
+        return np.vstack([d.y.numpy() for d in dataset])
+
+    Y_train = extract_y(train_data)
+
+    sparsity = {}
+    for i, t in enumerate(tasks):
+        col = Y_train[:, i]
+        total = len(col)
+        missing = np.isnan(col).sum()
+        sparsity[t] = missing / total
+        print(f"{t:20s} | missing: {missing:5d}/{total:5d} | sparsity: {sparsity[t]:.3f}")
+
+    # --- 4. CLASS BALANCE ---
+    print("\n=== CLASS BALANCE ===")
+    for i, t in enumerate(tasks):
+        col = Y_train[:, i]
+        col = col[~np.isnan(col)]
+        if len(np.unique(col)) <= 2:
+            counts = Counter(col)
+            print(f"{t:20s} | 0: {counts.get(0,0)} | 1: {counts.get(1,0)}")
+
+    # --- 5. TASK COVERAGE (ile labeli per sample) ---
+    print("\n=== TASK COVERAGE ===")
+    coverage = np.sum(~np.isnan(Y_train), axis=1)
+    print(f"Avg labels per sample: {coverage.mean():.2f}/{len(tasks)}")
+
+    # ===============================
+    # PLOTS
+    # ===============================
+
+    # --- Sparsity plot ---
+    plt.figure(figsize=(10,4))
+    plt.bar(range(len(tasks)), [sparsity[t] for t in tasks])
+    plt.xticks(range(len(tasks)), tasks, rotation=45)
+    plt.title("Label Sparsity per Task")
+    plt.ylabel("Missing ratio")
+    plt.tight_layout()
+    plt.savefig("sparsity.png")
+    plt.close()
+
+    # --- Coverage histogram ---
+    plt.figure()
+    plt.hist(coverage, bins=len(tasks))
+    plt.title("Labels per sample")
+    plt.xlabel("#tasks available")
+    plt.ylabel("count")
+    plt.savefig("coverage.png")
+    plt.close()
+
+    # --- Correlation of missingness ---
+    mask = ~np.isnan(Y_train)
+    corr = np.corrcoef(mask.T)
+
+    plt.figure(figsize=(6,5))
+    plt.imshow(corr, cmap="coolwarm", vmin=-1, vmax=1)
+    plt.colorbar()
+    plt.xticks(range(len(tasks)), tasks, rotation=90)
+    plt.yticks(range(len(tasks)), tasks)
+    plt.title("Missingness correlation")
+    plt.tight_layout()
+    plt.savefig("missing_corr.png")
+    plt.close()
+
+    print("\nPlots saved: sparsity.png, coverage.png, missing_corr.png")
+
+
+
+def save_label_correlation_csv(raw_df, tasks, save_path="korelacje.csv", method="spearman"):
+    """
+    raw_df: dataframe z kolumnami tasks
+    method: 'spearman' (biologiczne zależności) lub 'pearson'
+    """
+
+    df = raw_df[tasks].copy()
+
+    # konwersja na float (ważne przy NaN)
+    df = df.astype(float)
+
+    # liczenie korelacji
+    corr = df.corr(method=method)
+
+    # zapis
+    corr.to_csv(save_path)
+
+    print(f"Zapisano macierz korelacji -> {save_path}")
+    return corr
 
 
 

@@ -1,0 +1,48 @@
+
+>>> Wczytywanie Master Cache: f7a2abf8...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+
+>>> Wczytywanie Master Cache: f7a2abf8...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+Zapisano macierz korelacji -> results_default/korelacje.csv
+
+================ DATASET ANALYSIS ================
+
+=== SPLIT SIZES ===
+Train: 18898
+Valid: 5863
+Test : 10123
+
+=== DATA LEAKAGE CHECK ===
+Train ∩ Val: 0
+Train ∩ Test: 0
+Val   ∩ Test: 0
+
+=== LABEL SPARSITY ===
+cyp2c19_veith        | missing: 10031/18898 | sparsity: 0.531
+cyp2d6_veith         | missing:  9707/18898 | sparsity: 0.514
+cyp3a4_veith         | missing: 10268/18898 | sparsity: 0.543
+cyp1a2_veith         | missing: 10092/18898 | sparsity: 0.534
+cyp2c9_veith         | missing: 10432/18898 | sparsity: 0.552
+hia_hou              | missing: 18491/18898 | sparsity: 0.978
+pgp_broccatelli      | missing: 18045/18898 | sparsity: 0.955
+bbb_martins          | missing: 17477/18898 | sparsity: 0.925
+herg                 | missing: 18438/18898 | sparsity: 0.976
+dili                 | missing: 18565/18898 | sparsity: 0.982
+
+=== CLASS BALANCE ===
+cyp2c19_veith        | 0: 4804 | 1: 4063
+cyp2d6_veith         | 0: 7425 | 1: 1766
+cyp3a4_veith         | 0: 5053 | 1: 3577
+cyp1a2_veith         | 0: 4746 | 1: 4060
+cyp2c9_veith         | 0: 5653 | 1: 2813
+hia_hou              | 0: 53 | 1: 354
+pgp_broccatelli      | 0: 392 | 1: 461
+bbb_martins          | 0: 325 | 1: 1096
+herg                 | 0: 149 | 1: 311
+dili                 | 0: 171 | 1: 162
+
+=== TASK COVERAGE ===
+Avg labels per sample: 2.51/10
+
+Plots saved: sparsity.png, coverage.png, missing_corr.png

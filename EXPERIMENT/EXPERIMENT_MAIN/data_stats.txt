@@ -1,0 +1,44 @@
+================ DATASET ANALYSIS ================
+
+=== SPLIT SIZES ===
+Train: 24799
+Valid: 6755
+Test : 11880
+
+=== DATA LEAKAGE CHECK ===
+Train ∩ Val: 0
+Train ∩ Test: 0
+Val   ∩ Test: 0
+
+=== LABEL SPARSITY ===
+hia_hou              | missing: 24392/24799 | sparsity: 0.984
+pgp_broccatelli      | missing: 23946/24799 | sparsity: 0.966
+bbb_martins          | missing: 23375/24799 | sparsity: 0.943
+cyp2c19_veith        | missing: 15931/24799 | sparsity: 0.642
+cyp2d6_veith         | missing: 15608/24799 | sparsity: 0.629
+cyp3a4_veith         | missing: 16168/24799 | sparsity: 0.652
+cyp1a2_veith         | missing: 15993/24799 | sparsity: 0.645
+cyp2c9_veith         | missing: 16332/24799 | sparsity: 0.659
+herg                 | missing: 24336/24799 | sparsity: 0.981
+dili                 | missing: 24464/24799 | sparsity: 0.986
+skin_reaction        | missing: 24516/24799 | sparsity: 0.989
+ames                 | missing: 19700/24799 | sparsity: 0.794
+clintox              | missing: 23763/24799 | sparsity: 0.958
+
+=== CLASS BALANCE ===
+hia_hou              | 0: 53 | 1: 354
+pgp_broccatelli      | 0: 392 | 1: 461
+bbb_martins          | 0: 327 | 1: 1097
+cyp2c19_veith        | 0: 4804 | 1: 4064
+cyp2d6_veith         | 0: 7425 | 1: 1766
+cyp3a4_veith         | 0: 5053 | 1: 3578
+cyp1a2_veith         | 0: 4746 | 1: 4060
+cyp2c9_veith         | 0: 5653 | 1: 2814
+herg                 | 0: 151 | 1: 312
+dili                 | 0: 171 | 1: 164
+skin_reaction        | 0: 87 | 1: 196
+ames                 | 0: 2339 | 1: 2760
+clintox              | 0: 957 | 1: 79
+
+=== TASK COVERAGE ===
+Avg labels per sample: 2.17/13

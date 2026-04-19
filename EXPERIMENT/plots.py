@@ -1,12 +1,14 @@
-import os
-
-import numpy as np
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
 import torch
+import torch_geometric
 from sklearn.metrics import confusion_matrix, roc_auc_score
 from sklearn.metrics import roc_curve, auc
+
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+from scipy.stats import zscore
 
 
 def plot_stl_correlation(all_preds, config):
@@ -23,6 +25,214 @@ def plot_feature_importance_xgboost(xgb_model, feature_names, top_n=20):
     plt.yticks(range(len(indices)), [feature_names[i] for i in indices])
     plt.xlabel('Relative Importance')
     plt.show()
+
+def remove_outliers(X, Y, z_thresh=5.0):
+
+
+    # 🔥 stabilizacja danych
+    X = np.nan_to_num(X, nan=0.0, posinf=1e6, neginf=-1e6)
+    X = np.clip(X, -100, 100)
+
+    z = np.abs(zscore(X, axis=0))
+
+    # 🔥 NIE .all()
+    mask = np.mean(z < z_thresh, axis=1) > 0.99
+
+    return X[mask], Y[mask]
+
+
+
+def plot_tsne(X, Y, task_idx, save_path, title):
+    from sklearn.manifold import TSNE
+    from sklearn.preprocessing import StandardScaler
+
+    if X.shape[0] == 0:
+        print("Brak danych:", title)
+        return
+
+    X = np.nan_to_num(X, nan=0.0, posinf=1e6, neginf=-1e6)
+    X = np.clip(X, -100, 100)
+
+    X = StandardScaler().fit_transform(X)
+
+    X_2d = TSNE(n_components=2, perplexity=30, random_state=42).fit_transform(X)
+
+    y = Y[:, task_idx]
+    mask = ~np.isnan(y)
+
+    y = y[mask]
+    X_2d = X_2d[mask]
+
+    # 🔥 binarizacja jeśli nie binary
+    if len(np.unique(y)) > 2:
+        y = (y > np.median(y)).astype(int)
+
+    print("classes:", np.unique(y))
+
+    plt.figure(figsize=(6,5))
+
+    for cls in np.unique(y):
+        idx = y == cls
+        plt.scatter(
+            X_2d[idx, 0],
+            X_2d[idx, 1],
+            label=f"class {cls}",
+            s=10
+        )
+
+    plt.legend()
+    plt.title(title)
+    plt.savefig(save_path, dpi=300)
+    plt.close()
+
+def plot_tsne_scatter(X, Y, task_idx, save_path, title):
+    from sklearn.manifold import TSNE
+    from sklearn.preprocessing import StandardScaler
+
+    if X.shape[0] == 0:
+        print("Brak danych:", title)
+        return
+
+    # 🔥 KLUCZOWE
+    X = np.nan_to_num(X, nan=0.0, posinf=1e6, neginf=-1e6)
+    X = np.clip(X, -100, 100)
+
+    X = StandardScaler().fit_transform(X)
+
+    tsne = TSNE(n_components=2, perplexity=30, random_state=42)
+    X_2d = tsne.fit_transform(X)
+
+    y = Y[:, task_idx]
+    mask = ~np.isnan(y)
+
+    plt.figure(figsize=(6,5))
+    plt.scatter(X_2d[mask,0], X_2d[mask,1], c=y[mask], cmap="coolwarm", s=10)
+    plt.colorbar()
+    plt.title(title)
+    plt.savefig(save_path, dpi=300)
+    plt.close()
+
+
+def extract_morgan(dataset):
+    X, Y = [], []
+    for d in dataset:
+        if hasattr(d, "morgan"):
+            X.append(d.morgan.numpy())
+            Y.append(d.y.numpy())
+
+    if len(X) == 0:
+        raise ValueError("Morgan: brak próbek")
+
+    return np.vstack(X), np.vstack(Y)
+
+def extract_rdkit(dataset):
+    X, Y = [], []
+    for d in dataset:
+        if hasattr(d, "rdkit") and d.rdkit is not None:
+            X.append(d.rdkit.numpy())
+            Y.append(d.y.numpy())
+
+    if len(X) == 0:
+        raise ValueError("RDKit: brak próbek")
+
+    return np.vstack(X), np.vstack(Y)
+
+def tsne_morgan(dataset, task_idx, save_path):
+    X, Y = extract_morgan(dataset)
+    plot_tsne(X, Y, task_idx, save_path, "t-SNE Morgan")
+
+def tsne_rdkit(dataset, task_idx, save_path):
+    X, Y = extract_rdkit(dataset)
+
+    # 🔥 usuń outliery
+    print("RDKit BEFORE:", X.shape)
+    X2, Y2 = remove_outliers(X, Y)
+    print("RDKit AFTER:", X2.shape)
+
+    plot_tsne(X2, Y2, task_idx, save_path, "t-SNE RDKit")
+
+
+def tsne_gnn(model, loader, config, task_idx, save_path):
+    X, Y = extract_gnn_embeddings(model, loader, config)
+    plot_tsne(X, Y, task_idx, save_path, "t-SNE GNN embeddings")
+
+
+def extract_gnn_embeddings(model, loader, config):
+    model.eval()
+    all_emb = []
+    all_y = []
+
+    with torch.no_grad():
+        for batch in loader:
+            batch = batch.to(config.device)
+
+            # zakładamy że model ma encoder / backbone
+            x = batch.x
+            edge_index = batch.edge_index
+
+            for conv in model.gin_backbone:
+                x = conv(x, edge_index)
+
+            # global pooling
+            emb = torch_geometric.nn.global_mean_pool(x, batch.batch)
+
+            all_emb.append(emb.cpu().numpy())
+            all_y.append(batch.y.cpu().numpy())
+
+    return np.vstack(all_emb), np.vstack(all_y)
+
+
+def plot_rho_vs_delta(corr_path="korelacje.csv",
+                      results_path="final_results.csv",
+                      save_path="rho_vs_delta.png"):
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # --- dane ---
+    corr = pd.read_csv(corr_path, index_col=0)
+    results = pd.read_csv(results_path)
+
+    tasks = corr.columns.tolist()
+
+    # --- rho ---
+    rho = {t: corr.loc[t].drop(t).mean() for t in tasks}
+
+    # --- delta ---
+    delta = {
+        row["Task"]: row["MTL_GNN"] - row["STL_GNN"]
+        for _, row in results.iterrows()
+    }
+
+    # --- wektory ---
+    rho_vals = [rho[t] for t in tasks if t in delta]
+    delta_vals = [delta[t] for t in tasks if t in delta]
+    labels = [t for t in tasks if t in delta]
+
+    # --- plot ---
+    plt.figure(figsize=(6, 6))
+    plt.scatter(rho_vals, delta_vals)
+
+    for i, t in enumerate(labels):
+        plt.text(rho_vals[i], delta_vals[i], t, fontsize=8)
+
+    plt.axhline(0, linestyle="--")
+    plt.axvline(0, linestyle="--")
+
+    # --- trend ---
+    if len(rho_vals) > 1:
+        z = np.polyfit(rho_vals, delta_vals, 1)
+        p = np.poly1d(z)
+        plt.plot(rho_vals, p(rho_vals), linestyle="--")
+
+    plt.xlabel("rho")
+    plt.ylabel("delta")
+
+    # --- zapis ---
+    plt.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.close()
+
+
 
 
 def plot_performance_vs_size(results_dict, dataset_sizes):
@@ -46,6 +256,11 @@ def plot_performance_vs_size(results_dict, dataset_sizes):
     plt.ylabel("Zysk z MTL (AUROC MTL - AUROC STL)")
     plt.title("Zależność: Czy MTL pomaga najbardziej małym zbiorom?")
     plt.show()
+
+
+
+
+
 
 def plot_label_correlations(df, tasks):
     """
