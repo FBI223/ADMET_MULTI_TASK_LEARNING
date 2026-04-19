@@ -1,0 +1,80 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=True, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+Wymiary: node=9, morgan=1024, rdkit=210
+
+>>> MTL GNN + Grouped backbone...
+
+>>> Start treningu MTL z Grouped backbone (60 epok max)...
+    CYP backbone (5):   ['cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith']
+    Other backbone (8): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Epoch 01 | Loss: 0.4935 | Val AUC: 0.7791
+  >>> Nowy najlepszy model (AUC: 0.7791)
+Epoch 02 | Loss: 0.4495 | Val AUC: 0.8066
+  >>> Nowy najlepszy model (AUC: 0.8066)
+Epoch 03 | Loss: 0.4322 | Val AUC: 0.8229
+  >>> Nowy najlepszy model (AUC: 0.8229)
+Epoch 04 | Loss: 0.4209 | Val AUC: 0.8144
+Epoch 05 | Loss: 0.4088 | Val AUC: 0.8447
+  >>> Nowy najlepszy model (AUC: 0.8447)
+Epoch 06 | Loss: 0.4023 | Val AUC: 0.8344
+Epoch 07 | Loss: 0.3940 | Val AUC: 0.8514
+  >>> Nowy najlepszy model (AUC: 0.8514)
+Epoch 08 | Loss: 0.3880 | Val AUC: 0.8637
+  >>> Nowy najlepszy model (AUC: 0.8637)
+Epoch 09 | Loss: 0.3814 | Val AUC: 0.8552
+Epoch 10 | Loss: 0.3771 | Val AUC: 0.8484
+Epoch 11 | Loss: 0.3707 | Val AUC: 0.8561
+Epoch 12 | Loss: 0.3659 | Val AUC: 0.8541
+Epoch 13 | Loss: 0.3451 | Val AUC: 0.8861
+  >>> Nowy najlepszy model (AUC: 0.8861)
+Epoch 14 | Loss: 0.3392 | Val AUC: 0.8869
+  >>> Nowy najlepszy model (AUC: 0.8869)
+Epoch 15 | Loss: 0.3310 | Val AUC: 0.8839
+Epoch 16 | Loss: 0.3264 | Val AUC: 0.8792
+Epoch 17 | Loss: 0.3211 | Val AUC: 0.8762
+Epoch 18 | Loss: 0.3160 | Val AUC: 0.8767
+Epoch 19 | Loss: 0.2990 | Val AUC: 0.8861
+Epoch 20 | Loss: 0.2955 | Val AUC: 0.8878
+  >>> Nowy najlepszy model (AUC: 0.8878)
+Epoch 21 | Loss: 0.2910 | Val AUC: 0.8834
+Epoch 22 | Loss: 0.2880 | Val AUC: 0.8850
+Epoch 23 | Loss: 0.2846 | Val AUC: 0.8885
+  >>> Nowy najlepszy model (AUC: 0.8885)
+Epoch 24 | Loss: 0.2813 | Val AUC: 0.8913
+  >>> Nowy najlepszy model (AUC: 0.8913)
+Epoch 25 | Loss: 0.2759 | Val AUC: 0.8882
+Epoch 26 | Loss: 0.2743 | Val AUC: 0.8861
+Epoch 27 | Loss: 0.2717 | Val AUC: 0.8911
+Epoch 28 | Loss: 0.2675 | Val AUC: 0.8890
+Epoch 29 | Loss: 0.2568 | Val AUC: 0.8881
+Epoch 30 | Loss: 0.2522 | Val AUC: 0.8871
+Epoch 31 | Loss: 0.2510 | Val AUC: 0.8895
+Epoch 32 | Loss: 0.2488 | Val AUC: 0.8856
+  !!! Early Stopping po 32 epokach.
+
+>>> Wczytano model z epoki 24 (Val AUC: 0.8913)
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_RDKIT_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_GROUPED  MTL_GNN  STL_GNN  XGBoost
+        hia_hou         0.969615 0.981009 0.982637 0.986435
+pgp_broccatelli         0.935564 0.934355 0.904589 0.934153
+    bbb_martins         0.868772 0.876894 0.864959 0.900782
+  cyp2c19_veith         0.907020 0.907257 0.884560 0.891300
+   cyp2d6_veith         0.867121 0.869094 0.840254 0.865360
+   cyp3a4_veith         0.903581 0.898416 0.889171 0.888877
+   cyp1a2_veith         0.938839 0.938642 0.926114 0.934460
+   cyp2c9_veith         0.911254 0.907105 0.877019 0.898580
+           herg         0.830396 0.818646 0.806895 0.816172
+           dili         0.832004 0.845745 0.821809 0.864805
+  skin_reaction         0.692602 0.712372 0.634566 0.755102
+           ames         0.874251 0.878915 0.856968 0.893044
+        clintox         0.877987 0.903952 0.906633 0.922564
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_GROUPING/GNN_RDKIT_MORGAN/final_results.csv

@@ -1,0 +1,50 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=False, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie VN Cache: e55e789a...
+Wymiary: node=9, morgan=1024, rdkit=217
+
+>>> MTL GNN + Virtual Node...
+
+>>> Start treningu MTL z Virtual Node (60 epok max)...
+Epoch 01 | Loss: 0.4500 | Val AUC: 0.8391
+  >>> Nowy najlepszy model (AUC: 0.8391)
+Epoch 02 | Loss: 0.3614 | Val AUC: 0.8596
+  >>> Nowy najlepszy model (AUC: 0.8596)
+Epoch 03 | Loss: 0.3164 | Val AUC: 0.8706
+  >>> Nowy najlepszy model (AUC: 0.8706)
+Epoch 04 | Loss: 0.2775 | Val AUC: 0.8815
+  >>> Nowy najlepszy model (AUC: 0.8815)
+Epoch 05 | Loss: 0.2484 | Val AUC: 0.8657
+Epoch 06 | Loss: 0.2216 | Val AUC: 0.8745
+Epoch 07 | Loss: 0.1994 | Val AUC: 0.8808
+Epoch 08 | Loss: 0.1827 | Val AUC: 0.8731
+Epoch 09 | Loss: 0.1385 | Val AUC: 0.8764
+Epoch 10 | Loss: 0.1223 | Val AUC: 0.8706
+Epoch 11 | Loss: 0.1115 | Val AUC: 0.8714
+Epoch 12 | Loss: 0.1023 | Val AUC: 0.8731
+  !!! Early Stopping po 12 epokach.
+
+>>> Wczytano model z epoki 4 (Val AUC: 0.8815)
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_VN  MTL_GNN  STL_GNN  XGBoost
+        hia_hou    0.880629 0.934346 0.884428 0.930005
+pgp_broccatelli    0.919774 0.907680 0.912854 0.893570
+    bbb_martins    0.870951 0.877071 0.840062 0.865247
+  cyp2c19_veith    0.900077 0.897270 0.861776 0.862146
+   cyp2d6_veith    0.850932 0.862128 0.834805 0.837117
+   cyp3a4_veith    0.889578 0.884521 0.868449 0.858367
+   cyp1a2_veith    0.922422 0.922323 0.916712 0.904450
+   cyp2c9_veith    0.906829 0.906220 0.871837 0.865215
+           herg    0.819264 0.843383 0.825758 0.857607
+           dili    0.865691 0.830230 0.777039 0.841755
+  skin_reaction    0.614796 0.621173 0.674107 0.727041
+           ames    0.880570 0.876405 0.872490 0.873524
+        clintox    0.824219 0.804841 0.769991 0.880438
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_VIRTUAL_NODE/GNN_MORGAN/final_results.csv

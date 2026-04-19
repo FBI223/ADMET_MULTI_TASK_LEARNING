@@ -1,0 +1,75 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=False, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=True
+Wymiary: node=9, morgan=1024, rdkit=217
+
+>>> MTL GNN + Cross-Task Uncertainty Weighting...
+
+>>> Start treningu MTL z Cross-Task Uncertainty (30 epok max)...
+Epoch 01 | Loss: 64.6945 | Val AUC: 0.8435
+  >>> Nowy najlepszy model (AUC: 0.8435)
+Epoch 02 | Loss: 43.9126 | Val AUC: 0.8563
+  >>> Nowy najlepszy model (AUC: 0.8563)
+Epoch 03 | Loss: 28.1518 | Val AUC: 0.8707
+  >>> Nowy najlepszy model (AUC: 0.8707)
+Epoch 04 | Loss: 16.2420 | Val AUC: 0.8569
+Epoch 05 | Loss: 5.5312 | Val AUC: 0.8734
+  >>> Nowy najlepszy model (AUC: 0.8734)
+Epoch 06 | Loss: -1.2537 | Val AUC: 0.8570
+Epoch 07 | Loss: -12.6660 | Val AUC: 0.8727
+Epoch 08 | Loss: -22.6030 | Val AUC: 0.8653
+Epoch 09 | Loss: -30.1648 | Val AUC: 0.8634
+Epoch 10 | Loss: -45.1274 | Val AUC: 0.8692
+Epoch 11 | Loss: -55.3335 | Val AUC: 0.8700
+Epoch 12 | Loss: -63.1214 | Val AUC: 0.8742
+  >>> Nowy najlepszy model (AUC: 0.8742)
+Epoch 13 | Loss: -64.5843 | Val AUC: 0.8708
+Epoch 14 | Loss: -63.9067 | Val AUC: 0.8729
+Epoch 15 | Loss: -74.5849 | Val AUC: 0.8727
+Epoch 16 | Loss: -77.8796 | Val AUC: 0.8684
+Epoch 17 | Loss: -87.1697 | Val AUC: 0.8708
+Epoch 18 | Loss: -90.7939 | Val AUC: 0.8718
+Epoch 19 | Loss: -96.3964 | Val AUC: 0.8702
+Epoch 20 | Loss: -99.1437 | Val AUC: 0.8733
+  !!! Early Stopping po 20 epokach.
+
+>>> Wczytano model z epoki 12 (Val AUC: 0.8742)
+
+>>> Efektywne wagi per task (suma kolumn 1/sigma^2):
+  hia_hou                             eff_weight = 142.4315
+  pgp_broccatelli                     eff_weight = 84.0979
+  bbb_martins                         eff_weight = 65.6576
+  cyp2c19_veith                       eff_weight = 21.9968
+  cyp2d6_veith                        eff_weight = 31.3301
+  cyp3a4_veith                        eff_weight = 25.4275
+  cyp1a2_veith                        eff_weight = 30.1591
+  cyp2c9_veith                        eff_weight = 24.0447
+  herg                                eff_weight = 54.5594
+  dili                                eff_weight = 77.1423
+  skin_reaction                       eff_weight = 65.3712
+  ames                                eff_weight = 25.1893
+  clintox                             eff_weight = 65.2495
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_CROSS  MTL_GNN  STL_GNN  XGBoost
+        hia_hou       0.923223 0.934346 0.884428 0.930005
+pgp_broccatelli       0.932305 0.907680 0.912854 0.893570
+    bbb_martins       0.857813 0.877071 0.840062 0.865247
+  cyp2c19_veith       0.908350 0.897270 0.861776 0.862146
+   cyp2d6_veith       0.850850 0.862128 0.834805 0.837117
+   cyp3a4_veith       0.890699 0.884521 0.868449 0.858367
+   cyp1a2_veith       0.923825 0.922323 0.916712 0.904450
+   cyp2c9_veith       0.907806 0.906220 0.871837 0.865215
+           herg       0.833797 0.843383 0.825758 0.857607
+           dili       0.837766 0.830230 0.777039 0.841755
+  skin_reaction       0.720663 0.621173 0.674107 0.727041
+           ames       0.886913 0.876405 0.872490 0.873524
+        clintox       0.809972 0.804841 0.769991 0.880438
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_CROSS_UNCERTAINTY/GNN_MORGAN/final_results.csv

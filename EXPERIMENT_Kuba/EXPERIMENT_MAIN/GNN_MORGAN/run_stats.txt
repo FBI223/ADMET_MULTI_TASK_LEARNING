@@ -1,0 +1,451 @@
+/home/sztukowski/miniconda3/bin/conda run -n admet-mtl-v2 --no-capture-output python /mnt/c/Users/msztu/Documents/PythonProject/ADMET_MULTI_TASK_LEARNING/TODO/zadanie1/marcin2/main.py
+
+>>> Cache nie znaleziony. Rozpoczynam pełne przetwarzanie (Tasks: 13)...
+Pobieranie: hia_hou
+Downloading...
+100%|██████████| 40.1k/40.1k [00:00<00:00, 313kiB/s]
+Loading...
+Done!
+Downloading...
+Pobieranie: pgp_broccatelli
+100%|██████████| 126k/126k [00:00<00:00, 504kiB/s]
+Loading...
+Done!
+Pobieranie: bbb_martins
+Downloading...
+100%|██████████| 138k/138k [00:00<00:00, 538kiB/s]
+Loading...
+Done!
+Pobieranie: cyp2c19_veith
+Downloading...
+100%|██████████| 771k/771k [00:00<00:00, 1.46MiB/s]
+Loading...
+Done!
+Pobieranie: cyp2d6_veith
+Downloading...
+100%|██████████| 800k/800k [00:00<00:00, 1.28MiB/s]
+Loading...
+Done!
+Pobieranie: cyp3a4_veith
+Downloading...
+100%|██████████| 746k/746k [00:00<00:00, 1.45MiB/s]
+Loading...
+Done!
+Pobieranie: cyp1a2_veith
+Downloading...
+100%|██████████| 760k/760k [00:00<00:00, 1.37MiB/s]
+Loading...
+Done!
+Downloading...
+Pobieranie: cyp2c9_veith
+100%|██████████| 740k/740k [00:00<00:00, 1.32MiB/s]
+Loading...
+Done!
+Pobieranie: herg
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+100%|██████████| 50.2k/50.2k [00:00<00:00, 387kiB/s]
+Loading...
+Done!
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+Pobieranie: dili
+100%|██████████| 26.7k/26.7k [00:00<00:00, 213kiB/s]
+Loading...
+Done!
+Pobieranie: skin_reaction
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+100%|██████████| 26.7k/26.7k [00:00<00:00, 211kiB/s]
+Loading...
+Done!
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+Pobieranie: ames
+100%|██████████| 344k/344k [00:00<00:00, 667kiB/s]
+Loading...
+Done!
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+Pobieranie: clintox
+100%|██████████| 110k/110k [00:00<00:00, 438kiB/s]
+Loading...
+Done!
+  0%|          | 0/24799 [00:00<?, ?it/s]Konwertowanie splitu train na grafy/wektory...
+  7%|▋         | 1794/24799 [00:02<00:32, 717.42it/s][01:15:57] WARNING: not removing hydrogen atom without neighbors
+[01:15:57] WARNING: not removing hydrogen atom without neighbors
+  8%|▊         | 2107/24799 [00:02<00:32, 707.60it/s][01:15:58] WARNING: not removing hydrogen atom without neighbors
+[01:15:58] WARNING: not removing hydrogen atom without neighbors
+ 13%|█▎        | 3229/24799 [00:04<00:34, 618.08it/s][01:15:59] WARNING: not removing hydrogen atom without neighbors
+[01:15:59] WARNING: not removing hydrogen atom without neighbors
+ 16%|█▌        | 3885/24799 [00:05<00:30, 675.83it/s][01:16:00] WARNING: not removing hydrogen atom without neighbors
+[01:16:00] WARNING: not removing hydrogen atom without neighbors
+ 19%|█▉        | 4808/24799 [00:06<00:30, 665.45it/s][01:16:02] WARNING: not removing hydrogen atom without neighbors
+[01:16:02] WARNING: not removing hydrogen atom without neighbors
+ 20%|██        | 5009/24799 [00:07<00:32, 605.52it/s][01:16:02] WARNING: not removing hydrogen atom without neighbors
+[01:16:02] WARNING: not removing hydrogen atom without neighbors
+[01:16:02] WARNING: not removing hydrogen atom without neighbors
+[01:16:02] WARNING: not removing hydrogen atom without neighbors
+ 22%|██▏       | 5393/24799 [00:07<00:34, 557.46it/s][01:16:03] WARNING: not removing hydrogen atom without neighbors
+[01:16:03] WARNING: not removing hydrogen atom without neighbors
+ 23%|██▎       | 5671/24799 [00:08<00:40, 471.31it/s][01:16:03] WARNING: not removing hydrogen atom without neighbors
+[01:16:03] WARNING: not removing hydrogen atom without neighbors
+ 23%|██▎       | 5793/24799 [00:08<00:35, 535.55it/s][01:16:04] WARNING: not removing hydrogen atom without neighbors
+[01:16:04] WARNING: not removing hydrogen atom without neighbors
+ 28%|██▊       | 7014/24799 [00:11<00:28, 619.53it/s][01:16:06] WARNING: not removing hydrogen atom without neighbors
+[01:16:06] WARNING: not removing hydrogen atom without neighbors
+ 31%|███       | 7667/24799 [00:12<00:29, 582.03it/s][01:16:07] WARNING: not removing hydrogen atom without neighbors
+[01:16:07] WARNING: not removing hydrogen atom without neighbors
+ 31%|███       | 7726/24799 [00:12<00:37, 454.67it/s][01:16:07] WARNING: not removing hydrogen atom without neighbors
+[01:16:07] WARNING: not removing hydrogen atom without neighbors
+[01:16:07] WARNING: not removing hydrogen atom without neighbors
+[01:16:07] WARNING: not removing hydrogen atom without neighbors
+ 32%|███▏      | 7935/24799 [00:12<00:27, 606.41it/s][01:16:07] WARNING: not removing hydrogen atom without neighbors
+[01:16:07] WARNING: not removing hydrogen atom without neighbors
+ 32%|███▏      | 8012/24799 [00:12<00:25, 651.02it/s][01:16:07] WARNING: not removing hydrogen atom without neighbors
+[01:16:07] WARNING: not removing hydrogen atom without neighbors
+ 33%|███▎      | 8228/24799 [00:13<00:24, 686.95it/s][01:16:08] WARNING: not removing hydrogen atom without neighbors
+[01:16:08] WARNING: not removing hydrogen atom without neighbors
+ 36%|███▌      | 8905/24799 [00:14<00:25, 625.68it/s][01:16:09] WARNING: not removing hydrogen atom without neighbors
+[01:16:09] WARNING: not removing hydrogen atom without neighbors
+[01:16:09] WARNING: not removing hydrogen atom without neighbors
+[01:16:09] WARNING: not removing hydrogen atom without neighbors
+ 43%|████▎     | 10774/24799 [00:17<00:22, 622.96it/s][01:16:12] WARNING: not removing hydrogen atom without neighbors
+[01:16:12] WARNING: not removing hydrogen atom without neighbors
+ 51%|█████▏    | 12757/24799 [00:20<00:19, 612.06it/s][01:16:15] WARNING: not removing hydrogen atom without neighbors
+[01:16:15] WARNING: not removing hydrogen atom without neighbors
+ 64%|██████▍   | 15873/24799 [00:24<00:12, 716.96it/s][01:16:20] WARNING: not removing hydrogen atom without neighbors
+[01:16:20] WARNING: not removing hydrogen atom without neighbors
+ 77%|███████▋  | 19188/24799 [00:29<00:07, 799.98it/s][01:16:24] WARNING: not removing hydrogen atom without neighbors
+[01:16:24] WARNING: not removing hydrogen atom without neighbors
+ 85%|████████▍ | 21030/24799 [00:32<00:05, 729.78it/s][01:16:27] WARNING: not removing hydrogen atom without neighbors
+[01:16:27] WARNING: not removing hydrogen atom without neighbors
+ 91%|█████████ | 22492/24799 [00:34<00:03, 698.78it/s][01:16:29] WARNING: not removing hydrogen atom without neighbors
+[01:16:29] WARNING: not removing hydrogen atom without neighbors
+ 96%|█████████▌| 23741/24799 [00:35<00:01, 725.72it/s][01:16:30] WARNING: not removing hydrogen atom without neighbors
+[01:16:30] WARNING: not removing hydrogen atom without neighbors
+[01:16:30] WARNING: not removing hydrogen atom without neighbors
+[01:16:30] WARNING: not removing hydrogen atom without neighbors
+100%|██████████| 24799/24799 [00:37<00:00, 669.73it/s]
+  0%|          | 0/6755 [00:00<?, ?it/s]Konwertowanie splitu valid na grafy/wektory...
+ 10%|█         | 681/6755 [00:00<00:08, 714.64it/s][01:16:33] WARNING: not removing hydrogen atom without neighbors
+[01:16:33] WARNING: not removing hydrogen atom without neighbors
+ 22%|██▏       | 1513/6755 [00:02<00:07, 720.72it/s][01:16:34] WARNING: not removing hydrogen atom without neighbors
+[01:16:34] WARNING: not removing hydrogen atom without neighbors
+ 28%|██▊       | 1880/6755 [00:02<00:06, 709.16it/s][01:16:34] WARNING: not removing hydrogen atom without neighbors
+[01:16:34] WARNING: not removing hydrogen atom without neighbors
+ 76%|███████▌  | 5145/6755 [00:07<00:02, 743.52it/s][01:16:39] WARNING: not removing hydrogen atom without neighbors
+[01:16:39] WARNING: not removing hydrogen atom without neighbors
+100%|██████████| 6755/6755 [00:09<00:00, 707.75it/s]
+  0%|          | 0/11880 [00:00<?, ?it/s]Konwertowanie splitu test na grafy/wektory...
+ 13%|█▎        | 1587/11880 [00:02<00:13, 755.74it/s][01:16:44] WARNING: not removing hydrogen atom without neighbors
+[01:16:44] WARNING: not removing hydrogen atom without neighbors
+ 20%|█▉        | 2363/11880 [00:03<00:13, 729.16it/s][01:16:45] WARNING: not removing hydrogen atom without neighbors
+[01:16:45] WARNING: not removing hydrogen atom without neighbors
+[01:16:45] WARNING: not removing hydrogen atom without neighbors
+[01:16:45] WARNING: not removing hydrogen atom without neighbors
+ 22%|██▏       | 2655/11880 [00:03<00:12, 709.73it/s][01:16:45] WARNING: not removing hydrogen atom without neighbors
+[01:16:45] WARNING: not removing hydrogen atom without neighbors
+ 34%|███▍      | 4063/11880 [00:05<00:10, 728.51it/s][01:16:47] WARNING: not removing hydrogen atom without neighbors
+[01:16:47] WARNING: not removing hydrogen atom without neighbors
+ 51%|█████     | 6046/11880 [00:08<00:13, 446.78it/s][01:16:50] WARNING: not removing hydrogen atom without neighbors
+[01:16:50] WARNING: not removing hydrogen atom without neighbors
+ 53%|█████▎    | 6258/11880 [00:09<00:22, 254.41it/s][01:16:51] WARNING: not removing hydrogen atom without neighbors
+[01:16:51] WARNING: not removing hydrogen atom without neighbors
+[01:16:51] WARNING: not removing hydrogen atom without neighbors
+[01:16:51] WARNING: not removing hydrogen atom without neighbors
+[01:16:51] WARNING: not removing hydrogen atom without neighbors
+[01:16:51] WARNING: not removing hydrogen atom without neighbors
+ 79%|███████▉  | 9393/11880 [00:15<00:03, 727.93it/s][01:16:57] WARNING: not removing hydrogen atom without neighbors
+[01:16:57] WARNING: not removing hydrogen atom without neighbors
+ 90%|████████▉ | 10684/11880 [00:17<00:01, 686.33it/s][01:16:59] WARNING: not removing hydrogen atom without neighbors
+[01:16:59] WARNING: not removing hydrogen atom without neighbors
+100%|██████████| 11880/11880 [00:19<00:00, 614.78it/s]
+>>> Zapisywanie przetworzonych danych do plików cache...
+
+>>> Trenowanie XGBoost (STL)...
+
+>>> Trenowanie 13 modeli XGBoost (Single-Task)...
+XGBoost hia_hou: AUROC = 0.9300
+XGBoost pgp_broccatelli: AUROC = 0.8936
+XGBoost bbb_martins: AUROC = 0.8652
+XGBoost cyp2c19_veith: AUROC = 0.8621
+XGBoost cyp2d6_veith: AUROC = 0.8371
+XGBoost cyp3a4_veith: AUROC = 0.8584
+XGBoost cyp1a2_veith: AUROC = 0.9044
+XGBoost cyp2c9_veith: AUROC = 0.8652
+XGBoost herg: AUROC = 0.8576
+XGBoost dili: AUROC = 0.8418
+XGBoost skin_reaction: AUROC = 0.7270
+XGBoost ames: AUROC = 0.8735
+XGBoost clintox: AUROC = 0.8804
+
+>>> Trenowanie STL GNN...
+
+>>> STL: hia_hou
+Epoch 1 | Loss: 92.2400 | Val AUC: 0.9199
+Epoch 2 | Loss: 25.2479 | Val AUC: 0.9423
+Epoch 3 | Loss: 9.0987 | Val AUC: 0.9263
+Epoch 4 | Loss: 2.5762 | Val AUC: 0.9391
+Epoch 5 | Loss: 5.7675 | Val AUC: 0.9135
+Epoch 6 | Loss: 5.1012 | Val AUC: 0.9167
+Epoch 7 | Loss: 0.3819 | Val AUC: 0.9231
+Epoch 8 | Loss: 1.1127 | Val AUC: 0.9199
+Epoch 9 | Loss: 0.1495 | Val AUC: 0.9071
+Epoch 10 | Loss: 0.0303 | Val AUC: 0.9071
+Early stopping
+TEST hia_hou: AUC = 0.8844
+
+>>> STL: pgp_broccatelli
+Epoch 1 | Loss: 124.9590 | Val AUC: 0.9194
+Epoch 2 | Loss: 68.2977 | Val AUC: 0.9232
+Epoch 3 | Loss: 35.3209 | Val AUC: 0.9113
+Epoch 4 | Loss: 31.7049 | Val AUC: 0.9007
+Epoch 5 | Loss: 14.7358 | Val AUC: 0.9172
+Epoch 6 | Loss: 20.8314 | Val AUC: 0.9205
+Epoch 7 | Loss: 12.5193 | Val AUC: 0.9094
+Epoch 8 | Loss: 15.3687 | Val AUC: 0.9256
+Epoch 9 | Loss: 12.0358 | Val AUC: 0.9091
+Epoch 10 | Loss: 15.2706 | Val AUC: 0.9218
+Epoch 11 | Loss: 7.1913 | Val AUC: 0.9077
+Epoch 12 | Loss: 10.7286 | Val AUC: 0.8942
+Epoch 13 | Loss: 3.6500 | Val AUC: 0.9045
+Epoch 14 | Loss: 5.6996 | Val AUC: 0.8937
+Epoch 15 | Loss: 17.8855 | Val AUC: 0.8902
+Epoch 16 | Loss: 15.7883 | Val AUC: 0.8999
+Early stopping
+TEST pgp_broccatelli: AUC = 0.9129
+
+>>> STL: bbb_martins
+Epoch 1 | Loss: 136.9912 | Val AUC: 0.9143
+Epoch 2 | Loss: 72.0029 | Val AUC: 0.8958
+Epoch 3 | Loss: 51.5505 | Val AUC: 0.8987
+Epoch 4 | Loss: 45.3501 | Val AUC: 0.8920
+Epoch 5 | Loss: 33.3171 | Val AUC: 0.8835
+Epoch 6 | Loss: 25.8901 | Val AUC: 0.8962
+Epoch 7 | Loss: 27.3040 | Val AUC: 0.9092
+Epoch 8 | Loss: 16.1862 | Val AUC: 0.9127
+Epoch 9 | Loss: 17.5168 | Val AUC: 0.9067
+Early stopping
+TEST bbb_martins: AUC = 0.8401
+
+>>> STL: cyp2c19_veith
+Epoch 1 | Loss: 187.2055 | Val AUC: 0.8808
+Epoch 2 | Loss: 147.7004 | Val AUC: 0.8770
+Epoch 3 | Loss: 124.3742 | Val AUC: 0.8827
+Epoch 4 | Loss: 100.7925 | Val AUC: 0.8798
+Epoch 5 | Loss: 86.9186 | Val AUC: 0.8684
+Epoch 6 | Loss: 68.4900 | Val AUC: 0.8563
+Epoch 7 | Loss: 60.1360 | Val AUC: 0.8566
+Epoch 8 | Loss: 52.7649 | Val AUC: 0.8728
+Epoch 9 | Loss: 47.8192 | Val AUC: 0.8520
+Epoch 10 | Loss: 41.2016 | Val AUC: 0.8558
+Epoch 11 | Loss: 37.8738 | Val AUC: 0.8597
+Early stopping
+TEST cyp2c19_veith: AUC = 0.8618
+
+>>> STL: cyp2d6_veith
+Epoch 1 | Loss: 146.6429 | Val AUC: 0.8673
+Epoch 2 | Loss: 113.0417 | Val AUC: 0.8633
+Epoch 3 | Loss: 88.1690 | Val AUC: 0.8517
+Epoch 4 | Loss: 74.1186 | Val AUC: 0.8559
+Epoch 5 | Loss: 58.8676 | Val AUC: 0.8570
+Epoch 6 | Loss: 47.9938 | Val AUC: 0.8521
+Epoch 7 | Loss: 41.1256 | Val AUC: 0.8441
+Epoch 8 | Loss: 37.5241 | Val AUC: 0.8438
+Epoch 9 | Loss: 32.9137 | Val AUC: 0.8475
+Early stopping
+TEST cyp2d6_veith: AUC = 0.8348
+
+>>> STL: cyp3a4_veith
+Epoch 1 | Loss: 178.2201 | Val AUC: 0.8638
+Epoch 2 | Loss: 137.5435 | Val AUC: 0.8891
+Epoch 3 | Loss: 111.9757 | Val AUC: 0.8866
+Epoch 4 | Loss: 92.2982 | Val AUC: 0.8803
+Epoch 5 | Loss: 74.5685 | Val AUC: 0.8819
+Epoch 6 | Loss: 63.5094 | Val AUC: 0.8813
+Epoch 7 | Loss: 48.1031 | Val AUC: 0.8752
+Epoch 8 | Loss: 43.9848 | Val AUC: 0.8872
+Epoch 9 | Loss: 40.6707 | Val AUC: 0.8818
+Epoch 10 | Loss: 38.1905 | Val AUC: 0.8807
+Early stopping
+TEST cyp3a4_veith: AUC = 0.8684
+
+>>> STL: cyp1a2_veith
+Epoch 1 | Loss: 161.5448 | Val AUC: 0.9075
+Epoch 2 | Loss: 121.0799 | Val AUC: 0.9089
+Epoch 3 | Loss: 94.0897 | Val AUC: 0.9047
+Epoch 4 | Loss: 76.6878 | Val AUC: 0.9122
+Epoch 5 | Loss: 59.2004 | Val AUC: 0.9063
+Epoch 6 | Loss: 51.4352 | Val AUC: 0.9055
+Epoch 7 | Loss: 40.7746 | Val AUC: 0.9125
+Epoch 8 | Loss: 35.2335 | Val AUC: 0.9079
+Epoch 9 | Loss: 30.4686 | Val AUC: 0.9128
+Epoch 10 | Loss: 30.6283 | Val AUC: 0.9089
+Epoch 11 | Loss: 24.6851 | Val AUC: 0.9106
+Epoch 12 | Loss: 23.3709 | Val AUC: 0.9111
+Epoch 13 | Loss: 23.6677 | Val AUC: 0.9155
+Epoch 14 | Loss: 20.6558 | Val AUC: 0.9079
+Epoch 15 | Loss: 19.4511 | Val AUC: 0.9169
+Epoch 16 | Loss: 19.0302 | Val AUC: 0.9130
+Epoch 17 | Loss: 20.4473 | Val AUC: 0.9125
+Epoch 18 | Loss: 16.6681 | Val AUC: 0.9021
+Epoch 19 | Loss: 14.0819 | Val AUC: 0.9034
+Epoch 20 | Loss: 17.5899 | Val AUC: 0.9127
+Epoch 21 | Loss: 15.6450 | Val AUC: 0.9164
+Epoch 22 | Loss: 14.7080 | Val AUC: 0.9130
+Epoch 23 | Loss: 14.1804 | Val AUC: 0.9164
+Early stopping
+TEST cyp1a2_veith: AUC = 0.9167
+
+>>> STL: cyp2c9_veith
+Epoch 1 | Loss: 178.3941 | Val AUC: 0.8823
+Epoch 2 | Loss: 141.2549 | Val AUC: 0.8819
+Epoch 3 | Loss: 112.2242 | Val AUC: 0.8722
+Epoch 4 | Loss: 92.3605 | Val AUC: 0.8812
+Epoch 5 | Loss: 72.8770 | Val AUC: 0.8621
+Epoch 6 | Loss: 61.5180 | Val AUC: 0.8606
+Epoch 7 | Loss: 51.8096 | Val AUC: 0.8533
+Epoch 8 | Loss: 42.2639 | Val AUC: 0.8646
+Epoch 9 | Loss: 41.9246 | Val AUC: 0.8556
+Early stopping
+TEST cyp2c9_veith: AUC = 0.8718
+
+>>> STL: herg
+Epoch 1 | Loss: 141.8282 | Val AUC: 0.7664
+Epoch 2 | Loss: 80.7314 | Val AUC: 0.8109
+Epoch 3 | Loss: 65.1015 | Val AUC: 0.8291
+Epoch 4 | Loss: 42.4428 | Val AUC: 0.8251
+Epoch 5 | Loss: 29.3187 | Val AUC: 0.8332
+Epoch 6 | Loss: 32.4465 | Val AUC: 0.7846
+Epoch 7 | Loss: 29.6124 | Val AUC: 0.8443
+Epoch 8 | Loss: 25.1935 | Val AUC: 0.7836
+Epoch 9 | Loss: 18.7743 | Val AUC: 0.8175
+Epoch 10 | Loss: 13.0113 | Val AUC: 0.7801
+Epoch 11 | Loss: 14.5405 | Val AUC: 0.8150
+Epoch 12 | Loss: 13.4043 | Val AUC: 0.7993
+Epoch 13 | Loss: 11.4744 | Val AUC: 0.7937
+Epoch 14 | Loss: 25.0506 | Val AUC: 0.8210
+Epoch 15 | Loss: 9.7148 | Val AUC: 0.8311
+Early stopping
+TEST herg: AUC = 0.8258
+
+>>> STL: dili
+Epoch 1 | Loss: 134.7974 | Val AUC: 0.9489
+Epoch 2 | Loss: 58.9003 | Val AUC: 0.8995
+Epoch 3 | Loss: 19.1876 | Val AUC: 0.9506
+Epoch 4 | Loss: 5.7095 | Val AUC: 0.8783
+Epoch 5 | Loss: 16.7798 | Val AUC: 0.9400
+Epoch 6 | Loss: 6.2795 | Val AUC: 0.9330
+Epoch 7 | Loss: 6.4072 | Val AUC: 0.9612
+Epoch 8 | Loss: 17.5496 | Val AUC: 0.9242
+Epoch 9 | Loss: 2.9294 | Val AUC: 0.9577
+Epoch 10 | Loss: 0.4393 | Val AUC: 0.9559
+Epoch 11 | Loss: 0.4586 | Val AUC: 0.9506
+Epoch 12 | Loss: 1.5222 | Val AUC: 0.9683
+Epoch 13 | Loss: 0.1349 | Val AUC: 0.9594
+Epoch 14 | Loss: 0.1281 | Val AUC: 0.9577
+Epoch 15 | Loss: 0.0501 | Val AUC: 0.9594
+Epoch 16 | Loss: 0.0281 | Val AUC: 0.9577
+Epoch 17 | Loss: 0.0176 | Val AUC: 0.9594
+Epoch 18 | Loss: 0.0268 | Val AUC: 0.9541
+Epoch 19 | Loss: 0.0253 | Val AUC: 0.9559
+Epoch 20 | Loss: 0.0165 | Val AUC: 0.9630
+Early stopping
+TEST dili: AUC = 0.7770
+
+>>> STL: skin_reaction
+Epoch 1 | Loss: 118.1502 | Val AUC: 0.5737
+Epoch 2 | Loss: 85.2538 | Val AUC: 0.6646
+Epoch 3 | Loss: 64.7667 | Val AUC: 0.6646
+Epoch 4 | Loss: 36.5048 | Val AUC: 0.6708
+Epoch 5 | Loss: 38.2873 | Val AUC: 0.7367
+Epoch 6 | Loss: 28.1442 | Val AUC: 0.7147
+Epoch 7 | Loss: 20.4949 | Val AUC: 0.6144
+Epoch 8 | Loss: 22.7582 | Val AUC: 0.6207
+Epoch 9 | Loss: 12.6582 | Val AUC: 0.6395
+Epoch 10 | Loss: 14.7667 | Val AUC: 0.5768
+Epoch 11 | Loss: 11.1252 | Val AUC: 0.6364
+Epoch 12 | Loss: 18.9274 | Val AUC: 0.5893
+Epoch 13 | Loss: 12.1677 | Val AUC: 0.6583
+Early stopping
+TEST skin_reaction: AUC = 0.6741
+
+>>> STL: ames
+Epoch 1 | Loss: 202.0030 | Val AUC: 0.8614
+Epoch 2 | Loss: 152.8237 | Val AUC: 0.8768
+Epoch 3 | Loss: 120.3674 | Val AUC: 0.8721
+Epoch 4 | Loss: 94.3242 | Val AUC: 0.8653
+Epoch 5 | Loss: 75.9346 | Val AUC: 0.8681
+Epoch 6 | Loss: 68.8311 | Val AUC: 0.8746
+Epoch 7 | Loss: 52.9152 | Val AUC: 0.8665
+Epoch 8 | Loss: 52.7380 | Val AUC: 0.8605
+Epoch 9 | Loss: 39.5143 | Val AUC: 0.8684
+Epoch 10 | Loss: 36.4628 | Val AUC: 0.8677
+Early stopping
+TEST ames: AUC = 0.8725
+
+>>> STL: clintox
+Epoch 1 | Loss: 110.0083 | Val AUC: 0.6267
+Epoch 2 | Loss: 52.0887 | Val AUC: 0.7250
+Epoch 3 | Loss: 32.4016 | Val AUC: 0.7506
+Epoch 4 | Loss: 28.7265 | Val AUC: 0.7842
+Epoch 5 | Loss: 17.2887 | Val AUC: 0.8145
+Epoch 6 | Loss: 21.4492 | Val AUC: 0.7658
+Epoch 7 | Loss: 15.2210 | Val AUC: 0.8042
+Epoch 8 | Loss: 14.5112 | Val AUC: 0.7978
+Epoch 9 | Loss: 27.0718 | Val AUC: 0.8050
+Epoch 10 | Loss: 10.7860 | Val AUC: 0.8217
+Epoch 11 | Loss: 18.0783 | Val AUC: 0.7898
+Epoch 12 | Loss: 13.6953 | Val AUC: 0.8034
+Epoch 13 | Loss: 17.2342 | Val AUC: 0.7874
+Epoch 14 | Loss: 21.7328 | Val AUC: 0.7810
+Epoch 15 | Loss: 19.2323 | Val AUC: 0.8026
+Epoch 16 | Loss: 13.3541 | Val AUC: 0.8058
+Epoch 17 | Loss: 10.1170 | Val AUC: 0.8074
+Epoch 18 | Loss: 12.4049 | Val AUC: 0.8481
+Epoch 19 | Loss: 12.2123 | Val AUC: 0.8489
+Epoch 20 | Loss: 9.9779 | Val AUC: 0.7874
+Epoch 21 | Loss: 10.1104 | Val AUC: 0.8185
+Epoch 22 | Loss: 23.5177 | Val AUC: 0.8161
+Epoch 23 | Loss: 15.1948 | Val AUC: 0.7922
+Epoch 24 | Loss: 11.4441 | Val AUC: 0.7994
+Epoch 25 | Loss: 9.3961 | Val AUC: 0.7810
+Epoch 26 | Loss: 8.0868 | Val AUC: 0.7818
+Epoch 27 | Loss: 14.9519 | Val AUC: 0.7770
+Early stopping
+TEST clintox: AUC = 0.7700
+
+>>> Trenowanie GNN (MTL)...
+
+=== ANALIZA DEBUGUJĄCA: EPOKA 0 (Pierwszy Batch) ===
+Node features (x) - Min: -1.0000, Max: 53.0000, NaN: False
+Po GIN Layer 0 - Max: 16.8543, NaN: False
+Po GIN Layer 1 - Max: 11.9782, NaN: False
+Po GIN Layer 2 - Max: 5.6704, NaN: False
+=== KONIEC ANALIZY ===
+
+Epoch 1/30 | Loss: 0.4487 | Val AUC: 0.8442
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8442)
+Epoch 2/30 | Loss: 0.3586 | Val AUC: 0.8458
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8458)
+Epoch 3/30 | Loss: 0.3125 | Val AUC: 0.8638
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8638)
+Epoch 4/30 | Loss: 0.2790 | Val AUC: 0.8567
+Epoch 5/30 | Loss: 0.2489 | Val AUC: 0.8758
+  >>> Zapisano nową najlepszą wersję modelu (AUC: 0.8758)
+Epoch 6/30 | Loss: 0.2194 | Val AUC: 0.8680
+Epoch 7/30 | Loss: 0.2019 | Val AUC: 0.8715
+Epoch 8/30 | Loss: 0.1792 | Val AUC: 0.8594
+Epoch 9/30 | Loss: 0.1679 | Val AUC: 0.8618
+Epoch 10/30 | Loss: 0.1283 | Val AUC: 0.8570
+Epoch 11/30 | Loss: 0.1105 | Val AUC: 0.8559
+Epoch 12/30 | Loss: 0.1021 | Val AUC: 0.8556
+Epoch 13/30 | Loss: 0.0951 | Val AUC: 0.8597
+  !!! Early Stopping wywołany po 13 epokach.
+
+>>> Wczytywanie najlepszego modelu z epoki 5 do finalnej ewaluacji...
+
+GOTOWE! Najlepszy model: results/best_mtl_model.pt
+
+Process finished with exit code 0
