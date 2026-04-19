@@ -1,0 +1,16 @@
+
+# --- Klaster Metaboliczny (Największy boost z MTL) ---
+'cyp2c19_veith',
+'cyp2d6_veith',
+'cyp3a4_veith',
+'cyp1a2_veith',
+'cyp2c9_veith',
+
+# --- Bariery i Transport (Wspólne cechy fizykochemiczne) ---
+'hia_hou',  # Wchłanianie
+'pgp_broccatelli',  # Transport (pompka)
+'bbb_martins',  # Przenikanie do mózgu
+
+# --- Toksyczność (Powiązania z metabolizmem i transportem) ---
+'herg',  # Kardio
+'dili',  # Wątroba (silna ujemna korelacja z P-gp!)

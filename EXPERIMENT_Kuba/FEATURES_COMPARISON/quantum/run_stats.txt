@@ -1,0 +1,322 @@
+/home/sztukowski/miniconda3/bin/conda run -n admet-mtl-v2 --no-capture-output python /mnt/c/Users/msztu/Documents/PythonProject/ADMET_MULTI_TASK_LEARNING/TODO/zadanie1/marcin2/train.py
+
+>>> Przygotowanie cache danych (obliczanie wszystkich deskryptorów)...
+
+>>> Master Cache nie znaleziony. Obliczam WSZYSTKIE cechy (RDKit + Morgan + Graph)...
+Downloading...
+100%|██████████| 43.7k/43.7k [00:00<00:00, 333kiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 40.1k/40.1k [00:00<00:00, 316kiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 126k/126k [00:00<00:00, 496kiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 138k/138k [00:00<00:00, 363kiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 740k/740k [00:00<00:00, 1.40MiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 800k/800k [00:00<00:00, 1.21MiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 746k/746k [00:00<00:00, 1.38MiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 45.6k/45.6k [00:00<00:00, 343kiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 45.4k/45.4k [00:00<00:00, 339kiB/s]
+Loading...
+Done!
+Downloading...
+100%|██████████| 46.0k/46.0k [00:00<00:00, 339kiB/s]
+Loading...
+Done!
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+100%|██████████| 885k/885k [00:00<00:00, 1.43MiB/s]
+Loading...
+Done!
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+100%|██████████| 344k/344k [00:00<00:00, 828kiB/s]
+Loading...
+Done!
+['lipophilicity_astrazeneca', 'solubility_aqsoldb', 'hydrationfreeenergy_freesolv', 'caco2_wang', 'pampa_ncats', 'approved_pampa_ncats', 'hia_hou', 'pgp_broccatelli', 'bioavailability_ma', 'vdss_lombardo', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'cyp2c9_substrate_carbonmangels', 'cyp2d6_substrate_carbonmangels', 'cyp3a4_substrate_carbonmangels', 'bbb_martins', 'b3db_classification', 'b3db_regression', 'ppbr_az', 'half_life_obach', 'clearance_hepatocyte_az', 'clearance_microsome_az', 'hlm', 'rlm']
+Downloading...
+100%|██████████| 26.7k/26.7k [00:00<00:00, 207kiB/s]
+Loading...
+Done!
+Konwertowanie splitu train na pełne dane hybrydowe...
+  6%|▌         | 1945/31758 [00:24<07:16, 68.31it/s][13:42:18] WARNING: not removing hydrogen atom without neighbors
+[13:42:18] WARNING: not removing hydrogen atom without neighbors
+[13:42:18] WARNING: not removing hydrogen atom without neighbors
+[13:42:18] WARNING: not removing hydrogen atom without neighbors
+  8%|▊         | 2390/31758 [00:30<06:55, 70.63it/s][13:42:25] WARNING: not removing hydrogen atom without neighbors
+[13:42:25] WARNING: not removing hydrogen atom without neighbors
+[13:42:25] WARNING: not removing hydrogen atom without neighbors
+[13:42:25] WARNING: not removing hydrogen atom without neighbors
+ 12%|█▏        | 3938/31758 [00:52<06:48, 68.14it/s][13:42:46] WARNING: not removing hydrogen atom without neighbors
+[13:42:46] WARNING: not removing hydrogen atom without neighbors
+[13:42:46] WARNING: not removing hydrogen atom without neighbors
+[13:42:46] WARNING: not removing hydrogen atom without neighbors
+ 15%|█▍        | 4729/31758 [01:03<06:15, 72.00it/s][13:42:57] WARNING: not removing hydrogen atom without neighbors
+[13:42:57] WARNING: not removing hydrogen atom without neighbors
+[13:42:57] WARNING: not removing hydrogen atom without neighbors
+[13:42:57] WARNING: not removing hydrogen atom without neighbors
+ 18%|█▊        | 5666/31758 [01:15<05:08, 84.71it/s][13:43:09] WARNING: not removing hydrogen atom without neighbors
+[13:43:09] WARNING: not removing hydrogen atom without neighbors
+[13:43:09] WARNING: not removing hydrogen atom without neighbors
+[13:43:09] WARNING: not removing hydrogen atom without neighbors
+ 19%|█▊        | 5944/31758 [01:19<05:13, 82.36it/s][13:43:13] WARNING: not removing hydrogen atom without neighbors
+[13:43:13] WARNING: not removing hydrogen atom without neighbors
+[13:43:13] WARNING: not removing hydrogen atom without neighbors
+[13:43:13] WARNING: not removing hydrogen atom without neighbors
+ 19%|█▊        | 5953/31758 [01:19<05:40, 75.77it/s][13:43:13] WARNING: not removing hydrogen atom without neighbors
+[13:43:13] WARNING: not removing hydrogen atom without neighbors
+[13:43:13] WARNING: not removing hydrogen atom without neighbors
+[13:43:13] WARNING: not removing hydrogen atom without neighbors
+ 20%|██        | 6359/31758 [01:25<06:19, 66.91it/s][13:43:19] WARNING: not removing hydrogen atom without neighbors
+[13:43:19] WARNING: not removing hydrogen atom without neighbors
+[13:43:19] WARNING: not removing hydrogen atom without neighbors
+[13:43:19] WARNING: not removing hydrogen atom without neighbors
+ 21%|██        | 6706/31758 [01:30<06:37, 63.08it/s][13:43:24] WARNING: not removing hydrogen atom without neighbors
+[13:43:24] WARNING: not removing hydrogen atom without neighbors
+[13:43:24] WARNING: not removing hydrogen atom without neighbors
+[13:43:24] WARNING: not removing hydrogen atom without neighbors
+ 22%|██▏       | 6907/31758 [01:33<06:16, 65.99it/s][13:43:27] WARNING: not removing hydrogen atom without neighbors
+[13:43:27] WARNING: not removing hydrogen atom without neighbors
+[13:43:27] WARNING: not removing hydrogen atom without neighbors
+[13:43:27] WARNING: not removing hydrogen atom without neighbors
+ 29%|██▉       | 9189/31758 [02:07<05:00, 75.17it/s][13:44:01] WARNING: not removing hydrogen atom without neighbors
+[13:44:01] WARNING: not removing hydrogen atom without neighbors
+[13:44:01] WARNING: not removing hydrogen atom without neighbors
+[13:44:01] WARNING: not removing hydrogen atom without neighbors
+ 29%|██▉       | 9226/31758 [02:08<04:59, 75.14it/s][13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+[13:44:02] WARNING: not removing hydrogen atom without neighbors
+ 30%|███       | 9529/31758 [02:11<03:52, 95.40it/s][13:44:06] WARNING: not removing hydrogen atom without neighbors
+[13:44:06] WARNING: not removing hydrogen atom without neighbors
+[13:44:06] WARNING: not removing hydrogen atom without neighbors
+[13:44:06] WARNING: not removing hydrogen atom without neighbors
+ 30%|███       | 9539/31758 [02:12<04:12, 87.86it/s][13:44:06] WARNING: not removing hydrogen atom without neighbors
+[13:44:06] WARNING: not removing hydrogen atom without neighbors
+[13:44:06] WARNING: not removing hydrogen atom without neighbors
+[13:44:06] WARNING: not removing hydrogen atom without neighbors
+ 31%|███       | 9818/31758 [02:15<05:13, 69.90it/s][13:44:10] WARNING: not removing hydrogen atom without neighbors
+[13:44:10] WARNING: not removing hydrogen atom without neighbors
+[13:44:10] WARNING: not removing hydrogen atom without neighbors
+[13:44:10] WARNING: not removing hydrogen atom without neighbors
+ 34%|███▍      | 10882/31758 [02:31<04:30, 77.09it/s][13:44:25] WARNING: not removing hydrogen atom without neighbors
+[13:44:25] WARNING: not removing hydrogen atom without neighbors
+[13:44:25] WARNING: not removing hydrogen atom without neighbors
+[13:44:25] WARNING: not removing hydrogen atom without neighbors
+ 35%|███▍      | 11005/31758 [02:32<06:07, 56.47it/s][13:44:26] WARNING: not removing hydrogen atom without neighbors
+[13:44:26] WARNING: not removing hydrogen atom without neighbors
+[13:44:26] WARNING: not removing hydrogen atom without neighbors
+[13:44:26] WARNING: not removing hydrogen atom without neighbors
+ 42%|████▏     | 13421/31758 [03:13<04:48, 63.65it/s][13:45:07] WARNING: not removing hydrogen atom without neighbors
+[13:45:07] WARNING: not removing hydrogen atom without neighbors
+[13:45:07] WARNING: not removing hydrogen atom without neighbors
+[13:45:07] WARNING: not removing hydrogen atom without neighbors
+ 50%|████▉     | 15754/31758 [03:51<04:28, 59.60it/s][13:45:45] WARNING: not removing hydrogen atom without neighbors
+[13:45:45] WARNING: not removing hydrogen atom without neighbors
+[13:45:45] WARNING: not removing hydrogen atom without neighbors
+[13:45:45] WARNING: not removing hydrogen atom without neighbors
+ 63%|██████▎   | 20023/31758 [04:54<02:43, 71.90it/s][13:46:48] WARNING: not removing hydrogen atom without neighbors
+[13:46:48] WARNING: not removing hydrogen atom without neighbors
+[13:46:48] WARNING: not removing hydrogen atom without neighbors
+[13:46:48] WARNING: not removing hydrogen atom without neighbors
+ 78%|███████▊  | 24829/31758 [06:01<01:27, 79.03it/s][13:47:55] WARNING: not removing hydrogen atom without neighbors
+[13:47:55] WARNING: not removing hydrogen atom without neighbors
+[13:47:55] WARNING: not removing hydrogen atom without neighbors
+[13:47:55] WARNING: not removing hydrogen atom without neighbors
+ 92%|█████████▏| 29158/31758 [07:04<00:36, 71.04it/s][13:48:58] WARNING: not removing hydrogen atom without neighbors
+[13:48:58] WARNING: not removing hydrogen atom without neighbors
+[13:48:58] WARNING: not removing hydrogen atom without neighbors
+[13:48:58] WARNING: not removing hydrogen atom without neighbors
+ 96%|█████████▋| 30606/31758 [07:22<00:13, 88.07it/s][13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+[13:49:16] WARNING: not removing hydrogen atom without neighbors
+100%|██████████| 31758/31758 [07:35<00:00, 69.71it/s]
+Konwertowanie splitu valid na pełne dane hybrydowe...
+ 11%|█         | 675/6115 [00:09<01:15, 71.80it/s][13:49:39] WARNING: not removing hydrogen atom without neighbors
+[13:49:39] WARNING: not removing hydrogen atom without neighbors
+[13:49:39] WARNING: not removing hydrogen atom without neighbors
+[13:49:39] WARNING: not removing hydrogen atom without neighbors
+ 22%|██▏       | 1371/6115 [00:19<01:00, 78.18it/s][13:49:49] WARNING: not removing hydrogen atom without neighbors
+[13:49:49] WARNING: not removing hydrogen atom without neighbors
+[13:49:49] WARNING: not removing hydrogen atom without neighbors
+[13:49:49] WARNING: not removing hydrogen atom without neighbors
+ 28%|██▊       | 1741/6115 [00:25<01:02, 69.55it/s][13:49:55] WARNING: not removing hydrogen atom without neighbors
+[13:49:55] WARNING: not removing hydrogen atom without neighbors
+[13:49:55] WARNING: not removing hydrogen atom without neighbors
+[13:49:55] WARNING: not removing hydrogen atom without neighbors
+ 78%|███████▊  | 4761/6115 [01:10<00:14, 90.28it/s][13:50:39] WARNING: not removing hydrogen atom without neighbors
+[13:50:39] WARNING: not removing hydrogen atom without neighbors
+[13:50:39] WARNING: not removing hydrogen atom without neighbors
+[13:50:39] WARNING: not removing hydrogen atom without neighbors
+100%|██████████| 6115/6115 [01:28<00:00, 69.14it/s]
+Konwertowanie splitu test na pełne dane hybrydowe...
+ 14%|█▍        | 1667/11564 [00:23<02:09, 76.18it/s][13:51:21] WARNING: not removing hydrogen atom without neighbors
+[13:51:21] WARNING: not removing hydrogen atom without neighbors
+[13:51:21] WARNING: not removing hydrogen atom without neighbors
+[13:51:21] WARNING: not removing hydrogen atom without neighbors
+ 20%|██        | 2316/11564 [00:32<02:25, 63.77it/s][13:51:30] WARNING: not removing hydrogen atom without neighbors
+[13:51:30] WARNING: not removing hydrogen atom without neighbors
+[13:51:30] WARNING: not removing hydrogen atom without neighbors
+[13:51:30] WARNING: not removing hydrogen atom without neighbors
+ 20%|██        | 2323/11564 [00:32<02:23, 64.19it/s][13:51:30] WARNING: not removing hydrogen atom without neighbors
+[13:51:30] WARNING: not removing hydrogen atom without neighbors
+[13:51:30] WARNING: not removing hydrogen atom without neighbors
+[13:51:30] WARNING: not removing hydrogen atom without neighbors
+ 22%|██▏       | 2543/11564 [00:36<02:16, 66.22it/s][13:51:34] WARNING: not removing hydrogen atom without neighbors
+[13:51:34] WARNING: not removing hydrogen atom without neighbors
+[13:51:34] WARNING: not removing hydrogen atom without neighbors
+[13:51:34] WARNING: not removing hydrogen atom without neighbors
+ 34%|███▍      | 3976/11564 [00:57<02:01, 62.30it/s][13:51:55] WARNING: not removing hydrogen atom without neighbors
+[13:51:55] WARNING: not removing hydrogen atom without neighbors
+[13:51:55] WARNING: not removing hydrogen atom without neighbors
+[13:51:55] WARNING: not removing hydrogen atom without neighbors
+ 50%|█████     | 5786/11564 [01:29<01:33, 61.94it/s][13:52:27] WARNING: not removing hydrogen atom without neighbors
+[13:52:27] WARNING: not removing hydrogen atom without neighbors
+[13:52:27] WARNING: not removing hydrogen atom without neighbors
+[13:52:27] WARNING: not removing hydrogen atom without neighbors
+ 51%|█████▏    | 5945/11564 [01:31<01:28, 63.61it/s][13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+[13:52:29] WARNING: not removing hydrogen atom without neighbors
+ 80%|███████▉  | 9242/11564 [02:18<00:28, 82.66it/s][13:53:16] WARNING: not removing hydrogen atom without neighbors
+[13:53:16] WARNING: not removing hydrogen atom without neighbors
+[13:53:16] WARNING: not removing hydrogen atom without neighbors
+[13:53:16] WARNING: not removing hydrogen atom without neighbors
+ 90%|█████████ | 10462/11564 [02:36<00:20, 53.86it/s][13:53:34] WARNING: not removing hydrogen atom without neighbors
+[13:53:34] WARNING: not removing hydrogen atom without neighbors
+[13:53:34] WARNING: not removing hydrogen atom without neighbors
+[13:53:34] WARNING: not removing hydrogen atom without neighbors
+100%|██████████| 11564/11564 [02:50<00:00, 67.91it/s]
+>>> Zapisywanie Master Cache do pliku...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+>>> Dane gotowe w cache.
+
+
+==================================================
+ ROZPOCZYNAM: Graph
+==================================================
+
+>>> Wczytywanie Master Cache: f93a4aaf...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=False
+Epoch 01 | Loss: 0.5186 | Val AUC: 0.7696
+Epoch 05 | Loss: 0.4585 | Val AUC: 0.8124
+Epoch 10 | Loss: 0.3973 | Val AUC: 0.8467
+Epoch 15 | Loss: 0.3647 | Val AUC: 0.8481
+Epoch 20 | Loss: 0.3155 | Val AUC: 0.8606
+Epoch 25 | Loss: 0.2802 | Val AUC: 0.8621
+Epoch 30 | Loss: 0.2582 | Val AUC: 0.8614
+KONIEC Graph | Test Avg AUC: 0.8111
+
+==================================================
+ ROZPOCZYNAM: Graph + RDKit
+==================================================
+
+>>> Wczytywanie Master Cache: f93a4aaf...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=False
+Epoch 01 | Loss: 0.5247 | Val AUC: 0.7761
+Epoch 05 | Loss: 0.4316 | Val AUC: 0.8308
+Epoch 10 | Loss: 0.3840 | Val AUC: 0.8436
+Epoch 15 | Loss: 0.3280 | Val AUC: 0.8535
+Epoch 20 | Loss: 0.2846 | Val AUC: 0.8533
+Epoch 25 | Loss: 0.2644 | Val AUC: 0.8566
+Epoch 30 | Loss: 0.2425 | Val AUC: 0.8570
+KONIEC Graph + RDKit | Test Avg AUC: 0.8293
+
+==================================================
+ ROZPOCZYNAM: Graph + Morgan
+==================================================
+
+>>> Wczytywanie Master Cache: f93a4aaf...
+>>> Dostosowuję dane: Graph=True, RDKit=False, Morgan=True
+Epoch 01 | Loss: 0.4715 | Val AUC: 0.8345
+Epoch 05 | Loss: 0.2551 | Val AUC: 0.8683
+Epoch 10 | Loss: 0.1292 | Val AUC: 0.8742
+Epoch 15 | Loss: 0.0854 | Val AUC: 0.8754
+Epoch 20 | Loss: 0.0548 | Val AUC: 0.8671
+Epoch 25 | Loss: 0.0403 | Val AUC: 0.8741
+Epoch 30 | Loss: 0.0370 | Val AUC: 0.8752
+KONIEC Graph + Morgan | Test Avg AUC: 0.8077
+
+==================================================
+ ROZPOCZYNAM: Graph + RDKit + Morgan
+==================================================
+
+>>> Wczytywanie Master Cache: f93a4aaf...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+Epoch 01 | Loss: 0.5217 | Val AUC: 0.7658
+Epoch 05 | Loss: 0.4324 | Val AUC: 0.8256
+Epoch 10 | Loss: 0.3923 | Val AUC: 0.8494
+Epoch 15 | Loss: 0.3503 | Val AUC: 0.8570
+Epoch 20 | Loss: 0.2934 | Val AUC: 0.8437
+Epoch 25 | Loss: 0.2476 | Val AUC: 0.8494
+Epoch 30 | Loss: 0.2260 | Val AUC: 0.8479
+KONIEC Graph + RDKit + Morgan | Test Avg AUC: 0.8175
+
+==================================================
+ ROZPOCZYNAM: RDKit
+==================================================
+
+>>> Wczytywanie Master Cache: f93a4aaf...
+>>> Dostosowuję dane: Graph=False, RDKit=True, Morgan=False
+Epoch 01 | Loss: 0.6072 | Val AUC: 0.6483
+Epoch 05 | Loss: 0.5982 | Val AUC: 0.6195
+Epoch 10 | Loss: 0.5779 | Val AUC: 0.6931
+Epoch 15 | Loss: 0.5636 | Val AUC: 0.7261
+Epoch 20 | Loss: 0.5515 | Val AUC: 0.7287
+Epoch 25 | Loss: 0.5486 | Val AUC: 0.7424
+Epoch 30 | Loss: 0.5337 | Val AUC: 0.7610
+KONIEC RDKit | Test Avg AUC: 0.7532
+
+==================================================
+ ROZPOCZYNAM: Morgan
+==================================================
+
+>>> Wczytywanie Master Cache: f93a4aaf...
+>>> Dostosowuję dane: Graph=False, RDKit=False, Morgan=True
+Epoch 01 | Loss: 0.4881 | Val AUC: 0.8305
+Epoch 05 | Loss: 0.2691 | Val AUC: 0.8268
+Epoch 10 | Loss: 0.1711 | Val AUC: 0.8311
+Epoch 15 | Loss: 0.0953 | Val AUC: 0.8424
+Epoch 20 | Loss: 0.0642 | Val AUC: 0.8394
+Epoch 25 | Loss: 0.0491 | Val AUC: 0.8414
+Epoch 30 | Loss: 0.0442 | Val AUC: 0.8402
+KONIEC Morgan | Test Avg AUC: 0.7998
+
+Process finished with exit code 0

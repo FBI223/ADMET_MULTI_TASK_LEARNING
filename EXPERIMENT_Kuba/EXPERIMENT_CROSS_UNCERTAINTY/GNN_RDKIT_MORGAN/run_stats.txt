@@ -1,0 +1,93 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=True, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=True
+Wymiary: node=9, morgan=1024, rdkit=210
+
+>>> MTL GNN + Cross-Task Uncertainty Weighting...
+
+>>> Start treningu MTL z Cross-Task Uncertainty (30 epok max)...
+Epoch 01 | Loss: 71.0434 | Val AUC: 0.7583
+  >>> Nowy najlepszy model (AUC: 0.7583)
+Epoch 02 | Loss: 63.1067 | Val AUC: 0.7831
+  >>> Nowy najlepszy model (AUC: 0.7831)
+Epoch 03 | Loss: 56.4717 | Val AUC: 0.7812
+Epoch 04 | Loss: 53.5100 | Val AUC: 0.8316
+  >>> Nowy najlepszy model (AUC: 0.8316)
+Epoch 05 | Loss: 50.6164 | Val AUC: 0.8290
+Epoch 06 | Loss: 45.9467 | Val AUC: 0.8346
+  >>> Nowy najlepszy model (AUC: 0.8346)
+Epoch 07 | Loss: 44.9366 | Val AUC: 0.8383
+  >>> Nowy najlepszy model (AUC: 0.8383)
+Epoch 08 | Loss: 42.9637 | Val AUC: 0.8468
+  >>> Nowy najlepszy model (AUC: 0.8468)
+Epoch 09 | Loss: 43.0575 | Val AUC: 0.8208
+Epoch 10 | Loss: 40.4087 | Val AUC: 0.8476
+  >>> Nowy najlepszy model (AUC: 0.8476)
+Epoch 11 | Loss: 37.5239 | Val AUC: 0.8574
+  >>> Nowy najlepszy model (AUC: 0.8574)
+Epoch 12 | Loss: 34.4128 | Val AUC: 0.8519
+Epoch 13 | Loss: 33.8605 | Val AUC: 0.8608
+  >>> Nowy najlepszy model (AUC: 0.8608)
+Epoch 14 | Loss: 31.1220 | Val AUC: 0.8584
+Epoch 15 | Loss: 28.4226 | Val AUC: 0.8530
+Epoch 16 | Loss: 29.4931 | Val AUC: 0.8612
+  >>> Nowy najlepszy model (AUC: 0.8612)
+Epoch 17 | Loss: 26.4889 | Val AUC: 0.8591
+Epoch 18 | Loss: 21.9773 | Val AUC: 0.8695
+  >>> Nowy najlepszy model (AUC: 0.8695)
+Epoch 19 | Loss: 23.2831 | Val AUC: 0.8620
+Epoch 20 | Loss: 30.1999 | Val AUC: 0.8585
+Epoch 21 | Loss: 21.1702 | Val AUC: 0.8496
+Epoch 22 | Loss: 18.5158 | Val AUC: 0.8643
+Epoch 23 | Loss: 9.0694 | Val AUC: 0.8680
+Epoch 24 | Loss: 4.4979 | Val AUC: 0.8772
+  >>> Nowy najlepszy model (AUC: 0.8772)
+Epoch 25 | Loss: 2.7794 | Val AUC: 0.8727
+Epoch 26 | Loss: 2.4865 | Val AUC: 0.8743
+Epoch 27 | Loss: 1.1299 | Val AUC: 0.8729
+Epoch 28 | Loss: -2.7737 | Val AUC: 0.8742
+Epoch 29 | Loss: -7.5054 | Val AUC: 0.8823
+  >>> Nowy najlepszy model (AUC: 0.8823)
+Epoch 30 | Loss: -10.4455 | Val AUC: 0.8826
+  >>> Nowy najlepszy model (AUC: 0.8826)
+
+>>> Wczytano model z epoki 30 (Val AUC: 0.8826)
+
+>>> Efektywne wagi per task (suma kolumn 1/sigma^2):
+  hia_hou                             eff_weight = 181.7556
+  pgp_broccatelli                     eff_weight = 39.5143
+  bbb_martins                         eff_weight = 30.2208
+  cyp2c19_veith                       eff_weight = 15.9364
+  cyp2d6_veith                        eff_weight = 21.1151
+  cyp3a4_veith                        eff_weight = 16.9383
+  cyp1a2_veith                        eff_weight = 19.1089
+  cyp2c9_veith                        eff_weight = 17.2842
+  herg                                eff_weight = 39.7206
+  dili                                eff_weight = 60.7916
+  skin_reaction                       eff_weight = 33.5932
+  ames                                eff_weight = 14.6915
+  clintox                             eff_weight = 55.1168
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_RDKIT_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_CROSS  MTL_GNN  STL_GNN  XGBoost
+        hia_hou       0.978839 0.981009 0.982637 0.986435
+pgp_broccatelli       0.921790 0.934355 0.904589 0.934153
+    bbb_martins       0.873899 0.876894 0.864959 0.900782
+  cyp2c19_veith       0.880979 0.907257 0.884560 0.891300
+   cyp2d6_veith       0.847448 0.869094 0.840254 0.865360
+   cyp3a4_veith       0.878893 0.898416 0.889171 0.888877
+   cyp1a2_veith       0.920715 0.938642 0.926114 0.934460
+   cyp2c9_veith       0.880753 0.907105 0.877019 0.898580
+           herg       0.865337 0.818646 0.806895 0.816172
+           dili       0.871011 0.845745 0.821809 0.864805
+  skin_reaction       0.693240 0.712372 0.634566 0.755102
+           ames       0.851237 0.878915 0.856968 0.893044
+        clintox       0.923330 0.903952 0.906633 0.922564
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_CROSS_UNCERTAINTY/GNN_RDKIT_MORGAN/final_results.csv

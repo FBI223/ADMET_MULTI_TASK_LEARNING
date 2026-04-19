@@ -1,0 +1,48 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=False, morgan=True
+Device: cpu
+
+
+>>> Wczytywanie Edge Cache: e55e789a...
+Wymiary: node=9, morgan=1024, rdkit=217
+
+>>> MTL GNN + Edge Features (GINEConv)...
+
+>>> Start treningu MTL z GINEConv (edge features, 60 epok max)...
+Epoch 01 | Loss: 0.4471 | Val AUC: 0.8431
+  >>> Nowy najlepszy model (AUC: 0.8431)
+Epoch 02 | Loss: 0.3585 | Val AUC: 0.8712
+  >>> Nowy najlepszy model (AUC: 0.8712)
+Epoch 03 | Loss: 0.3116 | Val AUC: 0.8770
+  >>> Nowy najlepszy model (AUC: 0.8770)
+Epoch 04 | Loss: 0.2747 | Val AUC: 0.8643
+Epoch 05 | Loss: 0.2438 | Val AUC: 0.8567
+Epoch 06 | Loss: 0.2198 | Val AUC: 0.8609
+Epoch 07 | Loss: 0.1964 | Val AUC: 0.8584
+Epoch 08 | Loss: 0.1509 | Val AUC: 0.8690
+Epoch 09 | Loss: 0.1299 | Val AUC: 0.8738
+Epoch 10 | Loss: 0.1191 | Val AUC: 0.8729
+Epoch 11 | Loss: 0.1075 | Val AUC: 0.8625
+  !!! Early Stopping po 11 epokach.
+
+>>> Wczytano model z epoki 3 (Val AUC: 0.8770)
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_MORGAN/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_EDGE  MTL_GNN  STL_GNN  XGBoost
+        hia_hou      0.906674 0.934346 0.884428 0.930005
+pgp_broccatelli      0.902641 0.907680 0.912854 0.893570
+    bbb_martins      0.883319 0.877071 0.840062 0.865247
+  cyp2c19_veith      0.897797 0.897270 0.861776 0.862146
+   cyp2d6_veith      0.846347 0.862128 0.834805 0.837117
+   cyp3a4_veith      0.890170 0.884521 0.868449 0.858367
+   cyp1a2_veith      0.924866 0.922323 0.916712 0.904450
+   cyp2c9_veith      0.902909 0.906220 0.871837 0.865215
+           herg      0.831323 0.843383 0.825758 0.857607
+           dili      0.832004 0.830230 0.777039 0.841755
+  skin_reaction      0.601403 0.621173 0.674107 0.727041
+           ames      0.887174 0.876405 0.872490 0.873524
+        clintox      0.823453 0.804841 0.769991 0.880438
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_EDGE_FEATURES/GNN_MORGAN/final_results.csv

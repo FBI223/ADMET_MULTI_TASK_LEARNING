@@ -1,0 +1,17 @@
+
+# --- ADME Classification ---
+'hia_hou',  # Wchłanianie jelitowe
+'pgp_broccatelli',  # P-glikoproteina (transporter)
+'bbb_martins',  # Bariera krew-mózg
+'cyp2c19_veith',  # Metabolizm (enzymy)
+'cyp2d6_veith',
+'cyp3a4_veith',
+'cyp1a2_veith',
+'cyp2c9_veith',
+
+# --- Toxicity Classification ---
+'herg',  # Kardiotoksyczność
+'dili',  # Toksyczność wątroby
+'skin_reaction',  # Reakcje skórne
+'ames',  # Mutagenność
+'clintox'  # Toksyczność kliniczna (FDA approved vs clinical failure)

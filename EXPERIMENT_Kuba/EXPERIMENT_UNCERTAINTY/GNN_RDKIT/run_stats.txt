@@ -1,0 +1,95 @@
+Zadania (13): ['hia_hou', 'pgp_broccatelli', 'bbb_martins', 'cyp2c19_veith', 'cyp2d6_veith', 'cyp3a4_veith', 'cyp1a2_veith', 'cyp2c9_veith', 'herg', 'dili', 'skin_reaction', 'ames', 'clintox']
+Wejścia: graph=True, rdkit=True, morgan=False
+Device: cpu
+
+
+>>> Wczytywanie Master Cache: e55e789a...
+>>> Dostosowuję dane: Graph=True, RDKit=True, Morgan=False
+Wymiary: node=9, morgan=1024, rdkit=210
+
+>>> MTL GNN + Uncertainty Weighting...
+
+>>> Start treningu MTL z Uncertainty Weighting (30 epok max)...
+Epoch 01 | Loss: 5.4242 | Val AUC: 0.7951 | sigma: [hia_ho:0.965 | pgp_br:0.952 | bbb_ma:0.971 | cyp2c1:1.048 | cyp2d6:0.941 | cyp3a4:1.027 | cyp1a2:0.986 | cyp2c9:1.007 | herg:1.006 | dili:1.025 | skin_r:1.031 | ames:1.091 | clinto:0.928]
+  >>> Nowy najlepszy model (AUC: 0.7951)
+Epoch 02 | Loss: 4.9857 | Val AUC: 0.7961 | sigma: [hia_ho:0.925 | pgp_br:0.926 | bbb_ma:0.945 | cyp2c1:1.036 | cyp2d6:0.902 | cyp3a4:1.009 | cyp1a2:0.959 | cyp2c9:0.987 | herg:0.998 | dili:1.008 | skin_r:1.040 | ames:1.090 | clinto:0.887]
+  >>> Nowy najlepszy model (AUC: 0.7961)
+Epoch 03 | Loss: 4.6821 | Val AUC: 0.7588 | sigma: [hia_ho:0.870 | pgp_br:0.894 | bbb_ma:0.921 | cyp2c1:1.028 | cyp2d6:0.901 | cyp3a4:0.997 | cyp1a2:0.956 | cyp2c9:0.986 | herg:0.984 | dili:0.995 | skin_r:1.046 | ames:1.080 | clinto:0.846]
+Epoch 04 | Loss: 4.5544 | Val AUC: 0.8047 | sigma: [hia_ho:0.828 | pgp_br:0.866 | bbb_ma:0.905 | cyp2c1:1.020 | cyp2d6:0.890 | cyp3a4:0.985 | cyp1a2:0.944 | cyp2c9:0.975 | herg:0.974 | dili:1.001 | skin_r:1.040 | ames:1.076 | clinto:0.807]
+  >>> Nowy najlepszy model (AUC: 0.8047)
+Epoch 05 | Loss: 4.3572 | Val AUC: 0.8292 | sigma: [hia_ho:0.789 | pgp_br:0.853 | bbb_ma:0.886 | cyp2c1:0.999 | cyp2d6:0.877 | cyp3a4:0.966 | cyp1a2:0.925 | cyp2c9:0.961 | herg:0.961 | dili:0.988 | skin_r:1.043 | ames:1.061 | clinto:0.774]
+  >>> Nowy najlepszy model (AUC: 0.8292)
+Epoch 06 | Loss: 4.2015 | Val AUC: 0.8310 | sigma: [hia_ho:0.744 | pgp_br:0.842 | bbb_ma:0.864 | cyp2c1:0.996 | cyp2d6:0.871 | cyp3a4:0.960 | cyp1a2:0.911 | cyp2c9:0.952 | herg:0.946 | dili:0.977 | skin_r:1.043 | ames:1.058 | clinto:0.749]
+  >>> Nowy najlepszy model (AUC: 0.8310)
+Epoch 07 | Loss: 4.1147 | Val AUC: 0.8519 | sigma: [hia_ho:0.705 | pgp_br:0.832 | bbb_ma:0.850 | cyp2c1:0.991 | cyp2d6:0.866 | cyp3a4:0.960 | cyp1a2:0.914 | cyp2c9:0.951 | herg:0.930 | dili:0.972 | skin_r:1.039 | ames:1.048 | clinto:0.731]
+  >>> Nowy najlepszy model (AUC: 0.8519)
+Epoch 08 | Loss: 3.7929 | Val AUC: 0.8469 | sigma: [hia_ho:0.671 | pgp_br:0.815 | bbb_ma:0.831 | cyp2c1:0.982 | cyp2d6:0.866 | cyp3a4:0.954 | cyp1a2:0.909 | cyp2c9:0.945 | herg:0.909 | dili:0.953 | skin_r:1.034 | ames:1.043 | clinto:0.707]
+Epoch 09 | Loss: 4.2949 | Val AUC: 0.8170 | sigma: [hia_ho:0.663 | pgp_br:0.806 | bbb_ma:0.844 | cyp2c1:1.010 | cyp2d6:0.875 | cyp3a4:0.975 | cyp1a2:0.933 | cyp2c9:0.962 | herg:0.909 | dili:0.943 | skin_r:1.031 | ames:1.066 | clinto:0.694]
+Epoch 10 | Loss: 3.8868 | Val AUC: 0.8437 | sigma: [hia_ho:0.642 | pgp_br:0.796 | bbb_ma:0.834 | cyp2c1:0.994 | cyp2d6:0.859 | cyp3a4:0.964 | cyp1a2:0.925 | cyp2c9:0.949 | herg:0.890 | dili:0.929 | skin_r:1.024 | ames:1.052 | clinto:0.678]
+Epoch 11 | Loss: 3.6788 | Val AUC: 0.8425 | sigma: [hia_ho:0.620 | pgp_br:0.782 | bbb_ma:0.826 | cyp2c1:0.981 | cyp2d6:0.852 | cyp3a4:0.953 | cyp1a2:0.910 | cyp2c9:0.940 | herg:0.883 | dili:0.908 | skin_r:1.019 | ames:1.041 | clinto:0.667]
+Epoch 12 | Loss: 3.3170 | Val AUC: 0.8538 | sigma: [hia_ho:0.605 | pgp_br:0.772 | bbb_ma:0.818 | cyp2c1:0.965 | cyp2d6:0.849 | cyp3a4:0.943 | cyp1a2:0.899 | cyp2c9:0.930 | herg:0.869 | dili:0.899 | skin_r:1.016 | ames:1.026 | clinto:0.656]
+  >>> Nowy najlepszy model (AUC: 0.8538)
+Epoch 13 | Loss: 3.1833 | Val AUC: 0.8663 | sigma: [hia_ho:0.586 | pgp_br:0.763 | bbb_ma:0.809 | cyp2c1:0.955 | cyp2d6:0.842 | cyp3a4:0.936 | cyp1a2:0.888 | cyp2c9:0.922 | herg:0.856 | dili:0.888 | skin_r:1.009 | ames:1.021 | clinto:0.648]
+  >>> Nowy najlepszy model (AUC: 0.8663)
+Epoch 14 | Loss: 3.0850 | Val AUC: 0.8681 | sigma: [hia_ho:0.570 | pgp_br:0.751 | bbb_ma:0.802 | cyp2c1:0.951 | cyp2d6:0.838 | cyp3a4:0.932 | cyp1a2:0.881 | cyp2c9:0.919 | herg:0.842 | dili:0.876 | skin_r:1.001 | ames:1.013 | clinto:0.641]
+  >>> Nowy najlepszy model (AUC: 0.8681)
+Epoch 15 | Loss: 2.8963 | Val AUC: 0.8685 | sigma: [hia_ho:0.549 | pgp_br:0.740 | bbb_ma:0.788 | cyp2c1:0.949 | cyp2d6:0.833 | cyp3a4:0.927 | cyp1a2:0.874 | cyp2c9:0.916 | herg:0.831 | dili:0.868 | skin_r:0.996 | ames:1.003 | clinto:0.634]
+  >>> Nowy najlepszy model (AUC: 0.8685)
+Epoch 16 | Loss: 2.8837 | Val AUC: 0.8709 | sigma: [hia_ho:0.534 | pgp_br:0.729 | bbb_ma:0.777 | cyp2c1:0.945 | cyp2d6:0.830 | cyp3a4:0.925 | cyp1a2:0.875 | cyp2c9:0.916 | herg:0.822 | dili:0.853 | skin_r:0.989 | ames:1.002 | clinto:0.625]
+  >>> Nowy najlepszy model (AUC: 0.8709)
+Epoch 17 | Loss: 2.8039 | Val AUC: 0.8718 | sigma: [hia_ho:0.519 | pgp_br:0.719 | bbb_ma:0.771 | cyp2c1:0.944 | cyp2d6:0.828 | cyp3a4:0.921 | cyp1a2:0.872 | cyp2c9:0.912 | herg:0.814 | dili:0.841 | skin_r:0.983 | ames:0.999 | clinto:0.616]
+  >>> Nowy najlepszy model (AUC: 0.8718)
+Epoch 18 | Loss: 2.6212 | Val AUC: 0.8662 | sigma: [hia_ho:0.505 | pgp_br:0.705 | bbb_ma:0.766 | cyp2c1:0.939 | cyp2d6:0.824 | cyp3a4:0.919 | cyp1a2:0.869 | cyp2c9:0.909 | herg:0.805 | dili:0.828 | skin_r:0.976 | ames:0.997 | clinto:0.604]
+Epoch 19 | Loss: 2.4832 | Val AUC: 0.8590 | sigma: [hia_ho:0.488 | pgp_br:0.696 | bbb_ma:0.757 | cyp2c1:0.936 | cyp2d6:0.822 | cyp3a4:0.919 | cyp1a2:0.864 | cyp2c9:0.905 | herg:0.791 | dili:0.821 | skin_r:0.968 | ames:0.991 | clinto:0.593]
+Epoch 20 | Loss: 2.5468 | Val AUC: 0.8658 | sigma: [hia_ho:0.473 | pgp_br:0.690 | bbb_ma:0.750 | cyp2c1:0.935 | cyp2d6:0.821 | cyp3a4:0.916 | cyp1a2:0.860 | cyp2c9:0.905 | herg:0.782 | dili:0.807 | skin_r:0.958 | ames:0.991 | clinto:0.591]
+Epoch 21 | Loss: 2.4351 | Val AUC: 0.8631 | sigma: [hia_ho:0.458 | pgp_br:0.681 | bbb_ma:0.745 | cyp2c1:0.936 | cyp2d6:0.821 | cyp3a4:0.914 | cyp1a2:0.859 | cyp2c9:0.904 | herg:0.773 | dili:0.799 | skin_r:0.950 | ames:0.986 | clinto:0.582]
+Epoch 22 | Loss: 2.1001 | Val AUC: 0.8780 | sigma: [hia_ho:0.450 | pgp_br:0.674 | bbb_ma:0.740 | cyp2c1:0.931 | cyp2d6:0.817 | cyp3a4:0.910 | cyp1a2:0.854 | cyp2c9:0.899 | herg:0.767 | dili:0.791 | skin_r:0.946 | ames:0.982 | clinto:0.580]
+  >>> Nowy najlepszy model (AUC: 0.8780)
+Epoch 23 | Loss: 1.8464 | Val AUC: 0.8804 | sigma: [hia_ho:0.441 | pgp_br:0.666 | bbb_ma:0.733 | cyp2c1:0.924 | cyp2d6:0.814 | cyp3a4:0.904 | cyp1a2:0.849 | cyp2c9:0.896 | herg:0.760 | dili:0.780 | skin_r:0.943 | ames:0.978 | clinto:0.575]
+  >>> Nowy najlepszy model (AUC: 0.8804)
+Epoch 24 | Loss: 1.8539 | Val AUC: 0.8817 | sigma: [hia_ho:0.431 | pgp_br:0.660 | bbb_ma:0.727 | cyp2c1:0.919 | cyp2d6:0.811 | cyp3a4:0.899 | cyp1a2:0.845 | cyp2c9:0.892 | herg:0.756 | dili:0.769 | skin_r:0.940 | ames:0.972 | clinto:0.569]
+  >>> Nowy najlepszy model (AUC: 0.8817)
+Epoch 25 | Loss: 1.6627 | Val AUC: 0.8765 | sigma: [hia_ho:0.422 | pgp_br:0.651 | bbb_ma:0.719 | cyp2c1:0.914 | cyp2d6:0.808 | cyp3a4:0.895 | cyp1a2:0.841 | cyp2c9:0.889 | herg:0.749 | dili:0.758 | skin_r:0.933 | ames:0.967 | clinto:0.564]
+Epoch 26 | Loss: 1.5663 | Val AUC: 0.8858 | sigma: [hia_ho:0.411 | pgp_br:0.643 | bbb_ma:0.710 | cyp2c1:0.912 | cyp2d6:0.805 | cyp3a4:0.893 | cyp1a2:0.838 | cyp2c9:0.887 | herg:0.742 | dili:0.748 | skin_r:0.926 | ames:0.963 | clinto:0.559]
+  >>> Nowy najlepszy model (AUC: 0.8858)
+Epoch 27 | Loss: 1.5409 | Val AUC: 0.8824 | sigma: [hia_ho:0.401 | pgp_br:0.637 | bbb_ma:0.704 | cyp2c1:0.910 | cyp2d6:0.803 | cyp3a4:0.889 | cyp1a2:0.836 | cyp2c9:0.885 | herg:0.737 | dili:0.736 | skin_r:0.919 | ames:0.960 | clinto:0.553]
+Epoch 28 | Loss: 1.4831 | Val AUC: 0.8846 | sigma: [hia_ho:0.391 | pgp_br:0.629 | bbb_ma:0.697 | cyp2c1:0.908 | cyp2d6:0.801 | cyp3a4:0.887 | cyp1a2:0.834 | cyp2c9:0.884 | herg:0.733 | dili:0.726 | skin_r:0.914 | ames:0.957 | clinto:0.546]
+Epoch 29 | Loss: 1.4170 | Val AUC: 0.8823 | sigma: [hia_ho:0.381 | pgp_br:0.624 | bbb_ma:0.690 | cyp2c1:0.907 | cyp2d6:0.800 | cyp3a4:0.885 | cyp1a2:0.831 | cyp2c9:0.882 | herg:0.726 | dili:0.715 | skin_r:0.906 | ames:0.953 | clinto:0.542]
+Epoch 30 | Loss: 1.3435 | Val AUC: 0.8823 | sigma: [hia_ho:0.371 | pgp_br:0.618 | bbb_ma:0.686 | cyp2c1:0.904 | cyp2d6:0.798 | cyp3a4:0.885 | cyp1a2:0.829 | cyp2c9:0.880 | herg:0.720 | dili:0.707 | skin_r:0.900 | ames:0.952 | clinto:0.536]
+
+>>> Wczytano model z epoki 26 (Val AUC: 0.8858)
+
+>>> Nauczone wagi (sigma_final | weight = 1/sigma^2):
+  hia_hou                             sigma = 0.4114  weight = 5.9090
+  pgp_broccatelli                     sigma = 0.6430  weight = 2.4186
+  bbb_martins                         sigma = 0.7103  weight = 1.9821
+  cyp2c19_veith                       sigma = 0.9124  weight = 1.2011
+  cyp2d6_veith                        sigma = 0.8053  weight = 1.5421
+  cyp3a4_veith                        sigma = 0.8929  weight = 1.2541
+  cyp1a2_veith                        sigma = 0.8378  weight = 1.4246
+  cyp2c9_veith                        sigma = 0.8873  weight = 1.2701
+  herg                                sigma = 0.7425  weight = 1.8140
+  dili                                sigma = 0.7477  weight = 1.7887
+  skin_reaction                       sigma = 0.9259  weight = 1.1665
+  ames                                sigma = 0.9635  weight = 1.0773
+  clintox                             sigma = 0.5587  weight = 3.2038
+
+>>> Wczytano baseline z EXPERIMENT_MAIN/GNN_RDKIT/final_results.csv
+
+>>> Wyniki:
+           Task  MTL_GNN_UNCERTAINTY  MTL_GNN  STL_GNN  XGBoost
+        hia_hou             0.978296 0.969072 0.982637 0.987520
+pgp_broccatelli             0.909696 0.920849 0.892159 0.932809
+    bbb_martins             0.890304 0.880051 0.829648 0.894341
+  cyp2c19_veith             0.875771 0.883937 0.886972 0.889072
+   cyp2d6_veith             0.835427 0.840751 0.842440 0.857987
+   cyp3a4_veith             0.879144 0.873329 0.888147 0.879246
+   cyp1a2_veith             0.919200 0.912147 0.925902 0.931183
+   cyp2c9_veith             0.877772 0.887885 0.874768 0.887784
+           herg             0.883890 0.802257 0.837199 0.821119
+           dili             0.873227 0.812500 0.792110 0.880319
+  skin_reaction             0.718112 0.682398 0.700893 0.788265
+           ames             0.851928 0.846729 0.859653 0.896358
+        clintox             0.930836 0.888021 0.910386 0.913986
+
+GOTOWE. Wyniki: /Users/jqbpoz/Projects/ADMET_MULTI_TASK_LEARNING/EXPERIMENT/EXPERIMENT_UNCERTAINTY/GNN_RDKIT/final_results.csv

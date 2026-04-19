@@ -1,0 +1,22 @@
+
+# --- ADME Classification ---
+'bioavailability_ma',  # Dostępność biologiczna
+'hia_hou',  # Wchłanianie jelitowe
+'pgp_broccatelli',  # Transport (P-gp)
+'bbb_martins',  # Bariera krew-mózg
+
+# CYP Inhibition (Veith)
+'cyp2c9_veith',
+'cyp2d6_veith',
+'cyp3a4_veith',
+
+# CYP Substrate (CarbonMangels) - świetne do MTL z Veith!
+'cyp2c9_substrate_carbonmangels',
+'cyp2d6_substrate_carbonmangels',
+'cyp3a4_substrate_carbonmangels',
+
+# --- Toxicity Classification ---
+'hERG_Karim',  # Kardiotoksyczność
+'ames',  # Mutagenność
+'dili'  # Toksyczność wątroby
+
