@@ -2,7 +2,7 @@ from xgboost import XGBClassifier
 from EXPERIMENT.config import Config
 from plots import *
 from EXPERIMENT.data import get_full_data, analyze_mtl_dataset, save_label_correlation_csv
-from EXPERIMENT.model import ADMET_Hybrid_Model,  MaskedBCELoss
+from EXPERIMENT.model import ADMET_Hybrid_Model, MaskedBCELoss, LearnedWeightedMaskedBCELoss
 import torch
 import numpy as np
 import pandas as pd
@@ -411,6 +411,114 @@ def main_tsne_pipeline():
     print("DONE")
 
 
+def main_new():
+    cfg = Config()
+    os.makedirs(cfg.results_dir, exist_ok=True)
+
+    # 1. Przygotowanie danych (Master Cache)
+    print("\n>>> Przygotowanie danych...")
+    get_full_data(cfg)
+    train_loader, val_loader, test_loader, train_ds, test_ds, raw_train_df = get_full_data(cfg)
+
+    # 2. Baseline: XGBoost
+    print("\n>>> Trenowanie XGBoost (Baseline)...")
+    xgb_scores = train_single_task_xgboost(train_ds, test_ds, cfg)
+
+    # 3. Modele STL GNN (Single Task) - KONIECZNE DO WYKRESÓW
+    # Trenujemy 10/13 osobnych modeli, żeby mieć punkt odniesienia
+    print("\n>>> Trenowanie GNN (Single-Task Learning)...")
+    stl_gnn_scores, _ = train_stl_and_evaluate(train_loader, val_loader, test_loader, cfg, raw_train_df)
+
+    # 4. Model MTL GNN (Multi-Task Learning) z UCZONYMI WAGAMI
+    print("\n>>> Trenowanie GNN (Multi-Task Learning) z automatycznym ważeniem zadań...")
+
+    mtl_model = ADMET_Hybrid_Model(cfg).to(cfg.device)
+
+    # Inicjalizacja funkcji straty z uczonymi parametrami s_t
+    num_tasks = len(cfg.tasks)
+    criterion = LearnedWeightedMaskedBCELoss(num_tasks=num_tasks).to(cfg.device)
+
+    # !!! KLUCZOWE: Dodajemy parametry criterion do optimizera !!!
+    optimizer = torch.optim.Adam([
+        {'params': mtl_model.parameters()},
+        {'params': criterion.parameters(), 'lr': cfg.lr}  # Wagi uczą się razem z modelem
+    ], lr=cfg.lr)
+
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='max', factor=0.5, patience=3)
+
+    best_val_auc = 0
+    model_path = os.path.join(cfg.results_dir, "best_mtl_model.pt")
+    history = {"train_loss": [], "val_auroc": []}
+
+    # Pętla treningowa MTL
+    for epoch in range(cfg.epochs):
+        mtl_model.train()
+        total_loss = 0
+        for batch in train_loader:
+            batch = batch.to(cfg.device)
+            optimizer.zero_grad()
+
+            preds = mtl_model(batch)  # Zwraca listę [task_1, task_2...]
+            loss = criterion(preds, batch.y)
+
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+
+        # Walidacja
+        val_scores = evaluate_gnn_simple(mtl_model, val_loader, cfg)
+        avg_val_auc = np.mean(list(val_scores.values()))
+        scheduler.step(avg_val_auc)
+
+        history["train_loss"].append(total_loss / len(train_loader))
+        history["val_auroc"].append(avg_val_auc)
+
+        print(f"Epoch {epoch + 1}/{cfg.epochs} | Loss: {history['train_loss'][-1]:.4f} | Val AUC: {avg_val_auc:.4f}")
+
+        if avg_val_auc > best_val_auc:
+            best_val_auc = avg_val_auc
+            torch.save({'model_state_dict': mtl_model.state_dict(), 'loss_state_dict': criterion.state_dict()},
+                       model_path)
+            print(f"  >>> Zapisano model (AUC: {best_val_auc:.4f})")
+
+    # 5. Ewaluacja końcowa MTL
+    print("\n>>> Finalna ewaluacja MTL GNN...")
+    checkpoint = torch.load(model_path)
+    mtl_model.load_state_dict(checkpoint['model_state_dict'])
+
+    y_true_mtl, y_pred_mtl = get_predictions_and_labels(mtl_model, test_loader, cfg)
+    mtl_gnn_scores = evaluate_per_task(y_true_mtl, y_pred_mtl, cfg.tasks)
+
+    # 6. ZBIERANIE WYNIKÓW DO JEDNEJ TABELI (Naprawa KeyError)
+    final_results = []
+    for task in cfg.tasks:
+        final_results.append({
+            'Task': task,
+            'MTL_GNN': mtl_gnn_scores[task],
+            'STL_GNN': stl_gnn_scores[task],  # Pobrane z punktu 3
+            'XGBoost': xgb_scores[task]
+        })
+
+    results_df = pd.DataFrame(final_results)
+    results_df.to_csv(f"{cfg.results_dir}/final_results.csv", index=False)
+
+    # 7. Wizualizacje
+    print("\n>>> Generowanie wykresów...")
+    plot_model_comparison_simple(results_df)
+    plot_rho_vs_delta(
+        corr_path=f"{cfg.results_dir}/korelacje.csv",
+        results_path=f"{cfg.results_dir}/final_results.csv",
+        save_path=f"{cfg.results_dir}/rho_vs_delta.png"
+    )
+
+    # Bonus: Wyświetlmy jakie wagi model sam sobie nadał
+    learned_lambdas = torch.exp(-criterion.log_vars).detach().cpu().numpy()
+    print("\n>>> Wyuczone wagi dla zadań (Lambdy):")
+    for task, val in zip(cfg.tasks, learned_lambdas):
+        print(f"  {task}: {val:.4f}")
+
+    print(f"\nGOTOWE! Wyniki w: {cfg.results_dir}")
+
 
 def main():
 
@@ -557,6 +665,9 @@ def main():
     print(f"\nGOTOWE! Najlepszy model: {model_path}")
 
 
+
+
+
 def run_experiments():
     # 1. Definicja 6 kombinacji wejść
     combinations = [
@@ -668,6 +779,7 @@ def run_experiments():
 
 
 if __name__ == "__main__":
+    main_new()
     #main_tsne_pipeline()
-    main()
+    #main()
     #run_experiments()

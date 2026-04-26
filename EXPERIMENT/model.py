@@ -209,4 +209,29 @@ class MaskedBCELoss(nn.Module):
         return (loss * mask.float()).sum() / (mask.sum() + 1e-8) if mask.any() else torch.tensor(0.0)
 
 
+class LearnedWeightedMaskedBCELoss(nn.Module):
+    def __init__(self, num_tasks):
+        super().__init__()
+        self.num_tasks = num_tasks
+        self.crit = nn.BCEWithLogitsLoss(reduction='none')
+
+        # Tworzymy uczone parametry s_t (inicjalizujemy zerami, co daje wagę exp(0)=1)
+        # Muszą być owinięte w nn.Parameter, żeby optimizer je widział
+        self.log_vars = nn.Parameter(torch.zeros(num_tasks))
+
+    def forward(self, preds_list, targets):
+        preds = torch.cat(preds_list, dim=1)
+        mask = ~torch.isnan(targets)
+
+        clean_targets = torch.where(mask, targets, torch.zeros_like(targets))
+        loss_matrix = self.crit(preds, clean_targets)
+
+        # Obliczamy L_t dla każdego zadania
+        task_losses = (loss_matrix * mask.float()).sum(dim=0) / (mask.sum(dim=0) + 1e-8)
+
+        # APLIKACJA UCZONYCH WAG
+        # exp(-s_t) * L_t + s_t
+        weighted_losses = torch.exp(-self.log_vars) * task_losses + self.log_vars
+
+        return weighted_losses.sum()
 
